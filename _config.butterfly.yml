@@ -1,0 +1,57 @@
+# Butterfly Configuration
+
+social:
+  fab fa-github: https://github.com/jackchen890311 || Github
+  fas fa-envelope: mailto:a0930522803@gmail.com || Email
+
+# Menu
+menu:
+  首頁: / || fas fa-home
+  時間軸: /archives/ || fas fa-archive
+  標籤: /tags/ || fas fa-tags
+  分類: /categories/ || fas fa-folder-open
+  清單||fa fa-heartbeat:
+    音樂: /music/ || fas fa-music
+    照片: /Gallery/ || fas fa-images
+    電影: /movies/ || fas fa-video
+  友鏈: /link/ || fas fa-link
+  關於: /about/ || fas fa-heart
+
+# Code
+highlight_theme: ocean
+highlight_copy: true
+highlight_shrink: false
+
+# Article
+# 1 - description： 只顯示description
+# 2 - both： 優先選擇description，如果沒有配置description，則顯示自動節選的內容
+# 3 - auto_excerpt：只顯示自動節選
+# 4 - false： 不顯示文章內容
+index_post_content:
+  method: 2
+  # length: 500 # if you set method to 2 or 3, the length need to config
+
+# Top image
+index_img: /img/space.jpg
+
+# Post
+post_meta:
+  page:
+    date_type: both # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 顯示日期還是相對日期
+    categories: true # true or false 主頁是否顯示分類
+    tags: true # true or false 主頁是否顯示標籤
+    label: true # true or false 顯示描述性文字
+  post:
+    date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
+    date_format: relative # date/relative 顯示日期還是相對日期
+    categories: true # true or false 文章頁是否顯示分類
+    tags: true # true or false 文章頁是否顯示標籤
+    label: true # true or false 顯示描述性文字
+
+
+# Avatar
+avatar:
+  img: /img/me.jpg
+
+favicon: /img/favicon_J.png
