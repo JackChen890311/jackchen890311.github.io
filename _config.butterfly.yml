@@ -6,8 +6,8 @@
 menu:
   首頁: / || fas fa-home
   時間軸: /archives/ || fas fa-archive
-  # 標籤: /tags/ || fas fa-tags
-  # 分類: /categories/ || fas fa-folder-open
+  標籤: /tags/ || fas fa-tags
+  分類: /categories/ || fas fa-folder-open
   # 清單 || fa fa-heartbeat:
   #   音樂: /music/ || fas fa-music
   #   照片: /Gallery/ || fas fa-images
@@ -84,7 +84,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon_J.png
+favicon: /img/favicon_J.ico
 
 # Avatar (頭像)
 avatar:
@@ -95,17 +95,17 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: /img/space.jpg
+index_img: /img/mountains.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img: #/img/space.jpg
+default_top_img: /img/code.jpg
 
 # The banner image of archive page
-archive_img: #/img/space.jpg
+archive_img: /img/code.jpg
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: #/img/space.jpg
+tag_img: /img/code.jpg
 
 # The banner image of tag page
 # format:
@@ -114,7 +114,7 @@ tag_per_img:
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: #/img/space.jpg
+category_img: /img/code.jpg
 
 # The banner image of category page
 # format:
@@ -142,7 +142,7 @@ error_img:
 error_404:
   enable: false
   subtitle: 'Page Not Found'
-  background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
+  background: /img/404_cool.jpg
 
 post_meta:
   page: # Home Page
@@ -435,7 +435,7 @@ footer:
   owner:
     enable: true
     since: 2023
-  custom_text: 'Feel free to say anything to me!'
+  custom_text: ''
   copyright: true # Copyright of theme and framework
 
 # Analysis
@@ -664,7 +664,7 @@ aside:
   hide: false
   button: true
   mobile: true # display on mobile
-  position: right # left or right
+  position: left # left or right
   display:
     archive: true
     tag: true

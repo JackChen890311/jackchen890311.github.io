@@ -1,7 +1,11 @@
 ---
 title: 使用 Hexo + Github pages 建立個人網站
 date: 2023-01-14 22:45:49
-tags:
+categories: 
+    - [技術筆記]
+tags: 
+    - Hexo
+    - Github
 ---
 
 ## 前言  
