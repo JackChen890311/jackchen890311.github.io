@@ -1,5 +1,5 @@
 ---
-title: {{ title }}
+title: about-my-exchange
 categories:
 tags:
 ---
