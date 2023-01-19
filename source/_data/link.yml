@@ -1,0 +1,8 @@
+- class_name: 網站
+  class_desc: '一些相關的網站'
+  link_list:
+    - name: Github
+      link: https://github.com/jackchen890311
+      avatar: ../img/website/github.svg
+      descr: 全球最大的程式碼儲存庫
+

@@ -12,7 +12,7 @@ menu:
   #   音樂: /music/ || fas fa-music
   #   照片: /Gallery/ || fas fa-images
   #   電影: /movies/ || fas fa-video
-  # 相關: /link/ || fas fa-link
+  # 連結: /link/ || fas fa-link
   關於: /about/ || fas fa-heart
 
 nav:
@@ -34,8 +34,8 @@ code_word_wrap: false
 copy:
   enable: true
   copyright:
-    enable: false
-    limit_count: 50
+    enable: True
+    limit_count: 100
 
 # social settings (社交圖標設置)
 # formal:
@@ -84,28 +84,28 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon_J.ico
+favicon: /img/website/favicon_J.ico
 
 # Avatar (頭像)
 avatar:
-  img: /img/me.jpg
+  img: /img/me/ghent.jpg
   effect: false
 
 # Disable all banner image
 disable_top_img: false
 
 # The banner image of home page
-index_img: /img/mountains.jpg
+index_img: /img/cover/space_and_man.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img: /img/code.jpg
+default_top_img: /img/cover/code.jpg
 
 # The banner image of archive page
-archive_img: /img/code.jpg
+archive_img: /img/cover/code.jpg
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: /img/code.jpg
+tag_img: /img/cover/code.jpg
 
 # The banner image of tag page
 # format:
@@ -114,7 +114,7 @@ tag_per_img:
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: /img/code.jpg
+category_img: /img/cover/code.jpg
 
 # The banner image of category page
 # format:
@@ -131,18 +131,18 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    - /img/jellyfish.jpg
+    - /img/cover/jellyfish.jpg
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
-  flink: /img/emoji.gif
-  post_page: /img/404_cool.jpg
+  flink: /img/website/emoji.gif
+  post_page: /img/website/404_cool.jpg
 
 # A simple 404 page
 error_404:
   enable: false
   subtitle: 'Page Not Found'
-  background: /img/404_cool.jpg
+  background: /img/website/404_cool.jpg
 
 post_meta:
   page: # Home Page
@@ -600,7 +600,7 @@ display_mode: dark
 beautify:
   enable: True
   field: post # site/post
-  title-prefix-icon: # '\f0c1'
+  title-prefix-icon: '\f005'
   title-prefix-icon-color: # '#F47466'
 
 # Global font settings
