@@ -2,7 +2,7 @@
 title: 使用 Hexo + Github pages 建立個人網站
 date: 2023-01-19 14:01:49
 categories: 
-  - [學習筆記]
+  - 學習筆記
 tags: 
   - Hexo
   - Github
@@ -74,8 +74,11 @@ hexo deploy
 - `hexo clean`：清除 `/public` 資料夾
 - `hexo deploy`：將 `/public` 資料夾中檔案推上 Github
 - `hexo server`：在本地端執行 Server，可預覽網站呈現效果，同時監聽本地文件的修改
+- `hexo server --draft`：可同時預覽草稿在網站上的呈現效果
 - `hexo new [layout] [title]`：新增以 `layout` 為樣式的文件
 - `hexo publish [layout] [title]`：將草稿以 `layout` 為樣式發布出去
+
+不過有時候 `hexo server` 會怪怪的，突然無法監聽本地文件的修改，不太清楚原因。正常來說，除了修改 `_config.yml` 檔需要重啟 Server 外， Markdown 檔的修改應該都能直接即時更新，有人知道的話歡迎跟我分享。
  
 ## 如何設定 Configuration
 Butterfly 主題提供了很大的彈性，讓我們可以自訂各種設置。詳細的設定可以直接到 [Butterfly 官方說明](https://butterfly.js.org/categories/Docs%E6%96%87%E6%AA%94/) 這裡參考，裡面解釋得很詳細，也有圖片展示不同的效果。可以先到 [Github 上的 _config.yml](https://github.com/jerryc127/hexo-theme-butterfly/blob/dev/_config.yml) 複製一份，另外存放在 `_config.butterfly.yml` 中，在以這個為基礎進行修改。注意不要刪除原本就有的 `_config.yml`，一個是配置 Butterfly 主題，另一個則是配置 Hexo。
