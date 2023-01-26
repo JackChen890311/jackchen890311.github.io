@@ -44,8 +44,9 @@ social:
   fab fa-facebook: https://www.facebook.com/jack.chen.89311/ || Facebook
   fab fa-linkedin: https://www.linkedin.com/in/jack-chen-2000/ || LinkedIn
   fab fa-github: https://github.com/jackchen890311 || Github
+  fab fa-medium: https://medium.com/@JackChen89 || Medium
   fas fa-envelope: mailto:a0930522803@gmail.com || Email
-
+  
 # search (搜索)
 # see https://butterfly.js.org/posts/ceeb73f/#搜索系統
 # --------------------------------------
@@ -719,7 +720,7 @@ busuanzi:
 # Time difference between publish date and now (網頁運行時間)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
-  enable: false
+  enable: true
   publish_date:
 
 # Aside widget - Newest Comments
