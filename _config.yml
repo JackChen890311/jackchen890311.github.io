@@ -106,3 +106,9 @@ deploy:
   type: git
   repo: https://github.com/JackChen890311/Website
   branch: github-pages
+
+# Lazyload
+## From: https://blog.csdn.net/YR_112233/article/details/122778691
+# lazyload:
+#   enable: true
+#   loadingImg: /img/website/emoji.gif
