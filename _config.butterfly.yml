@@ -42,9 +42,10 @@ copy:
 #   icon: link || the description
 social:
   fab fa-facebook: https://www.facebook.com/jack.chen.89311/ || Facebook
+  fab fa-instagram: https://www.instagram.com/jackchen_2000/ || Instagram
+  fab fa-medium: https://medium.com/@JackChen89 || Medium
   fab fa-linkedin: https://www.linkedin.com/in/jack-chen-2000/ || LinkedIn
   fab fa-github: https://github.com/jackchen890311 || Github
-  fab fa-medium: https://medium.com/@JackChen89 || Medium
   fas fa-envelope: mailto:a0930522803@gmail.com || Email
   
 # search (搜索)
@@ -681,7 +682,7 @@ aside:
       link: https://github.com/jackchen890311
   card_announcement:
     enable: true
-    content: 新文章產出中...
+    content: 買不到顯卡嗚嗚嗚，老天賜我一張 3090 TI 吧！
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -721,7 +722,7 @@ busuanzi:
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
   enable: true
-  publish_date:
+  publish_date: 2023/01/14
 
 # Aside widget - Newest Comments
 newest_comments:
