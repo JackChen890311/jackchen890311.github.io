@@ -18,7 +18,7 @@ Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方�
 Figure source is [here](https://www.machinelearningplus.com/deployment/conda-create-environment-and-everything-you-need-to-know-to-manage-conda-virtual-environment/).
 
 ## 常用指令
-以下作業系統為 Ubuntu 22.04 LTS，括號請自行替換。
+以下作業系統為 Ubuntu 22.04 LTS，括號內請自行替換。
 ```bash=
 # Check conda version and update conda
 conda -V
