@@ -23,7 +23,7 @@ tags:
 ### 第一關（4/4）- Codility Online Coding Test
 時限 2.5 小時共 5 題，語言限定 C++ / C++20。
 1. 選擇題：關於 C++ 的觀念題，包含 copy constructor、virtual destructor、memory allocation 等等。
-2. Array - 最大遞減-遞增距離：給定一個 Array A，尋找最大的先遞減後遞增子陣列，相等也算，回傳其長度。（我簡化過，反正就差不多這個意思）
+2. Array - 最大遞減-遞增距離（Non-strictly Valley Array）：給定一個 Array A，尋找最大的先遞減後遞增子陣列，相等也算，回傳其長度。（我簡化過，反正就差不多這個意思）
 3. Graph - 消除總回合：給定一無向圖，每回合會消除 Total Path 小於等於一條的節點，回傳直到沒有結點繼續消失的回合數。 
 4. Array - 最大交錯總和：給定一個 Array A，可以刪除任意數量的元素，使得 A[0] - A[1] + A[2] - A[3]... 最大，並回傳最大值。
 5. Bit - Base -2 adder：實作一個 -2 進位的加法器，給定兩個 0、1 組成的數字，回傳其相加結果。

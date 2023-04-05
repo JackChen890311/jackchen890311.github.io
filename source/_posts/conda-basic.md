@@ -18,14 +18,14 @@ Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方�
 Figure source is [here](https://www.machinelearningplus.com/deployment/conda-create-environment-and-everything-you-need-to-know-to-manage-conda-virtual-environment/).
 
 ## 常用指令
-以下作業系統為 Ubuntu 22.04 LTS。
+以下作業系統為 Ubuntu 22.04 LTS，括號請自行替換。
 ```bash=
 # Check conda version and update conda
 conda -V
 conda update conda
 
 # Create and remove an environment
-conda create -n [env_name] python=3.x
+conda create -n [env_name] python=[3.x]
 conda env remove -n [env_name]
 
 # Remove specific package in a environment
@@ -34,9 +34,13 @@ conda remove -n [env_name] [package_name]
 # List all Environment
 conda env list
 
-# Get into / get out of an Environment
+# Get into / get out of an environment
 conda activate [env_name]
 conda deactivate
+
+# Create an identical environment
+conda list --explict > [spec_file_name].txt
+conda create -n [env_name] --file [spec_file_name].txt
 ```
 
 ## 實際操作
