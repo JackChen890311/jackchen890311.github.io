@@ -13,8 +13,8 @@ timezone: 'Asia/Taipei'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://jackchen890311.github.io/Website
-root: /Website/
+url: https://jackchen890311.github.io/
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -104,7 +104,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/JackChen890311/Website
+  repo: https://github.com/JackChen890311/JackChen890311
   branch: github-pages
 
 # Lazyload
