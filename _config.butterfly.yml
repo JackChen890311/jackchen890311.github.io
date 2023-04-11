@@ -86,7 +86,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/website/favicon_J.ico
+favicon: /img/favicon_J.ico
 
 # Avatar (頭像)
 avatar:
@@ -646,9 +646,8 @@ subtitle:
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
    - Keep learning and exploring.
-   - Welcome to my space.
-   - Cheers!
-   - Feel free to say anything to me!
+   - Stay true to yourself.
+   - Feel free to reach out!
 
 # Loading Animation (加載動畫)
 preloader:
