@@ -1,0 +1,9 @@
+
+<center>
+<br>
+<a href='http://localhost:4000/ramen/2022'><button style="background-color: black; border: none; color: white; padding: 12px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 8px;">2022</button></a>
+<a href='http://localhost:4000/ramen/2021'><button style="background-color: black; border: none; color: white; padding: 12px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 8px;">2021</button></a>
+<a href='http://localhost:4000/ramen/2020'><button style="background-color: black; border: none; color: white; padding: 12px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 8px;">2020</button></a>
+<a href='http://localhost:4000/ramen/2019'><button style="background-color: black; border: none; color: white; padding: 12px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 8px;">2019</button></a>
+<br>
+</center>
