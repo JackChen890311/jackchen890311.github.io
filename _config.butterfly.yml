@@ -8,6 +8,7 @@ menu:
   時間軸: /archives/ || fas fa-archive
   標籤: /tags/ || fas fa-tags
   分類: /categories/ || fas fa-folder-open
+  拉麵: /ramen/ || fas fa-utensils
   # 清單 || fa fa-heartbeat:
   #   音樂: /music/ || fas fa-music
   #   照片: /Gallery/ || fas fa-images

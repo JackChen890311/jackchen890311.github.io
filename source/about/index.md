@@ -11,6 +11,7 @@ top_img: /img/cover/london.jpg
 想用這個網站分享生活經歷與學習筆記，或是拿來碎碎念之類的。
 理工直男我本人的文筆並不是太好，還請多多包涵。
 
+興趣是健身、旅行、[吃拉麵](https://www.instagram.com/jacklovesramen/) 還有聽龐克搖滾。  
 最懷念 [2022 年在英國伯明罕交換、在歐洲四處走跳的日子](https://drive.google.com/file/d/14SxoAykrN-P9K9EWbZMy3JPj-MPAvaqB/view?usp=sharing)。  
 未來想再次回去歐洲走跳，也許有一天還能環遊世界各國。  
 
