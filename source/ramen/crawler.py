@@ -10,7 +10,7 @@ FIELDS = 'id,caption,media_url,permalink,timestamp'
 URL = f'https://graph.instagram.com/{UID}/media'
 today = datetime.date.today().strftime('%Y/%m/%d') 
 
-params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 16}
+params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 18}
 response = requests.get(URL, params=params)
 data = json.loads(response.text)['data']
 print('Total posts:', len(data))
@@ -43,6 +43,6 @@ with open('index.md','w', encoding="utf-8") as f:
         for c in caption:
             f.write(c + '<br>\n')
         # f.write(f"<a href='{post['permalink']}'>詳閱全文點我</a>")
-        f.write('\n</center>\n\n---\n\n')
+        f.write('</center>\n\n---\n\n')
 
 print('Last post is on:',post['timestamp'])
