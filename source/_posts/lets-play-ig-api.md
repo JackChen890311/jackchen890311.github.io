@@ -64,7 +64,7 @@ https://api.instagram.com/oauth/access_token
 
 不過這個也是短期（1 小時）的，可以用他再發 HTTP 請求，來更換長期（60 天）的 Token，詳情參考 [這裡](https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens)。
 
-或是其實這邊也可以獲取長期 Access Token，如果你是要跟我一樣爬下來處理，然後嫌前面太麻煩的話，也可以從這邊產生：
+或是其實這邊也可以獲取長期 Access Token，如果你是要跟我一樣爬下來處理，然後嫌前面太麻煩的話，也可以從這邊產生。不過這個一樣定期需要重新產生，目前還沒看到比較好的方式獲取永久 Token，有人知道的話歡迎跟我分享：
 
 ![點右邊的 Generate 就好，記得要存下來，不然就要重新產生](/img/post/2023_05/api_token.png)
 
