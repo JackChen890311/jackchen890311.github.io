@@ -10,7 +10,7 @@ FIELDS = 'id,caption,media_url,permalink,timestamp'
 URL = f'https://graph.instagram.com/{UID}/media'
 today = datetime.date.today().strftime('%Y/%m/%d') 
 
-params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 32}
+params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 34}
 response = requests.get(URL, params=params)
 data = json.loads(response.text)['data']
 print('Total posts:', len(data))
