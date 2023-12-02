@@ -4,13 +4,12 @@ categories:
   - Python 教學
 tags:
   - Python
+  - Tutorial
 cover: /img/cover/python_clear.jpg
 date: 2023-03-23 20:54:38
 ---
 
-
 [HackMD 完整版請點我](https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw?view)
-
 
 ### 清單（List）
  - 清單是 Python 最常用、也最好用的資料類別，具順序性

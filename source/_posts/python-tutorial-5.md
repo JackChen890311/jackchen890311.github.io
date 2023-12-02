@@ -4,13 +4,12 @@ categories:
   - Python 教學
 tags:
   - Python
+  - Tutorial
 cover: /img/cover/python_clear.jpg
 date: 2023-03-23 20:54:42
 ---
 
-
 [HackMD 完整版請點我](https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw?view)
-
 
 ## Python 基礎 (2)
 ### 函數（Function）

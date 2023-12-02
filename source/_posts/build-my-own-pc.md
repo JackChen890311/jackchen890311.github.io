@@ -4,7 +4,7 @@ date: 2023-02-18 14:30:58
 categories:
     - 學習筆記
 tags:
-    - 電腦
+    - PC
 cover: img/cover/my_desk.jpg
 ---
 

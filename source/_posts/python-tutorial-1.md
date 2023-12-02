@@ -4,10 +4,10 @@ categories:
   - Python 教學
 tags:
   - Python
+  - Tutorial
 cover: /img/cover/python_clear.jpg
 date: 2023-03-23 20:54:27
 ---
-
 
 哈囉！這次來發一些關於 Python 的教學文章，會有這個系列文，主要是因為前陣子接了一個家教，就順便把辛苦整理的自編講義一起放上來了，內容雖然不深，但也涵蓋了初學 Python 所會碰到的各主題，若完全對 Python 不了解的話，這個系列文應該可以給你一些概念，完成後若想再自我進修也能大概有個方向。
 

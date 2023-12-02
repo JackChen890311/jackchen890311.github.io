@@ -4,8 +4,9 @@ date: 2023-02-02 13:40:04
 categories:
   - 生活隨筆
 tags:
-  - 交換
-  - 英國
+  - Exchange
+  - UK
+  - Birmingham
 cover: /img/cover/birmingham.jpg
 ---
 

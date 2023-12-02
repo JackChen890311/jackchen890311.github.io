@@ -4,7 +4,7 @@ date: 2023-02-24 23:16:55
 categories:
   - 學習筆記
 tags:
-  - 電腦
+  - PC
   - OS
   - Windows
   - Linux

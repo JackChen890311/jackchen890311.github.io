@@ -4,8 +4,8 @@ date: 2023-01-24 23:19:02
 categories:
   - 生活隨筆
 tags:
-  - 臺大
-  - 研究所
+  - NTU
+  - Master
 cover: /img/cover/diploma.jpg
 ---
 

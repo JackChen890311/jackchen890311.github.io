@@ -4,13 +4,12 @@ categories:
   - Python 教學
 tags:
   - Python
+  - Tutorial
 cover: /img/cover/python_clear.jpg
 date: 2023-03-23 20:54:46
 ---
 
-
 [HackMD 完整版請點我](https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw?view)
-
 
 ### 檔案讀取（File I/O）
 在 Python 中，很常會用到檔案相關的操作，舉凡文字檔（.txt）、CSV檔（.csv）、圖片檔（.png, .jpg...）、影片檔（.mp4, .avi...）等等，都會需要讀取、寫入檔案。這邊先以文字檔作為示範，僅簡單講解基礎操作，其他檔案如圖片、影像有些會有專門的 library 來處理。

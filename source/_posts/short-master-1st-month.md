@@ -5,7 +5,6 @@ categories:
     - 極短篇
 tags:
     - Master
-    - 
 cover: img/cover/ntu_card.jpg
 ---
 

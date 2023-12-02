@@ -2,7 +2,6 @@ import json
 import datetime
 import requests
 
-
 UID = 6338711946186074
 with open('../../../tokens/IG token.txt','r') as f:
     ACCESS_TOKEN = f.read()
@@ -10,8 +9,14 @@ FIELDS = 'id,caption,media_url,permalink,timestamp'
 URL = f'https://graph.instagram.com/{UID}/media'
 today = datetime.date.today().strftime('%Y/%m/%d') 
 
-params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 34}
+params = {'access_token': ACCESS_TOKEN, 'fields': FIELDS, 'limit': 42}
 response = requests.get(URL, params=params)
+
+# If token expired, get new token from the following url
+# https://developers.facebook.com/apps/3708922572668385/instagram-basic-display/basic-display/
+print('Status code:', response.status_code)
+assert response.status_code == 200
+
 data = json.loads(response.text)['data']
 print('Total posts:', len(data))
 # print(data[0]['id'])
