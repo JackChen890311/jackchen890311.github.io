@@ -78,37 +78,49 @@ Output:
 | list.pop(i)  | Deletes the ith element of the list and returns its value. |
 
 #### List Copying
-- 在複製 List 時，要注意以下狀況：
-
+- 在複製 List 時，要特別留意以下狀況，並非正確的 List 複製方法：
 ```python=
-# Shallow Copy
+# Wrong Copy (Reference Copy Only)
 aList = [1, 2, 3]
 anotherList = aList
 anotherList[0] = 5
 print(aList)
+# Check their address
+print(id(aList), id(anotherList))
 ```
 ```
 Output:
 [5, 2, 3]
+1805364504896 1805364504896
 ```
  - 當我們修改 `anotherList` 時，原本的 `aList` 也一同被修改
- - 主要是因為 List 儲存的是記憶體參照
- - 此狀況稱為「Shallow Copy」
- - 若要複製 List 而不希望上述狀況發生，要記得使用「Deep Copy」
- 
-> 想了解更多的話，可以去搜尋 Shallow Copy & Deep Copy
+ - 主要是因為 List 儲存的是記憶體參照（或是說 List 是可變物件，後面會提到），第三行做的事情僅僅是將參照傳給另一個變數，因此也可以發現他們的記憶體其實是相同的
+
+##### How to copy a list correctly?
+有以下幾種方式可以正確地複製 List：
 
 ```python=
-# Deep copy
+# Correct Copy
 aList = [1, 2, 3]
-anotherList = aList.copy()
+# Three different ways to copy a list (Shallow)
+anotherList = list(a)
+anotherList = a[:]
+anotherList = a.copy()
+
 anotherList[0] = 5
 print(aList)
+# Check their address
+print(id(aList), id(anotherList))
 ```
 ```
 Output:
 [1, 2, 3]
+1805364505024 1805364643392
 ```
+
+> 補充：此處使用的稱為「Shallow Copy」，僅複製容器中元素的地址
+> 若連容器中的元素本身都想完全複製，需要使用「Deep Copy」
+> 延伸閱讀： [Python - 淺複製(shallow copy)與深複製(deep copy)](https://ithelp.ithome.com.tw/articles/10221255)
     
     
 ### CSV（Comma-separated value）檔案
@@ -154,5 +166,4 @@ Output:
 [150000,2016-01-01,Chris Riley,trailhead9.ub20k5i9t8ou@example.com],
 [150000,2016-02-01,Chris Riley,trailhead9.ub20k5i9t8ou@example.com],
 ...]
-
 ```

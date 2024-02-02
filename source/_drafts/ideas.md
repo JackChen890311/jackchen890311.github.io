@@ -1,5 +1,5 @@
 ---
-title: Ideas to be explored
+title: Ideas to be explored (but I don't have time QAQ)
 categories: 
 tags:
 ---
@@ -13,3 +13,7 @@ tags:
 - 使用 Autoencoder 來進行圖片分群與資訊抽取
 - Attention 與 Cross Attention 機制詳解與實作
 - 碩班第一學期之心得
+- 看論文的 murmur
+
+工作
+- 2024 暑期實習
