@@ -48,6 +48,9 @@ date: 2023-03-23 20:54:38
 
 >>> print(l + l)
 [1, 1.0, 100, "test", 1, 1.0, 100, "test"]
+
+>>> print(l * 3)
+[1, 1.0, 100, "test", 1, 1.0, 100, "test", 1, 1.0, 100, "test"]
 ```
  - Traverse a list：
 
@@ -103,9 +106,9 @@ Output:
 # Correct Copy
 aList = [1, 2, 3]
 # Three different ways to copy a list (Shallow)
-anotherList = list(a)
-anotherList = a[:]
-anotherList = a.copy()
+anotherList = list(aList)
+anotherList = aList[:]
+anotherList = aList.copy()
 
 anotherList[0] = 5
 print(aList)

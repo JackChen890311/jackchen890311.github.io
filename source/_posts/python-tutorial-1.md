@@ -96,11 +96,10 @@ The loop ends.
 
 
 #### 變數（Variable）
-- 我們會需要變數來存放數值運算的結果
-- [基本命名規則](https://ithelp.ithome.com.tw/articles/10217188)
+- 我們會需要變數來存放數值運算的結果，使用 `=` 可以將數值指派給變數，可以參考 [基本命名規則](https://ithelp.ithome.com.tw/articles/10217188)
+- 若重複指派給相同名稱的變數，原本的值會被覆蓋掉！
 - `a = 10` 意為指派 10 給 a（右邊的值丟給左邊的容器）
 - `a == 10` 意為比較 a 是否等於 10（為邏輯判斷式）
-
 ```
 >>> width = 20
 >>> height = 5 * 9
@@ -128,8 +127,8 @@ The loop ends.
      - 字串 string - `"This is a string"`
      - 布林值 Boolean - `True` (Non-zero) / `False` (Zero)
     
- > 補充：String 是由 Character 組成的陣列，為了便於操作在 Python 內多使用 String
- > Python 在讀入長度為一的字母時，為了方便也會以 String 的方式儲存
+ > 補充：String 是由 Character 組成的陣列，其他語言有可能會將 String 與 Character 當作兩種資料類別，但在 Python 中沒有 Character 的概念，因此長度為一的字母在 Python 中也會被當成字串來做處理。
+
 #### 型別轉換（Casting）
 ```
 >>> str(3)

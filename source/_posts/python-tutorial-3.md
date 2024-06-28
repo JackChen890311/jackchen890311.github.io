@@ -85,17 +85,17 @@ The loop ends.
  - 示範：
 
 ```python=
-while 4 > 3:   # A Condidtion always True
+while 4 > 3:  # A always true condidtion 
     print('Loop')
 ```
 
 #### Range()
-- 幫助我們創造一個範圍的函數
-- 用法：
-    - `range(n)` 會回傳 `[0,1,2,...n-1]` 的清單
-    - `range(m,n)` 會回傳 `[m,m+1,m+2,...n-1]` 的清單
-    - `range(m,n,k)` 會回傳 `[m,m+k,m+2k,...]` 的清單，最後一個元素不超過 n-1
-- 一般狀況使用第一個就好
+上面的例子中有使用到 range()，而 range() 是能夠幫助我們創造一個範圍的函數，其用法為：
+- `range(n)` 會回傳 `[0,1,2,...n-1]` 的清單
+- `range(m,n)` 會回傳 `[m,m+1,m+2,...n-1]` 的清單
+- `range(m,n,k)` 會回傳 `[m,m+k,m+2k,...]` 的清單，最後一個元素不超過 n-1
+
+一般的情況下使用第一個就好。
 
 > 備註：回傳型態其實不完全是清單，但我們先把它當成清單用就好
 > 可以透過 `list()` 將其轉為清單
