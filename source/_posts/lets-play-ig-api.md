@@ -10,6 +10,12 @@ tags:
 cover: /img/cover/IG.jpg
 date: 2023-05-05 19:41:28
 ---
+# 2025 更新：基本顯示 API 已被棄用
+![Meta 的棄用公告](/img/post/2023_05/deprecation.png)
+
+這下頭痛了，原本研究的都沒用了，之後再來看看新的方法要如何操作......只能說我真的越來越討厭 Meta 了（[來源](https://developers.facebook.com/docs/instagram-platform/)）。
+
+---
 
 先來 [這邊](https://jackchen890311.github.io/ramen/) 看看我把 Instagram 上的貼文整合到我的個人網站上的成果吧！
 

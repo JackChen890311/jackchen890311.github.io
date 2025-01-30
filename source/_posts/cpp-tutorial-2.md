@@ -362,3 +362,6 @@ B is eating worm
 ## 延伸主題：Call by value / address / reference / assignment
  - [C++ call by value, call by address (pointer), call by reference ](https://www.wongwonggoods.com/all-posts/cplusplus/cpp-concept/cpp-value-address-pointer-reference/)
  - [Python 是 Pass By Value, Pass by Reference, 還是 Pass by Sharing？](https://medium.com/starbugs/python-%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82-pass-by-value-pass-by-reference-%E8%88%87-pass-by-sharing-1873a2c6ac46)
+
+## 延伸主題：C++ STL
+- [C++ STL 全](https://4yu.dev/post/STL/)
