@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>極短篇：The Oatmeal Problem 與 No Man's Sky | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="新的系列開始囉！這個系列我打算分享我打在 臉書 上的文章，可能就是一些極短篇，可以在 3 - 5 分鐘內讀完的那種。內容就不一定，但大多應該會是我覺得很酷的東西，應該比較偏向資工或 AI 方面的科普吧，主要就以分享或探討為主。  今天要分享的是在看 Paper 時偶然看到覺得很有趣的一個問題：The oatmeal problem。The oatmeal problem 指的是在 procedur">
+<meta property="og:type" content="article">
+<meta property="og:title" content="極短篇：The Oatmeal Problem 與 No Man&#39;s Sky">
+<meta property="og:url" content="https://jackchen890311.github.io/2023/07/31/short-no-man-sky/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="新的系列開始囉！這個系列我打算分享我打在 臉書 上的文章，可能就是一些極短篇，可以在 3 - 5 分鐘內讀完的那種。內容就不一定，但大多應該會是我覺得很酷的東西，應該比較偏向資工或 AI 方面的科普吧，主要就以分享或探討為主。  今天要分享的是在看 Paper 時偶然看到覺得很有趣的一個問題：The oatmeal problem。The oatmeal problem 指的是在 procedur">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/nomanssky.jpg">
+<meta property="article:published_time" content="2023-07-31T15:30:58.000Z">
+<meta property="article:modified_time" content="2025-02-05T06:09:12.081Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Game">
+<meta property="article:tag" content="Generative">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/nomanssky.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "極短篇：The Oatmeal Problem 與 No Man's Sky",
+  "url": "https://jackchen890311.github.io/2023/07/31/short-no-man-sky/",
+  "image": "https://jackchen890311.github.io/img/cover/nomanssky.jpg",
+  "datePublished": "2023-07-31T15:30:58.000Z",
+  "dateModified": "2025-02-05T06:09:12.081Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2023/07/31/short-no-man-sky/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '極短篇：The Oatmeal Problem 與 No Man\'s Sky',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(img/cover/nomanssky.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">極短篇：The Oatmeal Problem 與 No Man's Sky</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">極短篇：The Oatmeal Problem 與 No Man's Sky</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-07-31T15:30:58.000Z" title="發表於 2023-07-31 23:30:58">2023-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-02-05T06:09:12.081Z" title="更新於 2025-02-05 14:09:12">2025-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/">極短篇</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">514</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>1分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>新的系列開始囉！這個系列我打算分享我打在 <a target="_blank" rel="noopener" href="https://www.facebook.com/jack.chen.89311">臉書</a> 上的文章，可能就是一些極短篇，可以在 3 - 5 分鐘內讀完的那種。內容就不一定，但大多應該會是我覺得很酷的東西，應該比較偏向資工或 AI 方面的科普吧，主要就以分享或探討為主。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_07/nomanssky_game.jpg" alt="Gameplay from The Game: No Man&#39;s Sky"></p>
+<p>今天要分享的是在看 Paper 時偶然看到覺得很有趣的一個問題：The oatmeal problem。The oatmeal problem 指的是在 procedural generation 或任何 generative process 裡面會遇到的一個問題，當你大量生成看似不同但本質上沒有太大差異的 content 時，對於使用者來說其實是沒有甚麼意義的。舉個例子來說，若我今天生成 10000 碗燕麥粥，碗中的燕麥都以隨機的方式擺放，雖然數學上來說他們都是不同且獨一無二的，但對使用者來說他們就只是一堆燕麥粥，並沒有甚麼差異。因此在 creative generation 中，如何讓使用者不會感到單調無趣，是個需要考慮的問題。</p>
+<p>有感觸的原因是這款遊戲我本人幾個月前才買，結果玩沒多久就覺得膩了便棄坑。當初看到 No man’s sky 打著「程式生成的超大遊戲地圖」還有宇宙主題就覺得很酷，但玩到後來就覺得，好像怎麼玩都差不多，不論去到甚麼地方地圖都可以預測，也不會帶給我太多的新鮮感。這個案例中，我（使用者）對遊戲中大量重複產生卻了無新意的各個星系地圖（燕麥粥）感到乏味。</p>
+<p>在最近 generative AI 很熱門的時代，若未來要將此技術應用於文創或娛樂產業，也許如何讓使用者不會對 generative content 產生疲乏，的確是一個需要考量的問題。</p>
+<p>Reference: <a target="_blank" rel="noopener" href="https://www.challies.com/articles/no-mans-sky-and-10000-bowls-of-plain-oatmeal/?fbclid=IwAR2V6z6e_prQQhtV7vR9PcH08RX6jRMFuD-WTC9B3_z95YW3V3SB7bythZA">https://www.challies.com/articles/no-mans-sky-and-10000-bowls-of-plain-oatmeal/?fbclid=IwAR2V6z6e_prQQhtV7vR9PcH08RX6jRMFuD-WTC9B3_z95YW3V3SB7bythZA</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2023/07/31/short-no-man-sky/">https://jackchen890311.github.io/2023/07/31/short-no-man-sky/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Game/">Game</a><a class="post-meta__tags" href="/tags/Generative/">Generative</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/nomanssky.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/05/24/summer-intern-2023/" title="2023 年科技業暑期實習面試心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/tsmc.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">2023 年科技業暑期實習面試心得</div></div><div class="info-2"><div class="info-item-1">在正式進入研究所前的暑假，有人會拿來大玩特玩、有人要先進實驗室做準備、而我則是選擇將這兩個月投入實習。主要是因為自己還沒有甚麼大公司實習的經驗，加上也希望早日體驗不同的工作內容，在未來選擇第一份工作時會比較有方向。我在今年一到四月陸陸續續投了十幾家公司，皆以大公司暑期實習為主，職位包含 Software Engineer、Data Scientist 等等，也因為我只投暑期實習，加上不想再去新創，因此公司選擇上有一定的限制。這篇文章就簡單分享我的面試過程與心得，然後我很爛大家就看看笑笑就好。另外，聽很多人說今年的缺比去年少很多，也比較難拿到面試機會與 Offer，不知道這種狀況何時才會好轉。 面試紀錄以下粗略地按照投遞時間排序。  投遞履歷：15 家公司 面試邀請：6 家公司 13 個職位 Offer Get：2 家公司 2 個職位  最後決定去 TSMC 的廠務數位發展部擔任暑期實習生。 Google - SWE Intern結果：直接感謝信，枉費我還有請人內推…… Yahoo - DevOps Intern第一關（3&#x2F;10）- 線上技術面談面試前瘋狂刷...</div></div></div></a><a class="pagination-related" href="/2023/09/11/intern-at-TSMC/" title="在 TSMC 實習的日子 - 2023 夏，台南"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/tsmc_card.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">在 TSMC 實習的日子 - 2023 夏，台南</div></div><div class="info-2"><div class="info-item-1">繼上篇文章 2023 年科技業暑期實習面試心得 講述我尋找暑期實習的過程後，這篇文章要來講的是我這兩個月在 TSMC 實習的心得感想。我實習的地方在台南的南科台積十四 B 廠（F14P5），實習單位是廠務數位發展部（FACDD）底下的自動化課，對於土生土長的台北人來說，雖然遠到靠北，但也是個體驗台南生活的好機會，所以會順便分享一些在台南生活的所見所聞。 六月：行前準備、專案說明我大概五月底收到 Offer，考慮了幾天後就答應了，主要是也沒有其他選擇，加上除了台南很遠之外，對公司跟工作內容都算可以接受。接著六月陸陸續續有收到台積電的信，像是要先繳交資料、做體檢、或是未來的 buddy 有先來聯絡我，跟我說明專案情況等等。此時我大部分的時間都在享受最後自由的時光，再利用一些空閒時間稍微看一些關於 IR...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2023/07/31/short-no-man-sky/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2023/07/31/short-no-man-sky/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '極短篇：The Oatmeal Problem 與 No Man\'s Sky'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

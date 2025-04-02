@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python 教學系列文 (5) - 函數、其他常見資料結構 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="HackMD 完整版請點我 Python 基礎 (2)函數（Function）我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。 我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 教學系列文 (5) - 函數、其他常見資料結構">
+<meta property="og:url" content="https://jackchen890311.github.io/2023/03/23/python-tutorial-5/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="HackMD 完整版請點我 Python 基礎 (2)函數（Function）我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。 我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/python_clear.jpg">
+<meta property="article:published_time" content="2023-03-23T12:54:42.000Z">
+<meta property="article:modified_time" content="2025-02-05T06:09:12.080Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Tutorial">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/python_clear.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python 教學系列文 (5) - 函數、其他常見資料結構",
+  "url": "https://jackchen890311.github.io/2023/03/23/python-tutorial-5/",
+  "image": "https://jackchen890311.github.io/img/cover/python_clear.jpg",
+  "datePublished": "2023-03-23T12:54:42.000Z",
+  "dateModified": "2025-02-05T06:09:12.080Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2023/03/23/python-tutorial-5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python 教學系列文 (5) - 函數、其他常見資料結構',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/python_clear.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">Python 教學系列文 (5) - 函數、其他常見資料結構</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Python 教學系列文 (5) - 函數、其他常見資料結構</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-03-23T12:54:42.000Z" title="發表於 2023-03-23 20:54:42">2023-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-02-05T06:09:12.080Z" title="更新於 2025-02-05 14:09:12">2025-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>9分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw?view">HackMD 完整版請點我</a></p>
+<h2 id="Python-基礎-2"><a href="#Python-基礎-2" class="headerlink" title="Python 基礎 (2)"></a>Python 基礎 (2)</h2><h3 id="函數（Function）"><a href="#函數（Function）" class="headerlink" title="函數（Function）"></a>函數（Function）</h3><p>我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。</p>
+<p>我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來執行類似的動作。</p>
+<p>一個函數包含名稱、本體、輸入（Input）與輸出（Output），後兩者又叫做參數（Parameters）與回傳值（Return Values）。有時我們也會在函數最一開始的地方加入註解，來說明函數的使用方式以及參數 &#x2F; 回傳值類型。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/ByAuqF8kR.png" alt="image"></p>
+<p>以下圖為例，輸入是蘋果，輸出是切半的蘋果，函數 <code>h</code> 的作用是把蘋果切半。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HJDXscDyA.png" alt="image"></p>
+<h4 id="名稱"><a href="#名稱" class="headerlink" title="名稱"></a>名稱</h4><ul>
+<li>用關鍵字 <code>def</code> 來宣告函數，名稱接在 <code>def</code> 後面</li>
+<li>名稱通常會取與函數作用相關，便於使用者理解函數功能</li>
+<li>使用函數時，用其名稱來呼叫函數</li>
+</ul>
+<h4 id="本體"><a href="#本體" class="headerlink" title="本體"></a>本體</h4><ul>
+<li>把要執行的程式碼包在函數本體中</li>
+<li>有時會在本體前面加上註解，用以說明函數功能<ul>
+<li>說明最好包含：輸入、輸出、作用</li>
+<li>因為函數沒有限制變數的類別，所以最好在說明中講清楚</li>
+</ul>
+</li>
+</ul>
+<h4 id="輸入（參數）"><a href="#輸入（參數）" class="headerlink" title="輸入（參數）"></a>輸入（參數）</h4><ul>
+<li><strong>參數的作用是提供資料給函數操作</strong></li>
+<li>函數的參數可以自行命名（如下例的 n）</li>
+<li>可以傳入多個參數，用逗號隔開</li>
+<li>可以給定預設值（如下例的 n &#x3D; 5）</li>
+</ul>
+<h4 id="輸出（回傳值）"><a href="#輸出（回傳值）" class="headerlink" title="輸出（回傳值）"></a>輸出（回傳值）</h4><ul>
+<li><strong>回傳值的作用是把結果回傳給使用函數的人</strong></li>
+<li>使用 <code>return</code> 來控制函數的結束點，並將回傳值放在後面</li>
+<li>若沒有 <code>return</code> 則會自動在最後加上 <code>return None</code></li>
+<li>可放回傳多個結果，用逗號隔開</li>
+<li>函數結束後會回到主程式，繼續執行後面的程式</li>
+</ul>
+<p>以下是一個在 python 中的實際例子，輸入是一個數字 <code>n</code> ，輸出是一個清單 <code>alist</code> ，函數 <code>get_1_to_n</code> 的作用是獲取 1 ~ n 的清單。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_1_to_n</span>(<span class="params">n = <span class="number">5</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Getting a list range from 1 to&#x27;</span>,n)</span><br><span class="line">    alist = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> alist</span><br><span class="line"></span><br><span class="line">x = get_1_to_n(<span class="number">10</span>)  <span class="comment"># or get_1_to_n(n = 10)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;X = &#x27;</span>,x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;~~~~~~~~~~&#x27;</span>)</span><br><span class="line">y = get_1_to_n()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Y = &#x27;</span>,y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">Getting a list range from 1 to 10</span><br><span class="line">X =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br><span class="line">~~~~~~~~~~</span><br><span class="line">Getting a list range from 1 to 5</span><br><span class="line">Y =  [1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>補充：<a target="_blank" rel="noopener" href="https://medium.com/ai%E5%8F%8D%E6%96%97%E5%9F%8E/python-yield%E7%9A%84%E7%94%A8%E6%B3%95%E8%A9%B3%E8%A7%A3-%E8%BD%89%E9%8C%84-52f539b67bdf">Python yield的用法詳解</a><br>補充：<a target="_blank" rel="noopener" href="https://notfalse.net/6/arg-vs-param">參數（Parameters）與引數（Arguments）的差異</a></p>
+</blockquote>
+<h4 id="變數範圍（Scope-of-Variable）"><a href="#變數範圍（Scope-of-Variable）" class="headerlink" title="變數範圍（Scope of Variable）"></a>變數範圍（Scope of Variable）</h4><p>變數依據生命週期的不同，分為全域變數與區域變數。</p>
+<ul>
+<li>區域變數（Local Variable）<ul>
+<li>定義在函數內的變數稱為區域變數</li>
+<li>只能在函數內使用，函數結束後變數也會跟著消失</li>
+</ul>
+</li>
+<li>全域變數（Global Variable）<ul>
+<li>定義在函數外的變數稱為全域變數</li>
+<li>所有地方（包含函數內）都可以使用，直到程式結束執行才會消失</li>
+</ul>
+</li>
+<li>若函數內宣告與全域變數同名的變數，則會被當作是區域變數，對其進行的操作不影響全域變數</li>
+<li>通常若我們需要拿到函數內的某個變數，我們會直接使用 <code>return var</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">scale = <span class="number">3</span> <span class="comment"># Global</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">return</span> num * scale</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">multiply_5</span>(<span class="params">num</span>):</span><br><span class="line">    scale = <span class="number">5</span> <span class="comment"># Local</span></span><br><span class="line">    <span class="keyword">return</span> num * scale</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(scale)</span><br><span class="line"><span class="built_in">print</span>(multiply(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(multiply_5(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(scale)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">10</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>補充：在函數內修改全域變數與上一層變數的方法：<a target="_blank" rel="noopener" href="https://ktinglee.github.io/LearningPython100days(6)_global_and_nonlocal/">Global &amp; Nonlocal</a></p>
+</blockquote>
+<h4 id="可變物件（Mutable-Object）與不可變物件（Immutable-Object）"><a href="#可變物件（Mutable-Object）與不可變物件（Immutable-Object）" class="headerlink" title="可變物件（Mutable Object）與不可變物件（Immutable Object）"></a>可變物件（Mutable Object）與不可變物件（Immutable Object）</h4><p>在 Python 中，不同資料類別又可以其性質分為可變物件與不可變物件。 </p>
+<table>
+<thead>
+<tr>
+<th>分類</th>
+<th>可變物件</th>
+<th>不可變物件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>說明</td>
+<td>被創造出來後，其值可以被改變的物件。</td>
+<td>被創造出來後，其值無法被改變的物件。</td>
+</tr>
+<tr>
+<td>舉例</td>
+<td>list, dict, set*</td>
+<td>int, float, string, tuple</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>可以，依資料類別不同有不同修改方式，修改時記憶體位置不會改變。</td>
+<td>無法，只能透過重新指派的方式，此時記憶體位置亦會被重新分配。</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Mutable Object</span></span><br><span class="line">alist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">alist = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  <span class="comment"># Okay</span></span><br><span class="line">alist[<span class="number">1</span>] = <span class="number">100</span>  <span class="comment"># Okay</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Immutable Object</span></span><br><span class="line">astring = <span class="string">&#x27;string&#x27;</span></span><br><span class="line">astring = <span class="string">&#x27;STRING&#x27;</span> <span class="comment"># okay</span></span><br><span class="line">astring[<span class="number">1</span>] = <span class="string">&#x27;A&#x27;</span> <span class="comment"># TypeError: &#x27;str&#x27; object does not support item assignment</span></span><br></pre></td></tr></table></figure>
+
+<p>接著我們來看看記憶體位址的變化：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Let&#x27;s take a look on the addresses of these objects</span></span><br><span class="line"><span class="comment"># id() is a function help finding address of a variable</span></span><br><span class="line"><span class="comment"># Mutable Object</span></span><br><span class="line">alist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(alist))</span><br><span class="line">alist[<span class="number">1</span>] = <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(alist))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;=====&#x27;</span>)</span><br><span class="line"><span class="comment"># Immutable Object</span></span><br><span class="line">astring = <span class="string">&#x27;string&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(astring))</span><br><span class="line">astring = <span class="string">&#x27;STRING&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(astring))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">1541330859072</span><br><span class="line">1541330859072</span><br><span class="line">=====</span><br><span class="line">1541255790064</span><br><span class="line">1541259351920</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>參考 <a target="_blank" rel="noopener" href="https://www.maxlist.xyz/2021/01/26/python-immutable-mutable-objects/">什麼是 Immutable &amp; Mutable objects</a><br>*關於 set 可不可變其實有點<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14193438/are-python-sets-mutable">爭議</a>，在這裡先當作他是可變的</p>
+</blockquote>
+<h4 id="Pass-by-Assignment-Example-Illustration"><a href="#Pass-by-Assignment-Example-Illustration" class="headerlink" title="Pass by Assignment - Example Illustration"></a>Pass by Assignment - Example Illustration</h4><p>此處我們「不會」深入講當傳參數時發生了什麼事情，因為牽扯到一些記憶體跟參照等等的概念，我們會用幾個例子來說明何謂 Python 的 Pass by Assignment。</p>
+<p>Python 中函數依據傳入參數的類別不同，會有不同的行為。</p>
+<ul>
+<li>當傳入參數可變物件時：<ul>
+<li><strong>若未經重新指派，而是在函數裡直接修改參數，則會原始變數的值也會一同被修改</strong></li>
+<li><strong>若經重新指派，則視為全新的變數，原始變數不會被影響</strong></li>
+</ul>
+</li>
+<li>當傳入參數為不可變物件時：<ul>
+<li><strong>任何對參數的操作都不影響原始變數（除非使用全域變數方式修改）</strong></li>
+</ul>
+</li>
+</ul>
+<p>聽起來很複雜對吧？我們直接用例子來看會比較清楚一些：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">listchange</span>(<span class="params">l</span>):</span><br><span class="line">    l[<span class="number">0</span>] = <span class="string">&#x27;A&#x27;</span></span><br><span class="line">alist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">listchange(alist)</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">[&#x27;A&#x27;,2,3]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">strchange</span>(<span class="params">s</span>):</span><br><span class="line">    s = <span class="string">&#x27;STRING&#x27;</span></span><br><span class="line">astring = <span class="string">&#x27;string&#x27;</span></span><br><span class="line">strchange(astring)</span><br><span class="line"><span class="built_in">print</span>(astring)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">string</span><br></pre></td></tr></table></figure>
+
+<p>在以上的例子中，<code>alist</code> 為可變物件，因此做為參數傳入並在函數中修改時，原始的 <code>alist</code> 也一同被修改；而 <code>astring</code> 為不可變物件，因此做為參數傳入時，我們並無法直接修改他的值，只能透過重新指派的方式給予 <code>&#39;STRING&#39;</code> 這個值，而原始的 <code>astring</code> 依然存放 <code>string</code> 這個值沒有改變。</p>
+<p>我們在撰寫函數時，比較好的方式是不要直接修改原始參數的值，而是將修改後的值存放在新的變數中，並作為回傳值傳回給呼叫函數的地方，以避免混淆的狀況。</p>
+<blockquote>
+<p>參考 <a target="_blank" rel="noopener" href="https://luka.tw/Python/%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8/past/2021-09-21-is-python-call-by-sharing-122a4bf5a956/">關於 Python 獨有的 Pass by Assignment</a>，以及 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference">英文版本（Stackoverflow）</a></p>
+</blockquote>
+<h4 id="遞迴（Recursion）-An-example-on-factorial"><a href="#遞迴（Recursion）-An-example-on-factorial" class="headerlink" title="遞迴（Recursion） - An example on factorial"></a>遞迴（Recursion） - An example on factorial</h4><p>遞迴是一種概念，指的是「在函數在執行過程中呼叫自己」的方法。這種技術對於解決某些複雜問題特別有用，例如處理樹狀結構、遞迴搜尋、組合數學等。以下是遞迴的基本概念和特性:</p>
+<ol>
+<li>基礎案例（Base Case）：遞迴函數必須有一個基礎案例，也就是遞迴呼叫的終止條件。當滿足這個條件時，遞迴將不再進行，從而避免無限迴圈。</li>
+<li>遞迴案例（Recursive Case）：如果沒有滿足基礎案例的條件，函數就會進入遞迴案例。在這個案例中，函數會呼叫一個較小的子問題版本。</li>
+<li>問題簡化：遞迴案例通常將原始問題簡化為一個較小的子問題，直到滿足基礎案例為止。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find_fact</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>: <span class="comment"># base case</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment"># recursive case</span></span><br><span class="line">        recurse = find_fact(n-<span class="number">1</span>)</span><br><span class="line">        result = n * recurse</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/S1gBbY810.png" alt="image"></p>
+<blockquote>
+<p>補充：<a target="_blank" rel="noopener" href="https://clay-atlas.com/blog/2020/09/20/python-cn-recursionerror-maximum-recursion-depth-exceeded/">遞迴深度的上限</a></p>
+</blockquote>
+<p>關於函數還有很多可以講：Recursion 的設計方法、Call by Reference、Call by Value…。但有些東西太進階了，我們先停在這裡，以後有機會或是遇到的時候再細講。</p>
+<h3 id="其他常見資料結構"><a href="#其他常見資料結構" class="headerlink" title="其他常見資料結構"></a>其他常見資料結構</h3><h4 id="元組（Tuple）"><a href="#元組（Tuple）" class="headerlink" title="元組（Tuple）"></a>元組（Tuple）</h4><ul>
+<li>與 list 類似，但是屬不可變物件</li>
+<li>不同於 list 使用 <code>[]</code> ，tuple 使用 <code>()</code> </li>
+<li>一個元素的 tuple 須以 <code>(item, )</code> 表示</li>
+<li>因屬不可變物件，故僅能以重新指派的方式修改其值，如下例：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mytuple = (11, 22, 33)</span><br><span class="line">&gt;&gt;&gt; saved = mytuple</span><br><span class="line">&gt;&gt;&gt; mytuple += (44,)</span><br><span class="line">&gt;&gt;&gt; mytuple</span><br><span class="line">(11, 22, 33, 44)</span><br><span class="line">&gt;&gt;&gt; saved</span><br><span class="line">(11, 22, 33)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>zip()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">char = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">CHAR = [<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(num, char, CHAR):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">(1, &#x27;a&#x27;, &#x27;A&#x27;)</span><br><span class="line">(2, &#x27;b&#x27;, &#x27;B&#x27;)</span><br><span class="line">(3, &#x27;c&#x27;, &#x27;C&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="字典（Dictionary）"><a href="#字典（Dictionary）" class="headerlink" title="字典（Dictionary）"></a>字典（Dictionary）</h4><p>當我們需要了解某個字的讀音時，我們會去查找字典，在其中尋找對應的讀音。這種 {字: 讀音} 的配對，在 Python 中可以透過字典來實現。</p>
+<ul>
+<li>字典的組成包含鍵（Keys，不可變）與值（Values，可變）</li>
+<li>使用 Key 來尋找對應的 Value，以上述例子來說即為使用字尋找讀音</li>
+<li>Key 跟 Value 可以是任何資料類別，也可以不用一樣</li>
+<li>字典是無序的（在 <code>collections</code> 這個 library 中有提供有序字典）</li>
+<li>若查找不存在的 key 則會報錯，可以使用 <code>in</code> 或 <code>dict.get()</code> 來檢查</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mydict = <span class="built_in">dict</span>()  <span class="comment"># or mydict = &#123;&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Here is an empty dictionary:&quot;</span>, mydict)</span><br><span class="line"><span class="comment"># Add new pair in dictionary</span></span><br><span class="line">mydict[<span class="number">1</span>] = <span class="string">&#x27;one&#x27;</span></span><br><span class="line">mydict[<span class="number">2</span>] = <span class="string">&#x27;two&#x27;</span></span><br><span class="line">mydict[<span class="number">3</span>] = <span class="string">&#x27;three&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Dictionary now looks like: &quot;</span>, mydict)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;2 is corresponding to:&quot;</span>, mydict[<span class="number">2</span>]) <span class="comment"># Access value</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">Here is an empty dictionary: &#123;&#125;</span><br><span class="line">Dictionary now looks like: &#123;1: &#x27;one&#x27;, 2: &#x27;two&#x27;, 3: &#x27;three&#x27;&#125;</span><br><span class="line">2 is corresponding to: two</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Continued from last cell</span></span><br><span class="line"><span class="built_in">print</span>(mydict.keys())</span><br><span class="line"><span class="built_in">print</span>(mydict.values())</span><br><span class="line"><span class="built_in">print</span>(mydict.items())</span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span> <span class="keyword">in</span> mydict)</span><br><span class="line"><span class="built_in">print</span>(mydict.get(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">dict_keys([1, 2, 3])</span><br><span class="line">dict_values([&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;])</span><br><span class="line">dict_items([(1, &#x27;one&#x27;), (2, &#x27;two&#x27;), (3, &#x27;three&#x27;)])</span><br><span class="line">False</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+<h4 id="集合（Set）"><a href="#集合（Set）" class="headerlink" title="集合（Set）"></a>集合（Set）</h4><ul>
+<li>與數學中的集合概念類似，只能儲存唯一（Unique）元素，相同元素不會重複出現</li>
+<li>因為是無序，故我們不能使用 <code>set[0]</code> 的方式來取值</li>
+<li>可以使用 <code>set.add(item)</code> 與 <code>set.remove(item)</code> 來新增與刪除元素</li>
+<li>可以使用 <code>set(list)</code> 將 List 轉為 Set，藉此檢查清單中唯一元素個數</li>
+<li>相關操作有聯集、交集、差集等等</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aset = &#123;<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>&#125;</span><br><span class="line">bset = &#123;<span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Union:&quot;</span>, aset | bset)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Intersection:&quot;</span>, aset &amp; bset)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Difference(A-B):&quot;</span>, aset - bset)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Difference(B-A):&quot;</span>, bset - aset)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Symmetric difference:&quot;</span>, aset ^ bset)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">Union: &#123;33, 22, 55, 11, 44&#125;</span><br><span class="line">Intersection: &#123;33&#125;</span><br><span class="line">Difference(A-B): &#123;11, 22&#125;</span><br><span class="line">Difference(B-A): &#123;44, 55&#125;</span><br><span class="line">Symmetric difference: &#123;11, 44, 22, 55&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/BkvMrFNM0.png" alt="image"></p>
+<blockquote>
+<p>補充：特別注意 <a target="_blank" rel="noopener" href="https://june.monster/python-101-operators-and-priority/">運算元優先順序</a>！</p>
+</blockquote>
+<h4 id="統整"><a href="#統整" class="headerlink" title="統整"></a>統整</h4><table>
+<thead>
+<tr>
+<th>類別</th>
+<th>Tuple</th>
+<th>List</th>
+<th>Dict</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>符號</td>
+<td>( )</td>
+<td>[ ]</td>
+<td>{ }</td>
+<td>{ }</td>
+</tr>
+<tr>
+<td>可變性</td>
+<td>不可變</td>
+<td>可變</td>
+<td>可變</td>
+<td>可變</td>
+</tr>
+<tr>
+<td>順序性</td>
+<td>有序</td>
+<td>有序</td>
+<td>無序</td>
+<td>無序</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2023/03/23/python-tutorial-5/">https://jackchen890311.github.io/2023/03/23/python-tutorial-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Tutorial/">Tutorial</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/python_clear.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Python 教學系列文 (4) - 清單、CSV 檔案</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 清單（List） 清單是 Python 最常用、也最好用的資料類別，具順序性 甚麼東西都可以裝，裝的東西也可以不同，也可以用清單包清單 想成一個百寶袋，甚麼都可以塞，再拿出來 32位python的儲存上限是536870912 個元素 64位python的儲存上限是1152921504606846975 個元素   前面提到的字母陣列其實概念跟清單很像  12345678910111213141516171819202122232425262728293031&gt;&gt;&gt; l = [1, 1.0, 10, &quot;test&quot;]&gt;&gt;&gt; print(l[0])1&gt;&gt;&gt; print(l[2])10&gt;&gt;&gt; l[2] = 100&gt;&gt;&gt; print(l[2])100&gt;&gt;&gt; print(l[-1])&quot;test&quot;&gt;&gt;&gt; print(len(l))4&gt;&gt;&gt;...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-6/" title="Python 教學系列文 (6) - 檔案讀取、例外處理、斷言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Python 教學系列文 (6) - 檔案讀取、例外處理、斷言</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 檔案讀取（File I&#x2F;O）在 Python 中，很常會用到檔案相關的操作，舉凡文字檔（.txt）、CSV檔（.csv）、圖片檔（.png, .jpg…）、影片檔（.mp4, .avi…）等等，都會需要讀取、寫入檔案。這邊先以文字檔作為示範，僅簡單講解基礎操作，其他檔案如圖片、影像有些會有專門的 library 來處理。 test.txt:This is a test txt file.This is another line.  全部讀入  123456file = open(&#x27;test.txt&#x27;,&#x27;r&#x27;)data = file.read()file.close()print(data)data = data.split(&#x27;\n&#x27;)print(data)  1234Output:This is a test txt file.This is another line.[&#x27;This is a test txt file.&#x27;, &#x27;This is...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/03/23/python-tutorial-1/" title="Python 教學系列文 (1) - Overview、環境建置、基礎語法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (1) - Overview、環境建置、基礎語法</div></div><div class="info-2"><div class="info-item-1">哈囉！這次來發一些關於 Python 的教學文章，會有這個系列文，主要是因為前陣子接了一個家教，就順便把辛苦整理的自編講義一起放上來了，內容雖然不深，但也涵蓋了初學 Python 所會碰到的各主題，若完全對 Python 不了解的話，這個系列文應該可以給你一些概念，完成後若想再自我進修也能大概有個方向。 此系列文預計會分十篇左右，內容涵蓋基礎語法、迴圈、函數、套件、類別等等主題，皆有範例程式碼可以參考，基本內容都會涵蓋到，不過因為我原本是做講義用，文字部分不會太詳盡。另外，雖然公開在網路上，但希望各位轉載還是標註一下來源，畢竟也是我辛辛苦苦整理的心血呢。最後，有興趣的話，我還有在接學生（偷打廣告 XD）。 HackMD 完整版請點我 Overview程式語言分為高階語言、組合語言、機器語言等等，Python屬於高階語言的一種。機器語言與組合語言直接控制電腦硬體，但難以閱讀與開發；高階語言易於閱讀與開發，但需要「翻譯」給電腦聽。  來自 Python 官方網站的介紹：Python...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (4) - 清單、CSV 檔案</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 清單（List） 清單是 Python 最常用、也最好用的資料類別，具順序性 甚麼東西都可以裝，裝的東西也可以不同，也可以用清單包清單 想成一個百寶袋，甚麼都可以塞，再拿出來 32位python的儲存上限是536870912 個元素 64位python的儲存上限是1152921504606846975 個元素   前面提到的字母陣列其實概念跟清單很像  12345678910111213141516171819202122232425262728293031&gt;&gt;&gt; l = [1, 1.0, 10, &quot;test&quot;]&gt;&gt;&gt; print(l[0])1&gt;&gt;&gt; print(l[2])10&gt;&gt;&gt; l[2] = 100&gt;&gt;&gt; print(l[2])100&gt;&gt;&gt; print(l[-1])&quot;test&quot;&gt;&gt;&gt; print(len(l))4&gt;&gt;&gt;...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-2/" title="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 寫程式的流程（Workflow） Debug：在我們遇到各種 Error 時，需要去檢查程式哪裡寫錯 有時候是語法錯、有時候是邏輯錯… 整體的寫程式流程：  電腦架構非常簡易版的架構圖如下：  Input：鍵盤、滑鼠、觸控螢幕、麥克風等等 Output：螢幕、喇叭、印表機等等 Storage：硬碟、光碟機等等 CPU（中央處理器）：負責電腦的大部分運算 Memory：電腦內暫存的記憶體空間   補充 - GPU（顯示卡）：負責遊戲、3D繪圖、機器學習等等運算若對這個有興趣的話，可以去查「計算機結構」或修相關課程   二進位制 電腦使用二進位制來儲存數值，簡易的對照如下圖   若對這個有興趣的話，可以去查「數位邏輯」、「電路學」或修相關課程   排版方式（Formatting）一些排版準則如下：  通常在運算元前後會空白 在每個區段的 code...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-3/" title="Python 教學系列文 (3) - 條件判斷、迴圈、字串處理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (3) - 條件判斷、迴圈、字串處理</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 Python 基礎 (1)條件判斷（Conditionals）1234567price = int(input())if price &lt; 100:    print(&quot;It&#x27;s cheap.&quot;)elif price &gt;= 100 and price &lt; 200:    print(&quot;It&#x27;s okay.&quot;)else:    print(&quot;It&#x27;s too expensive!&quot;)  若…則… (if) ，否則若…則… (elif) ，若以上皆非則… (else) if 跟 else 是一組的，後面要放條件判斷 or 布林值，elif 可有可無 底下的指令則需縮排，讓 Python 知道哪些是條件成立需要執行的 裡面還可以再包 if-else （巢狀條件判斷）  12345678910if ...    if ...        ...    else        ...else ...    if ...        ...   ...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-6/" title="Python 教學系列文 (6) - 檔案讀取、例外處理、斷言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (6) - 檔案讀取、例外處理、斷言</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 檔案讀取（File I&#x2F;O）在 Python 中，很常會用到檔案相關的操作，舉凡文字檔（.txt）、CSV檔（.csv）、圖片檔（.png, .jpg…）、影片檔（.mp4, .avi…）等等，都會需要讀取、寫入檔案。這邊先以文字檔作為示範，僅簡單講解基礎操作，其他檔案如圖片、影像有些會有專門的 library 來處理。 test.txt:This is a test txt file.This is another line.  全部讀入  123456file = open(&#x27;test.txt&#x27;,&#x27;r&#x27;)data = file.read()file.close()print(data)data = data.split(&#x27;\n&#x27;)print(data)  1234Output:This is a test txt file.This is another line.[&#x27;This is a test txt file.&#x27;, &#x27;This is...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-%E5%9F%BA%E7%A4%8E-2"><span class="toc-number">1.</span> <span class="toc-text">Python 基礎 (2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B8%EF%BC%88Function%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">函數（Function）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8D%E7%A8%B1"><span class="toc-number">1.1.1.</span> <span class="toc-text">名稱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E9%AB%94"><span class="toc-number">1.1.2.</span> <span class="toc-text">本體</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%EF%BC%88%E5%8F%83%E6%95%B8%EF%BC%89"><span class="toc-number">1.1.3.</span> <span class="toc-text">輸入（參數）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BC%B8%E5%87%BA%EF%BC%88%E5%9B%9E%E5%82%B3%E5%80%BC%EF%BC%89"><span class="toc-number">1.1.4.</span> <span class="toc-text">輸出（回傳值）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%8A%E6%95%B8%E7%AF%84%E5%9C%8D%EF%BC%88Scope-of-Variable%EF%BC%89"><span class="toc-number">1.1.5.</span> <span class="toc-text">變數範圍（Scope of Variable）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%AE%8A%E7%89%A9%E4%BB%B6%EF%BC%88Mutable-Object%EF%BC%89%E8%88%87%E4%B8%8D%E5%8F%AF%E8%AE%8A%E7%89%A9%E4%BB%B6%EF%BC%88Immutable-Object%EF%BC%89"><span class="toc-number">1.1.6.</span> <span class="toc-text">可變物件（Mutable Object）與不可變物件（Immutable Object）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pass-by-Assignment-Example-Illustration"><span class="toc-number">1.1.7.</span> <span class="toc-text">Pass by Assignment - Example Illustration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%9E%E8%BF%B4%EF%BC%88Recursion%EF%BC%89-An-example-on-factorial"><span class="toc-number">1.1.8.</span> <span class="toc-text">遞迴（Recursion） - An example on factorial</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A6%8B%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B"><span class="toc-number">1.2.</span> <span class="toc-text">其他常見資料結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B5%84%EF%BC%88Tuple%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">元組（Tuple）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%EF%BC%88Dictionary%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">字典（Dictionary）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%EF%BC%88Set%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">集合（Set）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B5%B1%E6%95%B4"><span class="toc-number">1.2.4.</span> <span class="toc-text">統整</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2023/03/23/python-tutorial-5/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2023/03/23/python-tutorial-5/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = 'Python 教學系列文 (5) - 函數、其他常見資料結構'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

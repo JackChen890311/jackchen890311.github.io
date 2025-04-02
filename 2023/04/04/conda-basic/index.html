@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用 Conda 管理 Python 開發環境 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="繼上篇 安裝雙系統 並順便安裝 Miniconda 完成後，這篇來稍微介紹一下使用 Conda 的好處在哪裡，順便記錄一些常用指令，不然我自己常常忘記怎麼刪環境，每次都要重新找 XD。 Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方便，指令簡單也能保持環境乾淨整潔，要匯出環境版本時也不會有其他多餘的套件干擾。常見的安裝方式有 Anaconda 與 Miniconda 兩種，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Conda 管理 Python 開發環境">
+<meta property="og:url" content="https://jackchen890311.github.io/2023/04/04/conda-basic/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="繼上篇 安裝雙系統 並順便安裝 Miniconda 完成後，這篇來稍微介紹一下使用 Conda 的好處在哪裡，順便記錄一些常用指令，不然我自己常常忘記怎麼刪環境，每次都要重新找 XD。 Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方便，指令簡單也能保持環境乾淨整潔，要匯出環境版本時也不會有其他多餘的套件干擾。常見的安裝方式有 Anaconda 與 Miniconda 兩種，">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/conda.jpg">
+<meta property="article:published_time" content="2023-04-04T13:29:03.000Z">
+<meta property="article:modified_time" content="2025-02-05T06:09:12.078Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Conda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/conda.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 Conda 管理 Python 開發環境",
+  "url": "https://jackchen890311.github.io/2023/04/04/conda-basic/",
+  "image": "https://jackchen890311.github.io/img/cover/conda.jpg",
+  "datePublished": "2023-04-04T13:29:03.000Z",
+  "dateModified": "2025-02-05T06:09:12.078Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2023/04/04/conda-basic/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用 Conda 管理 Python 開發環境',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/conda.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">使用 Conda 管理 Python 開發環境</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用 Conda 管理 Python 開發環境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-04-04T13:29:03.000Z" title="發表於 2023-04-04 21:29:03">2023-04-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-02-05T06:09:12.078Z" title="更新於 2025-02-05 14:09:12">2025-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">556</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>1分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>繼上篇 <a href="https://jackchen890311.github.io/Website/2023/02/24/install-windows-and-linux/">安裝雙系統</a> 並順便安裝 Miniconda 完成後，這篇來稍微介紹一下使用 Conda 的好處在哪裡，順便記錄一些常用指令，不然我自己常常忘記怎麼刪環境，每次都要重新找 XD。</p>
+<p>Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方便，指令簡單也能保持環境乾淨整潔，要匯出環境版本時也不會有其他多餘的套件干擾。常見的安裝方式有 Anaconda 與 Miniconda 兩種，相比之下 Miniconda 只提供必要功能，Anaconda 相對全面，但也比較複雜一些。Python 的 virtualenv 也有相似的虛擬環境功能，但我個人還是認為 Conda 好用一些，也很感謝實習讓我接觸到 Miniconda。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_04/conda_comparison.jpg" alt="Conda Comparison"></p>
+<p>Figure source is <a target="_blank" rel="noopener" href="https://www.machinelearningplus.com/deployment/conda-create-environment-and-everything-you-need-to-know-to-manage-conda-virtual-environment/">here</a>.</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><p>以下作業系統為 Ubuntu 22.04 LTS，括號內請自行替換。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check conda version and update conda</span></span><br><span class="line">conda -V</span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create and remove an environment</span></span><br><span class="line">conda create -n [env_name] python=[3.x]</span><br><span class="line">conda <span class="built_in">env</span> remove -n [env_name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove specific package in a environment</span></span><br><span class="line">conda remove -n [env_name] [package_name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># List all Environment</span></span><br><span class="line">conda <span class="built_in">env</span> list</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get into / get out of an environment</span></span><br><span class="line">conda activate [env_name]</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an identical environment</span></span><br><span class="line">conda list --explict &gt; [spec_file_name].txt</span><br><span class="line">conda create -n [env_name] --file [spec_file_name].txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="實際操作"><a href="#實際操作" class="headerlink" title="實際操作"></a>實際操作</h2><p>安裝完 Miniconda 後，你的 Terminal 大概會變成這樣：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) jack@jack-linux:~$</span><br></pre></td></tr></table></figure>
+<p>使用 <code>conda activate [env_name]</code> 進入環境後，會變成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(env_name) jack@jack-linux:~$</span><br></pre></td></tr></table></figure>
+
+<p>此時就正常操作即可，你就可以任意的 <code>pip install</code>，而不用擔心環境很亂了，大不了再刪掉就好，是不是很簡單！其實說穿了，最常用到的指令就那幾個，再多一點上面也都包含了，完全不難學也不複雜，還可以很輕鬆的切換不同環境，良好的管理 Python 與其套件版本。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這篇文其實沒啥好寫的，因為 conda 就是個這麼簡單的東西，但是他卻提供了很實用的功能，來幫助開發者管理套件版本與環境。少量開發的話可能還好，但像是我實習時常常會需要調整套件版本，或是有新專案要啟動，這時 conda 就是個很實用的工具，心動的話趕快到 <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">官網</a> 下載吧！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2023/04/04/conda-basic/">https://jackchen890311.github.io/2023/04/04/conda-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Conda/">Conda</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/conda.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/03/23/python-tutorial-9/" title="Python 教學系列文 (9) - OOP 三大精隨"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Python 教學系列文 (9) - OOP 三大精隨</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 OOP 三大精隨 - 封裝、繼承、多型（補充）封裝（Encapsulation）將物件的內部狀態和行為隱藏在物件內部，只公開必要的方法給外界使用。封裝可以保護物件免於外界的非法存取，並且讓物件更容易維護和修改。 123456class Animal:    name = &#x27;&#x27;    __private = &#x27;&#x27; # This cannot be accessed from the outside    def __init__(self, name):        self.name = name        self.__private = &#x27;&#x27; # This cannot be accessed from the...</div></div></div></a><a class="pagination-related" href="/2023/04/30/intern-at-retailing-data/" title="在 Ret[AI]ling Data 實習的日子"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/retailing.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">在 Ret[AI]ling Data 實習的日子</div></div><div class="info-2"><div class="info-item-1">四月底結束了我在 Ret[AI]ling Data 八個月的實習，也算是蠻長的一段時間，想說趁記憶猶新，隨意紀錄一下這段實習的點點滴滴，以便未來回顧。這篇文可能會很隨意，因為我就是把我想到的打下來 XD 如何找到這間公司？其實我開始找實習是去年七月底剛回臺灣時，原本的計畫是要再讀一年大五，把輔修的工科海洋系剩下的學分拿完。但人算不如天算，剩下不多的課程竟然衝堂，如果要修完就得再花一年，再問過教授跟教務處依然沒有辦法以後，只好忍痛放棄輔修學位，於是我就只剩一堂體育就能畢業。 但距離我預計念研究所還有一整年，那時候也壓根還沒開始申請，所以這一年等於沒其他事情。再加上因為經濟因素（出國把錢都花光了QQ），必須得賺錢養活自己，所以就決定乾脆專心工作，努力開始找實習與家教。其實原本這一年如果繼續輔修的話，也有實習的打算，但就可能沒這麼急，不過總之後來的種種事情，還有家裡因素，讓我決定趕快找個工作。八月時實習的職缺並不太多，加上我想找 AI、ML...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/05/05/lets-play-ig-api/" title="來玩玩 Instagram 的基本顯示 API 吧！"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/IG.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-05</div><div class="info-item-2">來玩玩 Instagram 的基本顯示 API 吧！</div></div><div class="info-2"><div class="info-item-1">2025 更新：基本顯示 API 已被棄用 這下頭痛了，原本研究的都沒用了，之後再來看看新的方法要如何操作……只能說我真的越來越討厭 Meta 了（來源）。  先來 這邊 看看我把 Instagram 上的貼文整合到我的個人網站上的成果吧！ 為啥要爬 Instagram API？會有這個念頭，是我之前某天突然想到，如果可以把我的 拉麵帳號 中的內容整合到我的個人網站上，那應該還不錯吧？不過，我一開始想的其實是做一個互動式地圖，並把我吃過的每間店標上去，讓使用者可以依地點挑選店家，還能馬上看到我的食評，感覺就很不錯。後來發現似乎不是很好做，那就留給未來吧 XD。這次我做的主要只是去爬取 Instagram 的 API，並把爬下來的內容作清理，再以我網站框架所要求的格式寫入上傳，其實沒什麼太技術的細節，但從結果來看應該可以說是有點樣子，之後也可以自動更新內容（但因為我的網站是使用靜態網站的框架，需要我手動上傳我更新的內容；如果是動態網站可以直接把呼叫 API 的部分寫在網站上，做動態的渲染等等），接著就來看看我怎麼做的吧！ 來看看 官方文檔...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-1/" title="Python 教學系列文 (1) - Overview、環境建置、基礎語法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (1) - Overview、環境建置、基礎語法</div></div><div class="info-2"><div class="info-item-1">哈囉！這次來發一些關於 Python 的教學文章，會有這個系列文，主要是因為前陣子接了一個家教，就順便把辛苦整理的自編講義一起放上來了，內容雖然不深，但也涵蓋了初學 Python 所會碰到的各主題，若完全對 Python 不了解的話，這個系列文應該可以給你一些概念，完成後若想再自我進修也能大概有個方向。 此系列文預計會分十篇左右，內容涵蓋基礎語法、迴圈、函數、套件、類別等等主題，皆有範例程式碼可以參考，基本內容都會涵蓋到，不過因為我原本是做講義用，文字部分不會太詳盡。另外，雖然公開在網路上，但希望各位轉載還是標註一下來源，畢竟也是我辛辛苦苦整理的心血呢。最後，有興趣的話，我還有在接學生（偷打廣告 XD）。 HackMD 完整版請點我 Overview程式語言分為高階語言、組合語言、機器語言等等，Python屬於高階語言的一種。機器語言與組合語言直接控制電腦硬體，但難以閱讀與開發；高階語言易於閱讀與開發，但需要「翻譯」給電腦聽。  來自 Python 官方網站的介紹：Python...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (4) - 清單、CSV 檔案</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 清單（List） 清單是 Python 最常用、也最好用的資料類別，具順序性 甚麼東西都可以裝，裝的東西也可以不同，也可以用清單包清單 想成一個百寶袋，甚麼都可以塞，再拿出來 32位python的儲存上限是536870912 個元素 64位python的儲存上限是1152921504606846975 個元素   前面提到的字母陣列其實概念跟清單很像  12345678910111213141516171819202122232425262728293031&gt;&gt;&gt; l = [1, 1.0, 10, &quot;test&quot;]&gt;&gt;&gt; print(l[0])1&gt;&gt;&gt; print(l[2])10&gt;&gt;&gt; l[2] = 100&gt;&gt;&gt; print(l[2])100&gt;&gt;&gt; print(l[-1])&quot;test&quot;&gt;&gt;&gt; print(len(l))4&gt;&gt;&gt;...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-2/" title="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 寫程式的流程（Workflow） Debug：在我們遇到各種 Error 時，需要去檢查程式哪裡寫錯 有時候是語法錯、有時候是邏輯錯… 整體的寫程式流程：  電腦架構非常簡易版的架構圖如下：  Input：鍵盤、滑鼠、觸控螢幕、麥克風等等 Output：螢幕、喇叭、印表機等等 Storage：硬碟、光碟機等等 CPU（中央處理器）：負責電腦的大部分運算 Memory：電腦內暫存的記憶體空間   補充 - GPU（顯示卡）：負責遊戲、3D繪圖、機器學習等等運算若對這個有興趣的話，可以去查「計算機結構」或修相關課程   二進位制 電腦使用二進位制來儲存數值，簡易的對照如下圖   若對這個有興趣的話，可以去查「數位邏輯」、「電路學」或修相關課程   排版方式（Formatting）一些排版準則如下：  通常在運算元前後會空白 在每個區段的 code...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-5/" title="Python 教學系列文 (5) - 函數、其他常見資料結構"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (5) - 函數、其他常見資料結構</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 Python 基礎 (2)函數（Function）我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。 我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來執行類似的動作。 一個函數包含名稱、本體、輸入（Input）與輸出（Output），後兩者又叫做參數（Parameters）與回傳值（Return Values）。有時我們也會在函數最一開始的地方加入註解，來說明函數的使用方式以及參數 &#x2F; 回傳值類型。  以下圖為例，輸入是蘋果，輸出是切半的蘋果，函數 h 的作用是把蘋果切半。 名稱 用關鍵字 def 來宣告函數，名稱接在 def...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">實際操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">3.</span> <span class="toc-text">結語</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2023/04/04/conda-basic/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2023/04/04/conda-basic/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '使用 Conda 管理 Python 開發環境'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

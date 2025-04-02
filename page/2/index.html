@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Jack's Space - A place where I share anything</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Hello there! I&#39;m Jack, currently pursing master&#39;s degree at NTU CSIE.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack&#39;s Space">
+<meta property="og:url" content="https://jackchen890311.github.io/page/2/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="Hello there! I&#39;m Jack, currently pursing master&#39;s degree at NTU CSIE.">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/me/ghent.jpg">
+<meta property="article:author" content="Jack Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/me/ghent.jpg"><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jack\'s Space',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/cover/space_and_man.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Jack's Space</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/04/04/conda-basic/" title="使用 Conda 管理 Python 開發環境"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/conda.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="使用 Conda 管理 Python 開發環境"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/04/04/conda-basic/" title="使用 Conda 管理 Python 開發環境">使用 Conda 管理 Python 開發環境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-04-04T13:29:03.000Z" title="發表於 2023-04-04 21:29:03">2023-04-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="content">繼上篇 安裝雙系統 並順便安裝 Miniconda 完成後，這篇來稍微介紹一下使用 Conda 的好處在哪裡，順便記錄一些常用指令，不然我自己常常忘記怎麼刪環境，每次都要重新找 XD。 Conda 為一種套件管理工具，使用 Conda 來管理開發環境非常方便，指令簡單也能保持環境乾淨整潔，要匯出環境版本時也不會有其他多餘的套件干擾。常見的安裝方式有 Anaconda 與 Miniconda 兩種，相比之下 Miniconda 只提供必要功能，Anaconda 相對全面，但也比較複雜一些。Python 的 virtualenv 也有相似的虛擬環境功能，但我個人還是認為 Conda 好用一些，也很感謝實習讓我接觸到 Miniconda。  Figure source is here. 常用指令以下作業系統為 Ubuntu 22.04 LTS，括號內請自行替換。 123456789101112131415161718192021# Check conda version and update condaconda -Vconda update conda# Create and...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/23/python-tutorial-9/" title="Python 教學系列文 (9) - OOP 三大精隨"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (9) - OOP 三大精隨"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-9/" title="Python 教學系列文 (9) - OOP 三大精隨">Python 教學系列文 (9) - OOP 三大精隨</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:57.000Z" title="發表於 2023-03-23 20:54:57">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 OOP 三大精隨 - 封裝、繼承、多型（補充）封裝（Encapsulation）將物件的內部狀態和行為隱藏在物件內部，只公開必要的方法給外界使用。封裝可以保護物件免於外界的非法存取，並且讓物件更容易維護和修改。 123456class Animal:    name = &#x27;&#x27;    __private = &#x27;&#x27; # This cannot be accessed from the outside    def __init__(self, name):        self.name = name        self.__private = &#x27;&#x27; # This cannot be accessed from the...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/23/python-tutorial-8/" title="Python 教學系列文 (8) - 物件導向程式設計、類別"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (8) - 物件導向程式設計、類別"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-8/" title="Python 教學系列文 (8) - 物件導向程式設計、類別">Python 教學系列文 (8) - 物件導向程式設計、類別</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:53.000Z" title="發表於 2023-03-23 20:54:53">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 Python 進階物件導向程式設計（Object-Oriented Programming, OOP）物件導向程式設計是軟體設計的一種方法，它把軟體分成數個「物件」來撰寫。每個物件都有自己的屬性和行為，並且可以跟其他物件互動。這樣的好處是，軟體的各部分之間彼此獨立，不但便於重複使用，也更容易理解和修改，提高軟體的可維護性和可擴展性。 物件導向程式設計是目前最流行的軟體設計方法之一，被廣泛應用於各種領域，包括網站開發、商用軟體、遊戲開發等等。常見的物件導向程式設計語言包括 Java、C++、C#、Python 等。 Credit: The world-wide famous ChatGPT 類別（Class） - 簡介以下我們使用一個簡單的例子來說明類別的概念：在現實生活中，有各式各樣的車子，而每台車子雖然皆不相同，但都具有共同特徵，像是有四個輪胎、都有駕駛與車牌跟廠牌、都使用汽油前進等等，這時候就很適合使用物件導向的概念為車子建造一個類別。 在以下的例子中，Car 是一個類別名稱，這個類別包含 driver, engine, meter...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/23/python-tutorial-7/" title="Python 教學系列文 (7) - Lambda、套件、Git 簡介"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (7) - Lambda、套件、Git 簡介"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-7/" title="Python 教學系列文 (7) - Lambda、套件、Git 簡介">Python 教學系列文 (7) - Lambda、套件、Git 簡介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:49.000Z" title="發表於 2023-03-23 20:54:49">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 LambdaLambda 又叫做匿名函數，當我們需要快速簡潔的撰寫一個函數，但又不想幫他命名時（意即這個函數可能只會用一兩次），我們就會使用 Lambda 來幫助我們。Lambda 在使用上依然可以給予名稱，但非必要，函數內容也必須在一行內結束。 123456&gt;&gt;&gt; print((lambda x : x ** 2)(10))100&gt;&gt;&gt; print((lambda x, y: x * y)(4, 5))20&gt;&gt;&gt; print((lambda x: x[1])([1,2,3]))2  與其他函數的搭配使用 filter()  123numbers = [1,10,100,1000,10000]bignums = filter((lambda x: x &gt; 50), numbers)print(list(bignums)) 12Output:[100,1000,10000]   map()  123numbers = [1,10,100,1000,10000]doublenums =...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/23/python-tutorial-6/" title="Python 教學系列文 (6) - 檔案讀取、例外處理、斷言"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (6) - 檔案讀取、例外處理、斷言"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-6/" title="Python 教學系列文 (6) - 檔案讀取、例外處理、斷言">Python 教學系列文 (6) - 檔案讀取、例外處理、斷言</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:46.000Z" title="發表於 2023-03-23 20:54:46">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 檔案讀取（File I&#x2F;O）在 Python 中，很常會用到檔案相關的操作，舉凡文字檔（.txt）、CSV檔（.csv）、圖片檔（.png, .jpg…）、影片檔（.mp4, .avi…）等等，都會需要讀取、寫入檔案。這邊先以文字檔作為示範，僅簡單講解基礎操作，其他檔案如圖片、影像有些會有專門的 library 來處理。 test.txt:This is a test txt file.This is another line.  全部讀入  123456file = open(&#x27;test.txt&#x27;,&#x27;r&#x27;)data = file.read()file.close()print(data)data = data.split(&#x27;\n&#x27;)print(data)  1234Output:This is a test txt file.This is another line.[&#x27;This is a test txt file.&#x27;, &#x27;This is...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/23/python-tutorial-5/" title="Python 教學系列文 (5) - 函數、其他常見資料結構"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (5) - 函數、其他常見資料結構"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-5/" title="Python 教學系列文 (5) - 函數、其他常見資料結構">Python 教學系列文 (5) - 函數、其他常見資料結構</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:42.000Z" title="發表於 2023-03-23 20:54:42">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 Python 基礎 (2)函數（Function）我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。 我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來執行類似的動作。 一個函數包含名稱、本體、輸入（Input）與輸出（Output），後兩者又叫做參數（Parameters）與回傳值（Return Values）。有時我們也會在函數最一開始的地方加入註解，來說明函數的使用方式以及參數 &#x2F; 回傳值類型。  以下圖為例，輸入是蘋果，輸出是切半的蘋果，函數 h 的作用是把蘋果切半。 名稱 用關鍵字 def 來宣告函數，名稱接在 def...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (4) - 清單、CSV 檔案"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案">Python 教學系列文 (4) - 清單、CSV 檔案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:38.000Z" title="發表於 2023-03-23 20:54:38">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 清單（List） 清單是 Python 最常用、也最好用的資料類別，具順序性 甚麼東西都可以裝，裝的東西也可以不同，也可以用清單包清單 想成一個百寶袋，甚麼都可以塞，再拿出來 32位python的儲存上限是536870912 個元素 64位python的儲存上限是1152921504606846975 個元素   前面提到的字母陣列其實概念跟清單很像  12345678910111213141516171819202122232425262728293031&gt;&gt;&gt; l = [1, 1.0, 10, &quot;test&quot;]&gt;&gt;&gt; print(l[0])1&gt;&gt;&gt; print(l[2])10&gt;&gt;&gt; l[2] = 100&gt;&gt;&gt; print(l[2])100&gt;&gt;&gt; print(l[-1])&quot;test&quot;&gt;&gt;&gt; print(len(l))4&gt;&gt;&gt;...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/23/python-tutorial-3/" title="Python 教學系列文 (3) - 條件判斷、迴圈、字串處理"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (3) - 條件判斷、迴圈、字串處理"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-3/" title="Python 教學系列文 (3) - 條件判斷、迴圈、字串處理">Python 教學系列文 (3) - 條件判斷、迴圈、字串處理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:35.000Z" title="發表於 2023-03-23 20:54:35">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 Python 基礎 (1)條件判斷（Conditionals）1234567price = int(input())if price &lt; 100:    print(&quot;It&#x27;s cheap.&quot;)elif price &gt;= 100 and price &lt; 200:    print(&quot;It&#x27;s okay.&quot;)else:    print(&quot;It&#x27;s too expensive!&quot;)  若…則… (if) ，否則若…則… (elif) ，若以上皆非則… (else) if 跟 else 是一組的，後面要放條件判斷 or 布林值，elif 可有可無 底下的指令則需縮排，讓 Python 知道哪些是條件成立需要執行的 裡面還可以再包 if-else （巢狀條件判斷）  12345678910if ...    if ...        ...    else        ...else ...    if ...        ...   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/23/python-tutorial-2/" title="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-2/" title="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式">Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:31.000Z" title="發表於 2023-03-23 20:54:31">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">HackMD 完整版請點我 寫程式的流程（Workflow） Debug：在我們遇到各種 Error 時，需要去檢查程式哪裡寫錯 有時候是語法錯、有時候是邏輯錯… 整體的寫程式流程：  電腦架構非常簡易版的架構圖如下：  Input：鍵盤、滑鼠、觸控螢幕、麥克風等等 Output：螢幕、喇叭、印表機等等 Storage：硬碟、光碟機等等 CPU（中央處理器）：負責電腦的大部分運算 Memory：電腦內暫存的記憶體空間   補充 - GPU（顯示卡）：負責遊戲、3D繪圖、機器學習等等運算若對這個有興趣的話，可以去查「計算機結構」或修相關課程   二進位制 電腦使用二進位制來儲存數值，簡易的對照如下圖   若對這個有興趣的話，可以去查「數位邏輯」、「電路學」或修相關課程   排版方式（Formatting）一些排版準則如下：  通常在運算元前後會空白 在每個區段的 code...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/23/python-tutorial-1/" title="Python 教學系列文 (1) - Overview、環境建置、基礎語法"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Python 教學系列文 (1) - Overview、環境建置、基礎語法"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/23/python-tutorial-1/" title="Python 教學系列文 (1) - Overview、環境建置、基礎語法">Python 教學系列文 (1) - Overview、環境建置、基礎語法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-03-23T12:54:27.000Z" title="發表於 2023-03-23 20:54:27">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python-%E6%95%99%E5%AD%B8/">Python 教學</a></span></div><div class="content">哈囉！這次來發一些關於 Python 的教學文章，會有這個系列文，主要是因為前陣子接了一個家教，就順便把辛苦整理的自編講義一起放上來了，內容雖然不深，但也涵蓋了初學 Python 所會碰到的各主題，若完全對 Python 不了解的話，這個系列文應該可以給你一些概念，完成後若想再自我進修也能大概有個方向。 此系列文預計會分十篇左右，內容涵蓋基礎語法、迴圈、函數、套件、類別等等主題，皆有範例程式碼可以參考，基本內容都會涵蓋到，不過因為我原本是做講義用，文字部分不會太詳盡。另外，雖然公開在網路上，但希望各位轉載還是標註一下來源，畢竟也是我辛辛苦苦整理的心血呢。最後，有興趣的話，我還有在接學生（偷打廣告 XD）。 HackMD 完整版請點我 Overview程式語言分為高階語言、組合語言、機器語言等等，Python屬於高階語言的一種。機器語言與組合語言直接控制電腦硬體，但難以閱讀與開發；高階語言易於閱讀與開發，但需要「翻譯」給電腦聽。  來自 Python 官方網站的介紹：Python...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分類</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">C++ 教學</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">Python 教學</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"><span class="card-category-list-name">學習筆記</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/"><span class="card-category-list-name">工作紀錄</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/"><span class="card-category-list-name">極短篇</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/"><span class="card-category-list-name">生活隨筆</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>標籤</span></div><div class="card-tag-cloud"><a href="/tags/Exchange/" style="font-size: 1.15em; color: rgb(50, 198, 135);">Exchange</a><a href="/tags/UK/" style="font-size: 1.15em; color: rgb(185, 50, 52);">UK</a><a href="/tags/Birmingham/" style="font-size: 1.15em; color: rgb(50, 50, 50);">Birmingham</a><a href="/tags/PC/" style="font-size: 1.22em; color: rgb(97, 101, 180);">PC</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(187, 50, 177);">Hexo</a><a href="/tags/Github/" style="font-size: 1.15em; color: rgb(174, 86, 122);">Github</a><a href="/tags/Python/" style="font-size: 1.45em; color: rgb(149, 87, 145);">Python</a><a href="/tags/Conda/" style="font-size: 1.15em; color: rgb(188, 174, 81);">Conda</a><a href="/tags/C/" style="font-size: 1.22em; color: rgb(122, 194, 89);">C++</a><a href="/tags/Tutorial/" style="font-size: 1.45em; color: rgb(99, 84, 135);">Tutorial</a><a href="/tags/NTU/" style="font-size: 1.15em; color: rgb(117, 50, 152);">NTU</a><a href="/tags/Master/" style="font-size: 1.3em; color: rgb(50, 50, 66);">Master</a><a href="/tags/OS/" style="font-size: 1.15em; color: rgb(50, 100, 50);">OS</a><a href="/tags/Windows/" style="font-size: 1.15em; color: rgb(157, 184, 93);">Windows</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(147, 127, 50);">Linux</a><a href="/tags/Internship/" style="font-size: 1.38em; color: rgb(153, 56, 175);">Internship</a><a href="/tags/TSMC/" style="font-size: 1.15em; color: rgb(125, 100, 151);">TSMC</a><a href="/tags/Instagram/" style="font-size: 1.15em; color: rgb(190, 50, 78);">Instagram</a><a href="/tags/API/" style="font-size: 1.15em; color: rgb(161, 162, 114);">API</a><a href="/tags/Ramen/" style="font-size: 1.15em; color: rgb(50, 114, 107);">Ramen</a><a href="/tags/Game/" style="font-size: 1.15em; color: rgb(190, 50, 122);">Game</a><a href="/tags/Generative/" style="font-size: 1.15em; color: rgb(164, 161, 50);">Generative</a><a href="/tags/Interview/" style="font-size: 1.3em; color: rgb(166, 61, 52);">Interview</a><a href="/tags/Fulltime/" style="font-size: 1.15em; color: rgb(139, 87, 69);">Fulltime</a><a href="/tags/Life/" style="font-size: 1.15em; color: rgb(55, 108, 160);">Life</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>歸檔</span>
+      <a class="card-more-btn" href="/archives/"
+            title="檢視更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/12/">
+            <span class="card-archive-list-date">
+              十二月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/09/">
+            <span class="card-archive-list-date">
+              九月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/07/">
+            <span class="card-archive-list-date">
+              七月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/05/">
+            <span class="card-archive-list-date">
+              五月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/04/">
+            <span class="card-archive-list-date">
+              四月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">25</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">49.8k</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-04-02T08:38:18.387Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Keep learning and exploring.","Stay true to yourself.","Feel free to reach out!"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Keep learning and exploring.","Stay true to yourself.","Feel free to reach out!"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="先說結論，最近在學習如何選購桌電配備，對於桌電領域完全不熟的我，研究了好一陣子之後，最後用 64k 的價格，配了一臺效能令我十分滿意的桌電。身為資工所的宅宅學生，沒有一臺強大的桌電用來打遊戲、跑模型，那怎麼說的過去呢！ 好啦，其實事情緣起是這樣的：去年十一月在尋找指導教授，跑訪各實驗室時，都會順便詢問學長姐實驗室的硬體資源如何，畢竟研究所的課對硬體要求頗高，如果硬體不好應該會過得很痛苦。雖說資工所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機">
+<meta property="og:url" content="https://jackchen890311.github.io/2023/02/18/build-my-own-pc/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="先說結論，最近在學習如何選購桌電配備，對於桌電領域完全不熟的我，研究了好一陣子之後，最後用 64k 的價格，配了一臺效能令我十分滿意的桌電。身為資工所的宅宅學生，沒有一臺強大的桌電用來打遊戲、跑模型，那怎麼說的過去呢！ 好啦，其實事情緣起是這樣的：去年十一月在尋找指導教授，跑訪各實驗室時，都會順便詢問學長姐實驗室的硬體資源如何，畢竟研究所的課對硬體要求頗高，如果硬體不好應該會過得很痛苦。雖說資工所">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/my_desk.jpg">
+<meta property="article:published_time" content="2023-02-18T06:30:58.000Z">
+<meta property="article:modified_time" content="2025-02-05T06:09:12.078Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="PC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/my_desk.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機",
+  "url": "https://jackchen890311.github.io/2023/02/18/build-my-own-pc/",
+  "image": "https://jackchen890311.github.io/img/cover/my_desk.jpg",
+  "datePublished": "2023-02-18T06:30:58.000Z",
+  "dateModified": "2025-02-05T06:09:12.078Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2023/02/18/build-my-own-pc/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(img/cover/my_desk.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-02-18T06:30:58.000Z" title="發表於 2023-02-18 14:30:58">2023-02-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-02-05T06:09:12.078Z" title="更新於 2025-02-05 14:09:12">2025-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">4.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>13分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>先說結論，最近在學習如何選購桌電配備，對於桌電領域完全不熟的我，研究了好一陣子之後，最後用 64k 的價格，配了一臺效能令我十分滿意的桌電。身為資工所的宅宅學生，沒有一臺強大的桌電用來打遊戲、跑模型，那怎麼說的過去呢！</p>
+<p>好啦，其實事情緣起是這樣的：去年十一月在尋找指導教授，跑訪各實驗室時，都會順便詢問學長姐實驗室的硬體資源如何，畢竟研究所的課對硬體要求頗高，如果硬體不好應該會過得很痛苦。雖說資工所大部分的實驗室硬體資源都不錯，有些一人一張 3090，甚至還有聽說正要添購 40 系列的，然而，我最後找的教授的實驗室，共用硬體竟然只有 4 張 10 系列顯卡，真的是完全沒辦法用啊！當初學長就有跟我講過這件事，最後根據整體考量下還是硬著頭皮選了，所以自己組一臺電腦就成了必須（順便組起來玩遊戲也方便），也因此才有今天這篇文章的產出。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/mypc.jpg" alt="最後組起來的樣子，RGB 燈光真的是賞心悅目"></p>
+<h2 id="我的需求、預算與配置"><a href="#我的需求、預算與配置" class="headerlink" title="我的需求、預算與配置"></a>我的需求、預算與配置</h2><p>在我需求的部分，我最主要是學業所需，兩年的研究所內我預計會需要跑不少的深度學習模型，所以效能不能太差，在 CPU 與 GPU 方面皆是，特別是顯卡的 VRAM 不能太低；而預算方面我預計這臺可以用個五到十年，所以抓 60k - 70k 左右，不太希望超過 70k。</p>
+<p>我最後的配置如下，價格（除顯卡）是 2&#x2F;11 在欣亞購買的價格（臺北比較有名的電腦店就是原價屋跟欣亞了，兩者聽說差不多，如果你有其他信任的店家應該也可以），也會請他們幫忙組裝，從下單到組裝完成到我等了 7 天。這裡不得不抱怨一下，原本跟我說週三、週四會好，週四打過去問又說週五，週五當天打過去跟我說完全還沒裝，怒噴了他一番後終於承諾晚上給我，看了地圖上評論最近好像常常這樣，建議各位要有心理準備，然後記得定期打電話查勤。不過工作人員人都很好啦，所以還是不跟他計較太多了：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/mypc_setup.jpg" alt="我的桌電配備，機殼還給我突然沒貨 QQ"></p>
+<h2 id="各項配件挑選方式"><a href="#各項配件挑選方式" class="headerlink" title="各項配件挑選方式"></a>各項配件挑選方式</h2><p>一直到最近開始認真研究，我才知道一臺電腦的基本組成配件有哪些，以及該如何看配件的規格。這邊就簡單說一下我大概如何挑選（以下也是我自己的理解，若有誤還請見諒），也針對每個部件的功用做簡單介紹，讓對桌電完全不懂的人，看完後也能大概有點概念，若想更深入了解可以參考下方相關網站的第一個，裡面針對各個配件有很詳細的介紹。</p>
+<h3 id="中央處理器（CPU）"><a href="#中央處理器（CPU）" class="headerlink" title="中央處理器（CPU）"></a>中央處理器（CPU）</h3><p>中央處理器就如同人的大腦，主要負責電腦大大小小的運算與任務排程、資源分配等等，而一般消費者主要的選擇不外乎就是 Intel 與 AMD 這兩家公司，若是做深度學習則建議選 Intel，以避免一些奇奇怪怪的問題。</p>
+<p>Intel 的 CPU 型號主要看兩個點，一個是系列（i3, i5, i7, i9）一個是世代（最新為 13 代），兩者都是數字越大越好：</p>
+<ul>
+<li>i3：低階，多為文書機使用，但基本上一般不選這個</li>
+<li>i5：中階，是一般消費者最常選的系列，效能也算可接受</li>
+<li>i7：中高階，追求效能的遊戲機多選這個，我自己也是</li>
+<li>i9：高階，多是頂級遊戲使用者才會選擇</li>
+</ul>
+<p>舉例來說，我買的 CPU 型號是 Intel i7-13700，就是 Intel i7 系列第 13 代的產品，有些後面還會有英文後綴如 K（可超頻，就是可以手動讓他更強）、F（無內顯，但我不建議，有內顯的好處是顯卡壞了還可以用內顯擋一下）等等，就看個人需求選擇。題外話，我筆電是大一時買的，CPU 是 i5-8250U，當初應該是最新的，過了五年 CPU 差了五代，只能說電子產品真的是更新很快！</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/pc_inside.jpg" alt="電腦的內部長相，玻璃側板很方便就可以打開來"></p>
+<h3 id="顯示卡（GPU）"><a href="#顯示卡（GPU）" class="headerlink" title="顯示卡（GPU）"></a>顯示卡（GPU）</h3><p>顯示卡主要用途為顯示（廢話），基本上就是連接電腦主機跟螢幕的地方啦，而由於其一些特殊的運算性質，所以舉凡玩遊戲、3D 繪圖、影片剪輯、挖礦、跑深度學習等等，都對顯卡的效能有一定的要求。對我來說最主要組桌電的原因，也是因為我的筆電顯卡超級爛（筆電一般也不會塞或塞不下太好的顯卡啦），跑深度學習實在是太吃力了，再加上實驗室的顯卡老實說也是蠻爛的，只好自己花點錢買給自己用。</p>
+<p>主流顯卡分為兩種晶片架構，分別是 NVIDIA 與 AMD，而深度學習又多以 NVIDIA 為主，性能表現兩家應該差不多。前述兩家是晶片商，而晶片商會再與其他公司搭配，由其他公司推出完整的顯卡商品，主要廠商像是華碩、微星、技嘉等等，我們主要買也是從這三家去挑，而同樣的晶片型號會因這三家廠商的調教不同，而推出不同等級的產品，像是技嘉就有 EAGLE 或 Gaming 系列等等。</p>
+<p>晶片型號的辨別方式的話，以 NVIDIA 來說會有四個數字跟後綴英文，數字兩兩一組，分別代表世代以及性能，舉例來說 4090 就是 40 世代中 90 系列的顯示卡，若後綴有像是 SUPER 或 TI 等通常表示再更上一個等級，像是 3090 TI 就比 3090 再更強一些。關於顯卡晶片的強度很多網站都有詳細比較，這邊推薦一個 <a target="_blank" rel="noopener" href="https://www.mydrivers.com/zhuanti/tianti/gpu/index.html">顯卡天梯</a> 給大家，在選購時我主要會比較 VRAM、CUDA 核心數、功耗等等數據，這邊順便給大家一些判准參考：</p>
+<ul>
+<li>一般消費者對顯卡的選擇大約落在 50 - 70 系列，高階遊戲玩家或有特殊需求才會上到 80、90 系列</li>
+<li>要順跑現在的 3A 遊戲大作，大概 3060 系列以上都可以，2060 左右的應該勉強也行</li>
+<li>若是要跑深度學習，則 VRAM 越大越有優勢，Batch Size 可以調大，也可以放更大的 Model</li>
+<li>顯卡越好其他配件也要做相應的提升，才有辦法好好發揮顯卡的能力（這項適用所有配件）</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/gpu.jpg" alt="在臉書社團收到的二手 3090 TI，我還特地跑去新竹面交"></p>
+<p>買顯示卡算是我在配這台電腦的過程中，波折最多的一項配件了。在以前好像只有遊戲玩家才會對他有一定的要求，然而最近因為該死的礦潮，顯示卡的價格可以說是波動頻繁又居高不下，甚至已經到了離譜的地步，最新的 4090 一張賣到 6 萬塊，都可以組兩臺文書機了，這價錢根本是在開玩笑，買到撞到。以我的預算以及需求，在研究了一陣子之後，最適合的我覺得大概是 3090 系列，效能強、VRAM 又大，完全可以符合我玩遊戲 + 跑深度學習的需求，現在的價位也還算勉強可以接受，大約一張 3 萬上下。</p>
+<p>但很不幸的，2023 年初正在經歷顯卡換代，3080 與 3090 系列已經停產，加上廠商為了 40 系列的鋪路，也已經將 30 高階系列的庫存清得差不多（價格甜蜜點在 2022 年下半年，那時候 3080、3090 可以用 2 萬 - 3 萬買到），所以現在市場上的庫存只剩超級盤的 40 系列，以及 3070 TI 以下的 30 中低階顯卡，我跑遍了整個光華商場，問遍了八德路上每家電腦店，完全找不到 3090 系列（有找到一張過，但手腳不夠快被他組掉了…）。</p>
+<p>完全束手無策之際，我只剩下兩個選項：買二手顯卡或是等效能更強的 4090 降價。思考了一陣子後，覺得 4090 要降到我願意接受的價格，大概還要個一年到一年半，到時候我碩士都念一半了！所以最後只好到臉書的電腦配件交易社團買二手顯卡，還好運氣還算不錯，最後用 28.5k 的價格，買到去年 12 月購入的 3090 TI，面交時實際看他測跑分也沒什麼問題，就等到時候其他配件到貨，再裝上去試試看了。</p>
+<p>這邊要特別注意的是，因為最近礦潮退燒，所以現在二手市場上充斥著許多二手礦卡，而礦卡我建議能不碰就不碰，因為礦卡大多都是 24 小時不休息在跑的，而長時間處在高溫高壓的環境下，對電子零件的壽命很有影響，因此常常看到買二手礦卡沒多久就出問題，而原廠也會因為一些規定，即使在保固內也不給礦卡維修，到頭來等於花了冤枉錢。顯卡這東西，最好還是購買新品，除非你像我一樣迫不得已才往二手市場找，找的時候也要特別注意看有沒有可能是礦卡的特徵。</p>
+<h3 id="主機板（Motherboard）"><a href="#主機板（Motherboard）" class="headerlink" title="主機板（Motherboard）"></a>主機板（Motherboard）</h3><p>主機板就像人的骨架，他的功用就是提供地方連接所有其他零件，你可以想像他上面就是一堆插槽，專門用來接其他東西，像是記憶體、硬碟、CPU、GPU 等等。不同規格主要就是差在接口數量不同，還有可不可以超頻等等功能。</p>
+<p>這部分其實我沒有太深入研究，所以也沒有辦法太詳細的介紹，主要大廠牌像是華碩、微星等等，而主板型號有分 Z、H、B 以及後面的數字，就我聽到的是 Z &gt; H &gt; B，而後面的第一個數字代表世代，像是我買的 B760 代表第七代這樣。另外也有不同產線的產品，像是華碩有 TUF 跟 ROG 等等系列，我最後是選比較好的 ROG 系列。</p>
+<p>總而言之這部分還是交給店家或朋友推薦吧！但要注意店家如果推薦你超好的板子，要小心注意是不是被他話術了，說不定你根本用不到。還有一部份要注意的是，不同主機板的部分腳位不同，所以在 CPU 跟 RAM 等等的相容性上就會有差，像是 DDR4 與 DDR5 的插槽就是不同的，這部分要小心，也建議請店家幫你再三檢查。最後最後，記得檢查一下是否有提供 Wifi 跟 Bluetooth 的功能，以及有沒有買到迷你版的主板（迷你版會寫 mATX，正常版就是 ATX）！</p>
+<h3 id="CPU-散熱器"><a href="#CPU-散熱器" class="headerlink" title="CPU 散熱器"></a>CPU 散熱器</h3><p>CPU 散熱器顧名思義，就是幫 CPU 散熱用的，基本上 i3、i5 應該是非必要，i7、i9 這種效能較好的才需要，有分空冷與水冷，水冷較貴散熱效果也較好。而選購方面我是請店家跟朋友推薦，基本上應該也都差不多，最後自己挑一款順眼的就好。這個如果要認真比的話，有些指標可以參考散熱效果，也可以去論壇看一下大家都推哪些。我記得除了我最後選的這個九州風神 AG620 之外，利民的 PA120、鐮刀的無限伍、君主的 DT24 聽說都還不錯。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/cooler.jpg" alt="CPU 風扇架在主機板上面的樣子，RAM 的燈光都被擋住了哈哈"></p>
+<h3 id="硬碟（SSD-HDD）"><a href="#硬碟（SSD-HDD）" class="headerlink" title="硬碟（SSD &#x2F; HDD）"></a>硬碟（SSD &#x2F; HDD）</h3><p>硬碟就像圖書館一樣，存放著你電腦裡的所有資料。常見硬碟又可以分為 SSD 跟 HDD 兩種，就我理解大致可以歸納出以下性質：</p>
+<ul>
+<li>SSD 存取速度快、容量較小、價格較高、壞的風險較高</li>
+<li>HDD 存取速度快、容量較大、價格較低、壞的風險較低</li>
+</ul>
+<p>而現在基本上必備 SSD，多作為開機碟或遊戲碟提高存取速度，不裝 HDD 也 ok，像我就是只裝兩顆 SSD，價錢上也沒有相差太多，SSD 也沒那麼容易壞。此外，現在剛好在 Gen 3 與 Gen 4 的世代交替，我個人建議直接選擇 Gen 4，兩者價格差不多，但 Gen 4 讀寫速度較快。讀寫速度越快的話，在電腦內進行 I&#x2F;O 相關操作也會越順暢，不論是讀取文件、照片、遊戲等等都有影響，所以主要就依照這個挑選，加上記得選大牌子就好，像是金士頓、威剛、美光、WD 等等都是不錯的選擇。容量因人而異，我個人選擇 1 TB + 1 TB 的組合，應該是很夠用了，若需要存大量影片等狀況再自己提高容量就好。</p>
+<h3 id="記憶體（RAM）"><a href="#記憶體（RAM）" class="headerlink" title="記憶體（RAM）"></a>記憶體（RAM）</h3><p>很多人搞不清楚硬碟跟記憶體的差別，簡單來說硬碟是你存放各種檔案的裝置，容量越大你可以放的檔案就越多，關機後檔案都會繼續保留；而記憶體是暫時容納你程序執行的地方，容量越大你可以同時開的程序就越多，且關機後裡面就清空了，兩者對電腦來說都很重要。</p>
+<p>現在記憶體正好也面臨 DDR 4 與 DDR 5 的世代交替，然而，這邊我會推薦選擇舊的 DDR 4，主要是因為 DDR 5 現在還是太貴，搭配的主板也是又再高一個價位，但效能卻沒有差太多，所以算下來還是用 DDR 4 比較划算，可能再過個一年左右 DDR 5 較成熟了，價格降下來才會建議選 DDR 5。</p>
+<p>挑選的話，大廠牌如金士頓、威剛、美光等等，個人建議選雙通道 16 GB 以上，若預算 ok 就像我一樣直上 32 GB。規格部分主要有兩個數字，分別為時脈與延遲時間，時脈會長的像 3200、3600 這種數字，越大越好；而延遲時間則是像 CL16、CL18，越小越好，聽說先選時脈大的再選延遲低的，不過我不小心選反了 QQ，但聽說差異也不大就是了啦。</p>
+<h3 id="電源供應器（Power-or-PSU）"><a href="#電源供應器（Power-or-PSU）" class="headerlink" title="電源供應器（Power or PSU）"></a>電源供應器（Power or PSU）</h3><p>電源供應器就像人的心臟，提供能量給所有電子元件，所以也是很重要的一環，聽說很多電腦用久後都是電供掛了開不了機，有些還會開到冒煙，十分危險，所以好好挑電供還蠻重要的。基本上選擇的話注意廠牌，大廠牌以海韻、全漢等為主，再注意一下有沒有十年保固，應該問題都不大；另外還有模組化程度、轉換效率以及最大瓦數等等也是需要注意的地方。特別是最大瓦數，因為現在顯卡都超吃電，所以你電供的瓦數若不足，就有可能無法正常使用硬體，可以使用這種 <a target="_blank" rel="noopener" href="https://www.bequiet.com/tw/psucalculator">電源瓦數計算器</a> 來計算你需要多少瓦數的電供，通常為求安全會把算出來再往上加一個等級，來避免全力運轉下電供吃緊的問題。</p>
+<h3 id="機殼"><a href="#機殼" class="headerlink" title="機殼"></a>機殼</h3><p>機殼就像人的皮膚或長相，其實還蠻重要的，因為他會決定你電腦的外觀好不好看，除非你對外觀不要求啦，不過現在不用花太多錢也可以買到不錯看的殼，可以自己斟酌一下。這部分我也是請店家跟朋友推薦，然後稍微看一下外觀，覺得 ok 就好，不過我買的這款是玻璃側板，在網路上有看到不少災情是玻璃因溫度變化整片碎裂，所以選購時也得自己考慮這點（希望我不會遇到…）。另外要特別注意，在挑的時候要注意空間夠不夠大，夠不夠塞下你其他的配件，有些會標註顯卡或散熱最大可以塞多長的，像是我的顯卡就很大一張，所以我有稍微注意這點（但安裝時還是塞得很緊，建議多留一點空間），建議可以給店家稍微檢查一下，他們經驗多應該比較知道哪些點要注意。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/2023_02/gpu_inside.jpg" alt="顯卡太長，得麻煩店家把風扇拆開，才勉強塞的進去，我看我也拿不出來了"></p>
+<h2 id="相關網站"><a href="#相關網站" class="headerlink" title="相關網站"></a>相關網站</h2><p>以下的網站都是我挑選時有參考的網站或論壇，特別是第一個，對新手來說很實用：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ofeyhong.pixnet.net/blog/post/224315583">歐飛先生</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.coolpc.com.tw/evaluate.php">原價屋</a> 和 <a target="_blank" rel="noopener" href="https://www.sinya.com.tw/diy/">欣亞</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ptt.cc/bbs/PC_Shopping/index.html">PC_Shopping PTT</a></li>
+<li><a target="_blank" rel="noopener" href="https://forum.gamer.com.tw/A.php?bsn=60030">電腦應用綜合討論版 巴哈姆特</a></li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>一不小心又廢話太多了，但配電腦的過程真的是波折連連，經歷了快一個月才結束。開始打這篇文章的時候還沒拿到我的電腦，等到拿到電腦後這篇文章應該就會發表，因為我想放幾張電腦的照片做紀錄，哈哈。這幾天都在暗自希望他趕快組好，我就可以趕快拿到趕快來玩遊戲之類的（咦不是學業用途嗎？）。總而言之，這篇大致記錄了我選購的心路歷程，希望我的經驗對各位有所幫助，下一篇文章我會分享拿到電腦後，如何幫全新的電腦灌作業系統（Windows &amp; Linux 雙系統）。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2023/02/18/build-my-own-pc/">https://jackchen890311.github.io/2023/02/18/build-my-own-pc/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PC/">PC</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/my_desk.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/02/02/about-my-exchange/" title="關於我在英國伯明罕大學交換的這半年"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/birmingham.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">關於我在英國伯明罕大學交換的這半年</div></div><div class="info-2"><div class="info-item-1"> 距離我抵達英國伯明罕剛滿一年，至今依然超級無敵懷念在歐洲生活的每一天，想說趁著還沒有完全忘記，再把一些想說的隨意記錄在這裡。其實我已經在我的 交換心得 裡講的很詳細了，還沒看過的話可以先進去看看，但因為心得中大多走攻略取向，有點像交換懶人包的概念，所以我打算在這裡再稍微補充一些其他東西，如果想看更多圖片也可以到我的心得裡喔！ 我從小出生長大都在臺北，大學也在臺北念所以都與家人同住，雖然臺灣的每個縣市都有去過，也去過中國、日本幾個地方，但從沒有獨自離家超過一週，頂多就是參加個四五天的營隊，或去南部玩個兩三天之類的。也因此這次的交換機會很難得，對我來說是全新的體驗，獨自一個人離家前往探索未知的歐洲，加上行前準備都是我自己一個人處理，可以說是既害怕又興奮。 題外話，抵達伯明罕的第一天就出了點小問題，先是不知道怎麼買公車票（最後沒買票司機就讓我搭了哈哈），抵達宿舍後又因為是假日所以沒有人在，導致當天差點沒地方住，加上已經搭了超過 24...</div></div></div></a><a class="pagination-related" href="/2023/02/24/install-windows-and-linux/" title="安裝 Windows 與 Linux 雙系統"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/windows_linux.png" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">安裝 Windows 與 Linux 雙系統</div></div><div class="info-2"><div class="info-item-1">繼上一篇選完電腦配件、下完單取完貨之後，拿回家第一件事就是裝作業系統啦，不然開機只有 BIOS 介面，都沒辦法使用呢。我對這塊一開始也是完全不熟，還好在慢慢摸索跟問朋友之後，花個一兩天總算是都搞定了。本文會簡單分享我裝雙系統的過程，還有途中遇到的一些小困難，順便也會分享一些實用的資源給大家。 本文圖少連結多，因為拍圖太麻煩了，還請見諒，提供的連結中很多圖跟影片，可以去那邊看。 事前準備其實一般來說，買電腦時若有順便加購正版的 Windows，店家通常會幫你一起裝好再交給你，但我因為想省一些預算（正版真的太貴了，我預算都花在顯卡上嗚嗚，但這樣還是不太好大家不要學），所以我並沒有購買，而是打算自己上網研究如何自己安裝。 而 Linux 本身是個免費且完全開源的作業系統，也很推薦大家去使用，但使用的大多是有工作需求等等，或是想自己對作業系統有更多的操作及掌握，不然一般消費者主要還是用 Windows 居多。我自己本身是有學業需求，加上我需要 Windows...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/02/24/install-windows-and-linux/" title="安裝 Windows 與 Linux 雙系統"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/windows_linux.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-24</div><div class="info-item-2">安裝 Windows 與 Linux 雙系統</div></div><div class="info-2"><div class="info-item-1">繼上一篇選完電腦配件、下完單取完貨之後，拿回家第一件事就是裝作業系統啦，不然開機只有 BIOS 介面，都沒辦法使用呢。我對這塊一開始也是完全不熟，還好在慢慢摸索跟問朋友之後，花個一兩天總算是都搞定了。本文會簡單分享我裝雙系統的過程，還有途中遇到的一些小困難，順便也會分享一些實用的資源給大家。 本文圖少連結多，因為拍圖太麻煩了，還請見諒，提供的連結中很多圖跟影片，可以去那邊看。 事前準備其實一般來說，買電腦時若有順便加購正版的 Windows，店家通常會幫你一起裝好再交給你，但我因為想省一些預算（正版真的太貴了，我預算都花在顯卡上嗚嗚，但這樣還是不太好大家不要學），所以我並沒有購買，而是打算自己上網研究如何自己安裝。 而 Linux 本身是個免費且完全開源的作業系統，也很推薦大家去使用，但使用的大多是有工作需求等等，或是想自己對作業系統有更多的操作及掌握，不然一般消費者主要還是用 Windows 居多。我自己本身是有學業需求，加上我需要 Windows...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E9%9C%80%E6%B1%82%E3%80%81%E9%A0%90%E7%AE%97%E8%88%87%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">我的需求、預算與配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E9%A0%85%E9%85%8D%E4%BB%B6%E6%8C%91%E9%81%B8%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">各項配件挑選方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E8%99%95%E7%90%86%E5%99%A8%EF%BC%88CPU%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">中央處理器（CPU）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%AF%E7%A4%BA%E5%8D%A1%EF%BC%88GPU%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">顯示卡（GPU）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%A9%9F%E6%9D%BF%EF%BC%88Motherboard%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">主機板（Motherboard）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E6%95%A3%E7%86%B1%E5%99%A8"><span class="toc-number">2.4.</span> <span class="toc-text">CPU 散熱器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E7%A2%9F%EF%BC%88SSD-HDD%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">硬碟（SSD &#x2F; HDD）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A8%98%E6%86%B6%E9%AB%94%EF%BC%88RAM%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">記憶體（RAM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%BB%E6%BA%90%E4%BE%9B%E6%87%89%E5%99%A8%EF%BC%88Power-or-PSU%EF%BC%89"><span class="toc-number">2.7.</span> <span class="toc-text">電源供應器（Power or PSU）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A9%9F%E6%AE%BC"><span class="toc-number">2.8.</span> <span class="toc-text">機殼</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E9%97%9C%E7%B6%B2%E7%AB%99"><span class="toc-number">3.</span> <span class="toc-text">相關網站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">4.</span> <span class="toc-text">結語</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2023/02/18/build-my-own-pc/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2023/02/18/build-my-own-pc/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '新手自己配電腦 -  64k 跑遊戲 + 深度學習用桌機'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

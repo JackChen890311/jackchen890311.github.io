@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Jack's Space - A place where I share anything</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Hello there! I&#39;m Jack, currently pursing master&#39;s degree at NTU CSIE.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack&#39;s Space">
+<meta property="og:url" content="https://jackchen890311.github.io/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="Hello there! I&#39;m Jack, currently pursing master&#39;s degree at NTU CSIE.">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/me/ghent.jpg">
+<meta property="article:author" content="Jack Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/me/ghent.jpg"><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jack\'s Space',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/cover/space_and_man.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Jack's Space</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/">生活隨筆</a></span></div><div class="content">嗨，好久不見！ 最近特別忙碌，好一陣子沒有來更新了。趁著前幾天在新電腦上重新架好 hexo 的環境，順便來隨意更新一下生活近況。（舊電腦實在太炸，已經用五六年了，鍵盤還一直壞，忍不住換了新筆電，M4 Pro 真香～） 繼上次更新在聊尋找實習後，這半年（2024&#x2F;07～2025&#x2F;03）發生了許多蠻值得記錄的事情，就且聽我娓娓道來吧。 關於工作我於七月加入 Appier 擔任 ML Scientist Intern，到目前為止都還在實習。每週工作三到四天，可以一半遠端的工作模式也讓我有較多彈性，細節也許我之後會再發一篇文單獨來談，總體而言我還是蠻滿意這個經歷的。 另外，我依然有在接家教，但現在學生數量降到一個，每週大概一到兩次，準備起來是蠻輕鬆的，除了學生很常請假，和會佔用一點時間以外，整體也是挺不錯的。 最後，我也陸陸續續準備面試了一些正職的面試（真的好累……），之後也會有一篇文章跟大家分享，總之目前是拿到了還算喜歡的...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">一年又過去啦～又到了要找暑期實習的時間了，如果還沒看過去年的暑期實習面試心得文可以 點我 觀看。今年我的策略一樣是只找大公司 &amp; 有興趣的職位，因為順利的話畢業也許可以直接拿 Return Offer，就不用再找工作了。另外我主要是找暑期，以 SWE、AI &amp; ML 相關的職缺為主。（雖然我最後去的是長期實習 XD） 面試紀錄 投遞履歷：18 家公司 面試邀請：3 家公司 Offer Get：1 家公司  最後去 Appier 做 Machine Learning Scientist Intern，我也只有拿到這個 Offer。 Google - SWE Intern第一關（1&#x2F;29 &amp; 1&#x2F;30）- Online Coding Interview x 2一月初投的，中間兩三周都沒收到任何消息，還以為涼去，結果到快月底了才收到面試邀請，還好我一月都算有在加減刷題，話雖如此但面試前幾天還是緊張到靠北。題外話，我原本選一中一英，但莫名其妙變成二中，不知道該開心還是該難過，因為我也不知道到底語言會不會影響評分 @@。 以下因為 Google...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C-%E6%95%99%E5%AD%B8/">C++ 教學</a></span></div><div class="content">HackMD 完整版請點我 類別（Class）作為物件導向的程式語言，C++ 的 class 相關語法可以說是非常重要與常用，在大型專案的開發一定少不了他的身影，且多樣又彈性的語法支援，可以說是將物件導向的概念發揮到了極致。此處我們簡述一些常見的相關語法與概念，過於高深或少見的語法我們會先略過。  基本語法  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566class Car &#123;    private:        int wheels;        string plateID;        string driver;        bool engine;        int meters;    public:        Car(string plateID, string driver);        ~Car();        void...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C-%E6%95%99%E5%AD%B8/">C++ 教學</a></span></div><div class="content">哈囉！許久沒有更新了，因為碩班真的是好忙呀嗚嗚，等我寒假或是比較有空的時候，會再開始更新一些東西。這次來發 C++ 的教學文章，延續之前的 Python 教學系列文，在教完 Python 之後，學生說想學 C++，身為好老師的我就又做了一份講義給他，抱持著造福社會的精神，就順便分享到我的網站上。（題外話：這個學生上個月剛教滿一年，也是我目前接最久的家教，甚至打這篇文章的現在也在幫他上課哈哈。之後還有一些其他主題的教學文，整理完以後我再發上來。） 此系列文只有兩篇，建立在你已經會寫基本的 Python，或是看完我的 Python 教學系列文的基礎上撰寫，所以如果還沒看過的可以點 這邊 來看。那因為已經有一個程式語言的概念了，所以我會著重在 C++ 與 Python 不同的地方，那些差不多的語法（if-else, for, while…） 我會在最前面速速帶過，有不懂的話建議回去參照對應的 Python 教學文部分，或是我提供的參考連結。一樣要提的是，我原本是做講義用，文字部分不會太詳盡，有需要更詳盡的內容歡迎聯絡我，如果我有空就可以幫你上課...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/">極短篇</a></span></div><div class="content">距離開學大約經過一個月，昨天突然有感而發，於是就有了這篇簡短的心得文。 大學做專題的時候，盧老師曾經講過：「做研究要靠興趣支撐」，之前還沒多想，但這句話最近常常浮現在我腦海裡，直到最近大概可以略為體會那種感覺。 這一個月大概是我人生中學習動力特別高的一段時期。上次有這種感覺是大一初學程式時，那種接觸新領域，思考如何寫 code 叫電腦解決問題的快樂。近期的種種也讓我再次感受到，學習可以很有趣，還有以興趣為支持的重要性。（赫然發現能主修自己有興趣的學科，也是一件很難能可貴的事情，特別是在台灣。很感謝大一的我有做出困難的決定，繼續努力往資訊領域深耕！） 雖然目前還遠遠稱不上是在作研究，但是不論是看到最新的研究成果，或是在看以前的 paper，總是會發現一些酷酷的東西，而這些酷酷的東西總是讓我覺得很好玩，也很興奮，很期待未來 AI 的發展會走到何處。 不免俗的還是要說，真的很幸運可以進入資工所念研，每天想到這件事情都還是很快樂，也很感謝在這邊遇到的各位強者，偶爾也會有「不愧是台大，一堆怪物」的感覺在腦中浮現。雖然我現在還處在一團亂的狀態（還是不太會看...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/09/11/intern-at-TSMC/" title="在 TSMC 實習的日子 - 2023 夏，台南"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/tsmc_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="在 TSMC 實習的日子 - 2023 夏，台南"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/11/intern-at-TSMC/" title="在 TSMC 實習的日子 - 2023 夏，台南">在 TSMC 實習的日子 - 2023 夏，台南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-09-11T13:36:41.000Z" title="發表於 2023-09-11 21:36:41">2023-09-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">繼上篇文章 2023 年科技業暑期實習面試心得 講述我尋找暑期實習的過程後，這篇文章要來講的是我這兩個月在 TSMC 實習的心得感想。我實習的地方在台南的南科台積十四 B 廠（F14P5），實習單位是廠務數位發展部（FACDD）底下的自動化課，對於土生土長的台北人來說，雖然遠到靠北，但也是個體驗台南生活的好機會，所以會順便分享一些在台南生活的所見所聞。 六月：行前準備、專案說明我大概五月底收到 Offer，考慮了幾天後就答應了，主要是也沒有其他選擇，加上除了台南很遠之外，對公司跟工作內容都算可以接受。接著六月陸陸續續有收到台積電的信，像是要先繳交資料、做體檢、或是未來的 buddy 有先來聯絡我，跟我說明專案情況等等。此時我大部分的時間都在享受最後自由的時光，再利用一些空閒時間稍微看一些關於 IR...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/31/short-no-man-sky/" title="極短篇：The Oatmeal Problem 與 No Man's Sky"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/nomanssky.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：The Oatmeal Problem 與 No Man's Sky"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/31/short-no-man-sky/" title="極短篇：The Oatmeal Problem 與 No Man's Sky">極短篇：The Oatmeal Problem 與 No Man's Sky</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-07-31T15:30:58.000Z" title="發表於 2023-07-31 23:30:58">2023-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/">極短篇</a></span></div><div class="content">新的系列開始囉！這個系列我打算分享我打在 臉書 上的文章，可能就是一些極短篇，可以在 3 - 5 分鐘內讀完的那種。內容就不一定，但大多應該會是我覺得很酷的東西，應該比較偏向資工或 AI 方面的科普吧，主要就以分享或探討為主。  今天要分享的是在看 Paper 時偶然看到覺得很有趣的一個問題：The oatmeal problem。The oatmeal problem 指的是在 procedural generation 或任何 generative process 裡面會遇到的一個問題，當你大量生成看似不同但本質上沒有太大差異的 content 時，對於使用者來說其實是沒有甚麼意義的。舉個例子來說，若我今天生成 10000 碗燕麥粥，碗中的燕麥都以隨機的方式擺放，雖然數學上來說他們都是不同且獨一無二的，但對使用者來說他們就只是一堆燕麥粥，並沒有甚麼差異。因此在 creative generation 中，如何讓使用者不會感到單調無趣，是個需要考慮的問題。 有感觸的原因是這款遊戲我本人幾個月前才買，結果玩沒多久就覺得膩了便棄坑。當初看到 No man’s sky...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/05/24/summer-intern-2023/" title="2023 年科技業暑期實習面試心得"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/tsmc.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2023 年科技業暑期實習面試心得"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/05/24/summer-intern-2023/" title="2023 年科技業暑期實習面試心得">2023 年科技業暑期實習面試心得</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-05-24T12:57:07.000Z" title="發表於 2023-05-24 20:57:07">2023-05-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">在正式進入研究所前的暑假，有人會拿來大玩特玩、有人要先進實驗室做準備、而我則是選擇將這兩個月投入實習。主要是因為自己還沒有甚麼大公司實習的經驗，加上也希望早日體驗不同的工作內容，在未來選擇第一份工作時會比較有方向。我在今年一到四月陸陸續續投了十幾家公司，皆以大公司暑期實習為主，職位包含 Software Engineer、Data Scientist 等等，也因為我只投暑期實習，加上不想再去新創，因此公司選擇上有一定的限制。這篇文章就簡單分享我的面試過程與心得，然後我很爛大家就看看笑笑就好。另外，聽很多人說今年的缺比去年少很多，也比較難拿到面試機會與 Offer，不知道這種狀況何時才會好轉。 面試紀錄以下粗略地按照投遞時間排序。  投遞履歷：15 家公司 面試邀請：6 家公司 13 個職位 Offer Get：2 家公司 2 個職位  最後決定去 TSMC 的廠務數位發展部擔任暑期實習生。 Google - SWE Intern結果：直接感謝信，枉費我還有請人內推…… Yahoo - DevOps Intern第一關（3&#x2F;10）- 線上技術面談面試前瘋狂刷...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/05/05/lets-play-ig-api/" title="來玩玩 Instagram 的基本顯示 API 吧！"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/IG.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="來玩玩 Instagram 的基本顯示 API 吧！"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/05/05/lets-play-ig-api/" title="來玩玩 Instagram 的基本顯示 API 吧！">來玩玩 Instagram 的基本顯示 API 吧！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-05-05T11:41:28.000Z" title="發表於 2023-05-05 19:41:28">2023-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="content">2025 更新：基本顯示 API 已被棄用 這下頭痛了，原本研究的都沒用了，之後再來看看新的方法要如何操作……只能說我真的越來越討厭 Meta 了（來源）。  先來 這邊 看看我把 Instagram 上的貼文整合到我的個人網站上的成果吧！ 為啥要爬 Instagram API？會有這個念頭，是我之前某天突然想到，如果可以把我的 拉麵帳號 中的內容整合到我的個人網站上，那應該還不錯吧？不過，我一開始想的其實是做一個互動式地圖，並把我吃過的每間店標上去，讓使用者可以依地點挑選店家，還能馬上看到我的食評，感覺就很不錯。後來發現似乎不是很好做，那就留給未來吧 XD。這次我做的主要只是去爬取 Instagram 的 API，並把爬下來的內容作清理，再以我網站框架所要求的格式寫入上傳，其實沒什麼太技術的細節，但從結果來看應該可以說是有點樣子，之後也可以自動更新內容（但因為我的網站是使用靜態網站的框架，需要我手動上傳我更新的內容；如果是動態網站可以直接把呼叫 API 的部分寫在網站上，做動態的渲染等等），接著就來看看我怎麼做的吧！ 來看看 官方文檔...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/04/30/intern-at-retailing-data/" title="在 Ret[AI]ling Data 實習的日子"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/retailing.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="在 Ret[AI]ling Data 實習的日子"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/04/30/intern-at-retailing-data/" title="在 Ret[AI]ling Data 實習的日子">在 Ret[AI]ling Data 實習的日子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2023-04-30T15:16:55.000Z" title="發表於 2023-04-30 23:16:55">2023-04-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">四月底結束了我在 Ret[AI]ling Data 八個月的實習，也算是蠻長的一段時間，想說趁記憶猶新，隨意紀錄一下這段實習的點點滴滴，以便未來回顧。這篇文可能會很隨意，因為我就是把我想到的打下來 XD 如何找到這間公司？其實我開始找實習是去年七月底剛回臺灣時，原本的計畫是要再讀一年大五，把輔修的工科海洋系剩下的學分拿完。但人算不如天算，剩下不多的課程竟然衝堂，如果要修完就得再花一年，再問過教授跟教務處依然沒有辦法以後，只好忍痛放棄輔修學位，於是我就只剩一堂體育就能畢業。 但距離我預計念研究所還有一整年，那時候也壓根還沒開始申請，所以這一年等於沒其他事情。再加上因為經濟因素（出國把錢都花光了QQ），必須得賺錢養活自己，所以就決定乾脆專心工作，努力開始找實習與家教。其實原本這一年如果繼續輔修的話，也有實習的打算，但就可能沒這麼急，不過總之後來的種種事情，還有家裡因素，讓我決定趕快找個工作。八月時實習的職缺並不太多，加上我想找 AI、ML...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分類</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">C++ 教學</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">Python 教學</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"><span class="card-category-list-name">學習筆記</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/"><span class="card-category-list-name">工作紀錄</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/"><span class="card-category-list-name">極短篇</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/"><span class="card-category-list-name">生活隨筆</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>標籤</span></div><div class="card-tag-cloud"><a href="/tags/Exchange/" style="font-size: 1.15em; color: rgb(50, 198, 135);">Exchange</a><a href="/tags/UK/" style="font-size: 1.15em; color: rgb(185, 50, 52);">UK</a><a href="/tags/Birmingham/" style="font-size: 1.15em; color: rgb(50, 50, 50);">Birmingham</a><a href="/tags/PC/" style="font-size: 1.22em; color: rgb(97, 101, 180);">PC</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(187, 50, 177);">Hexo</a><a href="/tags/Github/" style="font-size: 1.15em; color: rgb(174, 86, 122);">Github</a><a href="/tags/Python/" style="font-size: 1.45em; color: rgb(149, 87, 145);">Python</a><a href="/tags/Conda/" style="font-size: 1.15em; color: rgb(188, 174, 81);">Conda</a><a href="/tags/C/" style="font-size: 1.22em; color: rgb(122, 194, 89);">C++</a><a href="/tags/Tutorial/" style="font-size: 1.45em; color: rgb(99, 84, 135);">Tutorial</a><a href="/tags/NTU/" style="font-size: 1.15em; color: rgb(117, 50, 152);">NTU</a><a href="/tags/Master/" style="font-size: 1.3em; color: rgb(50, 50, 66);">Master</a><a href="/tags/OS/" style="font-size: 1.15em; color: rgb(50, 100, 50);">OS</a><a href="/tags/Windows/" style="font-size: 1.15em; color: rgb(157, 184, 93);">Windows</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(147, 127, 50);">Linux</a><a href="/tags/Internship/" style="font-size: 1.38em; color: rgb(153, 56, 175);">Internship</a><a href="/tags/TSMC/" style="font-size: 1.15em; color: rgb(125, 100, 151);">TSMC</a><a href="/tags/Instagram/" style="font-size: 1.15em; color: rgb(190, 50, 78);">Instagram</a><a href="/tags/API/" style="font-size: 1.15em; color: rgb(161, 162, 114);">API</a><a href="/tags/Ramen/" style="font-size: 1.15em; color: rgb(50, 114, 107);">Ramen</a><a href="/tags/Game/" style="font-size: 1.15em; color: rgb(190, 50, 122);">Game</a><a href="/tags/Generative/" style="font-size: 1.15em; color: rgb(164, 161, 50);">Generative</a><a href="/tags/Interview/" style="font-size: 1.3em; color: rgb(166, 61, 52);">Interview</a><a href="/tags/Fulltime/" style="font-size: 1.15em; color: rgb(139, 87, 69);">Fulltime</a><a href="/tags/Life/" style="font-size: 1.15em; color: rgb(55, 108, 160);">Life</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>歸檔</span>
+      <a class="card-more-btn" href="/archives/"
+            title="檢視更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/12/">
+            <span class="card-archive-list-date">
+              十二月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/09/">
+            <span class="card-archive-list-date">
+              九月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/07/">
+            <span class="card-archive-list-date">
+              七月 2023
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/05/">
+            <span class="card-archive-list-date">
+              五月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/04/">
+            <span class="card-archive-list-date">
+              四月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              三月 2023
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">25</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">49.8k</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-04-02T08:38:18.387Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Keep learning and exploring.","Stay true to yourself.","Feel free to reach out!"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Keep learning and exploring.","Stay true to yourself.","Feel free to reach out!"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

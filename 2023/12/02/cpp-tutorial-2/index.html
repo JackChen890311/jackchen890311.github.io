@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++ 教學系列文 (2) - 類別、延伸議題 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="HackMD 完整版請點我 類別（Class）作為物件導向的程式語言，C++ 的 class 相關語法可以說是非常重要與常用，在大型專案的開發一定少不了他的身影，且多樣又彈性的語法支援，可以說是將物件導向的概念發揮到了極致。此處我們簡述一些常見的相關語法與概念，過於高深或少見的語法我們會先略過。  基本語法  12345678910111213141516171819202122232425262">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 教學系列文 (2) - 類別、延伸議題">
+<meta property="og:url" content="https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="HackMD 完整版請點我 類別（Class）作為物件導向的程式語言，C++ 的 class 相關語法可以說是非常重要與常用，在大型專案的開發一定少不了他的身影，且多樣又彈性的語法支援，可以說是將物件導向的概念發揮到了極致。此處我們簡述一些常見的相關語法與概念，過於高深或少見的語法我們會先略過。  基本語法  12345678910111213141516171819202122232425262">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/C++.png">
+<meta property="article:published_time" content="2023-12-02T08:07:18.000Z">
+<meta property="article:modified_time" content="2025-02-05T06:09:12.079Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Tutorial">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/C++.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++ 教學系列文 (2) - 類別、延伸議題",
+  "url": "https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/",
+  "image": "https://jackchen890311.github.io/img/cover/C++.png",
+  "datePublished": "2023-12-02T08:07:18.000Z",
+  "dateModified": "2025-02-05T06:09:12.079Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++ 教學系列文 (2) - 類別、延伸議題',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/C++.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">C++ 教學系列文 (2) - 類別、延伸議題</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">C++ 教學系列文 (2) - 類別、延伸議題</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-02-05T06:09:12.079Z" title="更新於 2025-02-05 14:09:12">2025-02-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C-%E6%95%99%E5%AD%B8/">C++ 教學</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>9分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://hackmd.io/C7kIxIuJQImM_x64fhuM_A?view">HackMD 完整版請點我</a></p>
+<h2 id="類別（Class）"><a href="#類別（Class）" class="headerlink" title="類別（Class）"></a>類別（Class）</h2><p>作為物件導向的程式語言，C++ 的 class 相關語法可以說是非常重要與常用，在大型專案的開發一定少不了他的身影，且多樣又彈性的語法支援，可以說是將物件導向的概念發揮到了極致。此處我們簡述一些常見的相關語法與概念，過於高深或少見的語法我們會先略過。</p>
+<ul>
+<li>基本語法</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> wheels;</span><br><span class="line">        string plateID;</span><br><span class="line">        string driver;</span><br><span class="line">        <span class="type">bool</span> engine;</span><br><span class="line">        <span class="type">int</span> meters;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Car</span>(string plateID, string driver);</span><br><span class="line">        ~<span class="built_in">Car</span>();</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">turnOnEngine</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">checkEngine</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">drive</span><span class="params">(<span class="type">int</span> distance)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">turnOffEngine</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">whoisDriving</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getMeters</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Car::<span class="built_in">Car</span>(string plateID, string driver) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;wheels = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;plateID = plateID;</span><br><span class="line">    <span class="keyword">this</span>-&gt;driver = driver;</span><br><span class="line">    <span class="keyword">this</span>-&gt;engine = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;meters = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">turnOnEngine</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car::~<span class="built_in">Car</span>() &#123;</span><br><span class="line">    <span class="comment">// This is a Destructor</span></span><br><span class="line">    <span class="comment">// You can and you should delete dynamically allocated memory here</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Car::turnOnEngine</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;<span class="built_in">checkEngine</span>()) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;engine = <span class="literal">true</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Engine Started!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Car::checkEngine</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Car::drive</span><span class="params">(<span class="type">int</span> distance)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (engine) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;meters += distance;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Drive &quot;</span> &lt;&lt; distance &lt;&lt; <span class="string">&quot; kilometers.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Engine is not turned on.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Car::turnOffEngine</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;engine = <span class="literal">false</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Engine has been turned off.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Car::whoisDriving</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="keyword">this</span>-&gt;driver &lt;&lt; <span class="string">&quot; is driving the car.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Car::getMeters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;meters;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>從上面的例子中，我們可以發現幾點與 Python 較不同的地方：</p>
+<ul>
+<li>甚麼是 private、public？</li>
+<li>Constructor 與 Desturctor 在哪裡？</li>
+<li>self 變成 this 了？</li>
+<li>為何所有 function 前面都有 Car::？</li>
+</ul>
+<p>別擔心，我們一樣一樣來看。</p>
+<h3 id="Private、Public、Protected"><a href="#Private、Public、Protected" class="headerlink" title="Private、Public、Protected"></a>Private、Public、Protected</h3><p>在C++中，private、public 和 protected 是用來定義類別中成員的可存取性（accessibility）的關鍵字，它們決定了這些成員在類別的內部和外部的可見性和可存取性。</p>
+<ul>
+<li>Private：僅限類別內部成員存取，不可透過外部存取（像是從外面寫 c.wheels 就是非法操作會報錯，必須透過額外的 getter 與 setter 才能對其進行操作），不會被繼承</li>
+<li>Protected：與 Private 類似，唯一不同是會被繼承</li>
+<li>Public：可以任意從外部取用，無任何限制</li>
+</ul>
+<p>簡而言之，如果目前還沒有複雜的繼承需求，就簡單使用 public 與 private 區分即可！不想讓別人操作到的就用 private，沒差的就用 public！</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.wongwonggoods.com/all-posts/cplusplus/cpp-concept/c-public-protected-private/">參考：C++ public, protected, private 總和比較整理</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/a3192048/article/details/82191795">延伸：C++ public、protected、private 和 friend</a></p>
+</blockquote>
+<h4 id="Getter-Setter"><a href="#Getter-Setter" class="headerlink" title="Getter &amp; Setter"></a>Getter &amp; Setter</h4><p>為了要存取與修改 Private member variable，我們會使用 Getter &amp; Setter 來幫助我們。</p>
+<ul>
+<li>Getter<ul>
+<li>用於獲取變數的值</li>
+<li>通常公開的方法，通常以 get 為前綴，後接要獲取的屬性名稱</li>
+</ul>
+</li>
+<li>Setter<ul>
+<li>用於設定變數的值</li>
+<li>通常公開的方法，通常以 set 為前綴，後接要設定的屬性名稱，並會接受參數以更新屬性的值</li>
+</ul>
+</li>
+</ul>
+<p>一個簡單的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> myValue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getValue</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myValue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setValue</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; newValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;myvalue = newValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>延伸問題：既然如此，為何不乾脆直接改成 Public 就好？<br>參考解答：因為透過 Getter &amp; Setter，我們可以更好的控制 Private Member Variable 的獲取與修改，進而避免不想要或意外的情況產生</p>
+</blockquote>
+<h4 id="封裝（Encapsulation）"><a href="#封裝（Encapsulation）" class="headerlink" title="封裝（Encapsulation）"></a>封裝（Encapsulation）</h4><p>上述的 Getter &amp; Setter，其實就是實現了物件導向程式設計（OOP）中「封裝」的概念。（<a target="_blank" rel="noopener" href="https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw#OOP-%E4%B8%89%E5%A4%A7%E7%B2%BE%E9%9A%A8---%E5%B0%81%E8%A3%9D%E3%80%81%E7%B9%BC%E6%89%BF%E3%80%81%E5%A4%9A%E5%9E%8B%EF%BC%88%E8%A3%9C%E5%85%85%EF%BC%89">複習：OOP 三大精隨</a>）</p>
+<p>將物件的內部狀態和行為隱藏在物件內部，只公開必要的方法給外界使用。封裝可以保護物件免於外界的非法存取，並且讓物件更容易維護和修改。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string private_name; <span class="comment">// This cannot be accessed from the outside</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    string public_name; <span class="comment">// This can be accessed from the outside</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setName</span><span class="params">(<span class="type">const</span> string&amp; name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;private_name = name; <span class="comment">// Setter</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Constructor-Destructor"><a href="#Constructor-Destructor" class="headerlink" title="Constructor &amp; Destructor"></a>Constructor &amp; Destructor</h3><p>constructor(建構函式) 與 destructor(解構函式) 是 class 中的兩種特別函式，當主程式中產生某 class 的物件時，該 class 的建構函式即會自動執行；而當物件生命周期結束，則在物件消滅前會自動執行解構函式。</p>
+<p>其相應語法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Car::<span class="built_in">Car</span>(string plateID, string driver) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;wheels = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;plateID = plateID;</span><br><span class="line">    <span class="keyword">this</span>-&gt;driver = driver;</span><br><span class="line">    <span class="keyword">this</span>-&gt;engine = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;meters = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">turnOnEngine</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car::~<span class="built_in">Car</span>() &#123;</span><br><span class="line">    <span class="comment">// This is a Destructor</span></span><br><span class="line">    <span class="comment">// You can and you should delete dynamically allocated memory here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>參考：<a target="_blank" rel="noopener" href="http://cpp2015.blogspot.com/2015/07/constructor-destructor.html">Constructor &amp; Destructor</a></p>
+</blockquote>
+<h3 id="This"><a href="#This" class="headerlink" title="This"></a>This</h3><p>C++ 中的 this 就與 Python 中的 self 相同意思，但不同於 Python 的是，我們不需要將 this 寫在 member function 的第一個參數位置，就能夠直接使用。</p>
+<ul>
+<li><code>self.</code> (python) &lt;-&gt; <code>this-&gt;</code> (C++)</li>
+</ul>
+<p>事實上，當我們創建一個類別指標，並讓該指標指向一個實體物件後，也可以使用 <code>-&gt;</code> 來存取該物件的屬性或方法，如下所示。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Car mycar;</span><br><span class="line">Car* carPtr = &amp;mycar;</span><br><span class="line">cout &lt;&lt; mycar.driver &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; carPtr-&gt;driver &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<h3 id="成員函式的宣告與定義（Car-）"><a href="#成員函式的宣告與定義（Car-）" class="headerlink" title="成員函式的宣告與定義（Car::）"></a>成員函式的宣告與定義（Car::）</h3><p>一般來說，我們會將函數的實作（Implementation）與函數宣告（Declaration）寫在一起，像是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Class Test&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Test</span>()&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Constructor!&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Hello!&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        ~<span class="built_in">Test</span>()&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Destructor!&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>不過此種寫法的壞處是，當我們成員函式太多時，整個 Class 會變得很常難以閱讀，因此我們也可以把實作部分（Implementation）拉出來寫，但為了要避免混淆，必須加上該函式的範籌說明（Test::）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Class Test&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Test</span>();</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">        ~<span class="built_in">Test</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Test::<span class="built_in">Test</span>()&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Constructor!&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Test::hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello!&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Test::~<span class="built_in">Test</span>()&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Destructor!&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="More-on-Class：繼承與多型"><a href="#More-on-Class：繼承與多型" class="headerlink" title="More on Class：繼承與多型"></a>More on Class：繼承與多型</h2><p>可參考之前講過的 <a target="_blank" rel="noopener" href="https://hackmd.io/w5n1Ow8NSea_-UAeXTJDSw#OOP-%E4%B8%89%E5%A4%A7%E7%B2%BE%E9%9A%A8---%E5%B0%81%E8%A3%9D%E3%80%81%E7%B9%BC%E6%89%BF%E3%80%81%E5%A4%9A%E5%9E%8B%EF%BC%88%E8%A3%9C%E5%85%85%EF%BC%89">OOP 三大精隨</a>。</p>
+<h3 id="繼承（Inheritance）"><a href="#繼承（Inheritance）" class="headerlink" title="繼承（Inheritance）"></a>繼承（Inheritance）</h3><p>子類別可以繼承父類別的屬性和方法，並且可以擴展或覆寫父類別的行為。繼承可以提高程式碼重複使用性，並且可以讓類別之間建立階層關係，方便對類別進行分類和管理。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        string name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Animal</span>(<span class="type">const</span> string&amp; name) &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">walk</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;walking&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">eat</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;eating&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> : <span class="keyword">public</span> Animal &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Dog</span>(<span class="type">const</span> string&amp; name) &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;name = name + <span class="string">&quot; the dog&quot;</span>;</span><br><span class="line">        &#125; <span class="comment">// Constructor will not be inherited</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Dog <span class="title">A</span><span class="params">(<span class="string">&quot;A&quot;</span>)</span></span>;</span><br><span class="line">    A.<span class="built_in">walk</span>();</span><br><span class="line">    A.<span class="built_in">eat</span>();</span><br><span class="line">    cout &lt;&lt; A.name &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">walking</span><br><span class="line">eating</span><br><span class="line">A the dog</span><br></pre></td></tr></table></figure>
+
+<h4 id="繼承方法"><a href="#繼承方法" class="headerlink" title="繼承方法"></a>繼承方法</h4><p>上述的繼承使用 <code>class Dog : public Animal</code> 這行，這邊有個 keyword <code>public</code> 出現，這個 keyword 代表這邊使用的方法為 <code>public</code> 繼承方法，依照不同的繼承方法與不同的父類別可見度，會產生如下的表格：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/ByFcnXoya.png"></p>
+<p>這表格我認為參考就好，不用記下來，搞不清楚的話就都用 <code>public</code> 繼承方法即可。</p>
+<h3 id="多型（Polymorphism）"><a href="#多型（Polymorphism）" class="headerlink" title="多型（Polymorphism）"></a>多型（Polymorphism）</h3><p>同樣的方法名稱可以在不同的類別中有不同的實現方式，這稱為多型。多型可以讓程式碼更加靈活，並且可以讓不同的物件對相同的方法有不同的行為。多型可以通過繼承和介面實現，是物件導向設計中非常重要的概念。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        string name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Animal</span>(<span class="type">const</span> string&amp; name) &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">walk</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;walking&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">eat</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;eating&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> : <span class="keyword">public</span> Animal &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Dog</span>(<span class="type">const</span> string&amp; name) &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;name = name + <span class="string">&quot; the dog&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">walk</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is using foot to walk&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">eat</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is eating bone&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Duck</span> : <span class="keyword">public</span> Animal &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Duck</span>(<span class="type">const</span> string&amp; name) &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;name = name + <span class="string">&quot; the duck&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">walk</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is using two feet to walk&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">eat</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">            cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is eating worm&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Dog <span class="title">A</span><span class="params">(<span class="string">&quot;A&quot;</span>)</span></span>;</span><br><span class="line">    <span class="function">Duck <span class="title">B</span><span class="params">(<span class="string">&quot;B&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    A.<span class="built_in">eat</span>();</span><br><span class="line">    B.<span class="built_in">eat</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Output:</span><br><span class="line">A is eating bone</span><br><span class="line">B is eating worm</span><br></pre></td></tr></table></figure>
+
+<h3 id="相關補充"><a href="#相關補充" class="headerlink" title="相關補充"></a>相關補充</h3><p>老實說我覺得這邊都太複雜了，但為了課程完整性還是簡單提及，除非你是 C++ 老手，不然根本不可能記得，所以我的建議是先了解概念，有需要再回來查。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://shengyu7697.github.io/cpp-virtual/">C++ virtual 的兩種用法</a></li>
+<li><a target="_blank" rel="noopener" href="https://note.artchiu.org/2021/04/01/c%E4%B8%AD%E7%9A%84overload%E3%80%81override%E5%92%8Coverwrite/">C++ 中的 Overload、Override 和 Overwrite</a></li>
+<li><a target="_blank" rel="noopener" href="https://shengyu7697.github.io/cpp-const/">C++ const 的三種用法與範例</a></li>
+</ul>
+<h2 id="延伸主題：Call-by-value-address-reference-assignment"><a href="#延伸主題：Call-by-value-address-reference-assignment" class="headerlink" title="延伸主題：Call by value &#x2F; address &#x2F; reference &#x2F; assignment"></a>延伸主題：Call by value &#x2F; address &#x2F; reference &#x2F; assignment</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.wongwonggoods.com/all-posts/cplusplus/cpp-concept/cpp-value-address-pointer-reference/">C++ call by value, call by address (pointer), call by reference </a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/starbugs/python-%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82-pass-by-value-pass-by-reference-%E8%88%87-pass-by-sharing-1873a2c6ac46">Python 是 Pass By Value, Pass by Reference, 還是 Pass by Sharing？</a></li>
+</ul>
+<h2 id="延伸主題：C-STL"><a href="#延伸主題：C-STL" class="headerlink" title="延伸主題：C++ STL"></a>延伸主題：C++ STL</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://4yu.dev/post/STL/">C++ STL 全</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/">https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/Tutorial/">Tutorial</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/C++.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">C++ 教學系列文 (1) - 基本語法速覽、指標</div></div><div class="info-2"><div class="info-item-1">哈囉！許久沒有更新了，因為碩班真的是好忙呀嗚嗚，等我寒假或是比較有空的時候，會再開始更新一些東西。這次來發 C++ 的教學文章，延續之前的 Python 教學系列文，在教完 Python 之後，學生說想學 C++，身為好老師的我就又做了一份講義給他，抱持著造福社會的精神，就順便分享到我的網站上。（題外話：這個學生上個月剛教滿一年，也是我目前接最久的家教，甚至打這篇文章的現在也在幫他上課哈哈。之後還有一些其他主題的教學文，整理完以後我再發上來。） 此系列文只有兩篇，建立在你已經會寫基本的 Python，或是看完我的 Python 教學系列文的基礎上撰寫，所以如果還沒看過的可以點 這邊 來看。那因為已經有一個程式語言的概念了，所以我會著重在 C++ 與 Python 不同的地方，那些差不多的語法（if-else, for, while…） 我會在最前面速速帶過，有不懂的話建議回去參照對應的 Python 教學文部分，或是我提供的參考連結。一樣要提的是，我原本是做講義用，文字部分不會太詳盡，有需要更詳盡的內容歡迎聯絡我，如果我有空就可以幫你上課...</div></div></div></a><a class="pagination-related" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</div></div><div class="info-2"><div class="info-item-1">一年又過去啦～又到了要找暑期實習的時間了，如果還沒看過去年的暑期實習面試心得文可以 點我 觀看。今年我的策略一樣是只找大公司 &amp; 有興趣的職位，因為順利的話畢業也許可以直接拿 Return Offer，就不用再找工作了。另外我主要是找暑期，以 SWE、AI &amp; ML 相關的職缺為主。（雖然我最後去的是長期實習 XD） 面試紀錄 投遞履歷：18 家公司 面試邀請：3 家公司 Offer Get：1 家公司  最後去 Appier 做 Machine Learning Scientist Intern，我也只有拿到這個 Offer。 Google - SWE Intern第一關（1&#x2F;29 &amp; 1&#x2F;30）- Online Coding Interview x 2一月初投的，中間兩三周都沒收到任何消息，還以為涼去，結果到快月底了才收到面試邀請，還好我一月都算有在加減刷題，話雖如此但面試前幾天還是緊張到靠北。題外話，我原本選一中一英，但莫名其妙變成二中，不知道該開心還是該難過，因為我也不知道到底語言會不會影響評分 @@。 以下因為 Google...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-02</div><div class="info-item-2">C++ 教學系列文 (1) - 基本語法速覽、指標</div></div><div class="info-2"><div class="info-item-1">哈囉！許久沒有更新了，因為碩班真的是好忙呀嗚嗚，等我寒假或是比較有空的時候，會再開始更新一些東西。這次來發 C++ 的教學文章，延續之前的 Python 教學系列文，在教完 Python 之後，學生說想學 C++，身為好老師的我就又做了一份講義給他，抱持著造福社會的精神，就順便分享到我的網站上。（題外話：這個學生上個月剛教滿一年，也是我目前接最久的家教，甚至打這篇文章的現在也在幫他上課哈哈。之後還有一些其他主題的教學文，整理完以後我再發上來。） 此系列文只有兩篇，建立在你已經會寫基本的 Python，或是看完我的 Python 教學系列文的基礎上撰寫，所以如果還沒看過的可以點 這邊 來看。那因為已經有一個程式語言的概念了，所以我會著重在 C++ 與 Python 不同的地方，那些差不多的語法（if-else, for, while…） 我會在最前面速速帶過，有不懂的話建議回去參照對應的 Python 教學文部分，或是我提供的參考連結。一樣要提的是，我原本是做講義用，文字部分不會太詳盡，有需要更詳盡的內容歡迎聯絡我，如果我有空就可以幫你上課...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-1/" title="Python 教學系列文 (1) - Overview、環境建置、基礎語法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (1) - Overview、環境建置、基礎語法</div></div><div class="info-2"><div class="info-item-1">哈囉！這次來發一些關於 Python 的教學文章，會有這個系列文，主要是因為前陣子接了一個家教，就順便把辛苦整理的自編講義一起放上來了，內容雖然不深，但也涵蓋了初學 Python 所會碰到的各主題，若完全對 Python 不了解的話，這個系列文應該可以給你一些概念，完成後若想再自我進修也能大概有個方向。 此系列文預計會分十篇左右，內容涵蓋基礎語法、迴圈、函數、套件、類別等等主題，皆有範例程式碼可以參考，基本內容都會涵蓋到，不過因為我原本是做講義用，文字部分不會太詳盡。另外，雖然公開在網路上，但希望各位轉載還是標註一下來源，畢竟也是我辛辛苦苦整理的心血呢。最後，有興趣的話，我還有在接學生（偷打廣告 XD）。 HackMD 完整版請點我 Overview程式語言分為高階語言、組合語言、機器語言等等，Python屬於高階語言的一種。機器語言與組合語言直接控制電腦硬體，但難以閱讀與開發；高階語言易於閱讀與開發，但需要「翻譯」給電腦聽。  來自 Python 官方網站的介紹：Python...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-4/" title="Python 教學系列文 (4) - 清單、CSV 檔案"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (4) - 清單、CSV 檔案</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 清單（List） 清單是 Python 最常用、也最好用的資料類別，具順序性 甚麼東西都可以裝，裝的東西也可以不同，也可以用清單包清單 想成一個百寶袋，甚麼都可以塞，再拿出來 32位python的儲存上限是536870912 個元素 64位python的儲存上限是1152921504606846975 個元素   前面提到的字母陣列其實概念跟清單很像  12345678910111213141516171819202122232425262728293031&gt;&gt;&gt; l = [1, 1.0, 10, &quot;test&quot;]&gt;&gt;&gt; print(l[0])1&gt;&gt;&gt; print(l[2])10&gt;&gt;&gt; l[2] = 100&gt;&gt;&gt; print(l[2])100&gt;&gt;&gt; print(l[-1])&quot;test&quot;&gt;&gt;&gt; print(len(l))4&gt;&gt;&gt;...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-2/" title="Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (2) - 寫程式的流程、電腦架構、二進位制、排版方式</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 寫程式的流程（Workflow） Debug：在我們遇到各種 Error 時，需要去檢查程式哪裡寫錯 有時候是語法錯、有時候是邏輯錯… 整體的寫程式流程：  電腦架構非常簡易版的架構圖如下：  Input：鍵盤、滑鼠、觸控螢幕、麥克風等等 Output：螢幕、喇叭、印表機等等 Storage：硬碟、光碟機等等 CPU（中央處理器）：負責電腦的大部分運算 Memory：電腦內暫存的記憶體空間   補充 - GPU（顯示卡）：負責遊戲、3D繪圖、機器學習等等運算若對這個有興趣的話，可以去查「計算機結構」或修相關課程   二進位制 電腦使用二進位制來儲存數值，簡易的對照如下圖   若對這個有興趣的話，可以去查「數位邏輯」、「電路學」或修相關課程   排版方式（Formatting）一些排版準則如下：  通常在運算元前後會空白 在每個區段的 code...</div></div></div></a><a class="pagination-related" href="/2023/03/23/python-tutorial-5/" title="Python 教學系列文 (5) - 函數、其他常見資料結構"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/python_clear.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="info-item-2">Python 教學系列文 (5) - 函數、其他常見資料結構</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 Python 基礎 (2)函數（Function）我們以前寫 print(‘Hello’) 時，其實就是在呼叫函數，這個函數會幫我們把我們傳入的 ‘Hello’ 印出來。其他像是 range()、type()、input() 等也都是函數，各有不同的用途。 我們也可以透過特定語法來定義自己的函數，透過函數可以幫我們達成「模組化」，省去重複的 code 同時提供更多彈性來執行類似的動作。 一個函數包含名稱、本體、輸入（Input）與輸出（Output），後兩者又叫做參數（Parameters）與回傳值（Return Values）。有時我們也會在函數最一開始的地方加入註解，來說明函數的使用方式以及參數 &#x2F; 回傳值類型。  以下圖為例，輸入是蘋果，輸出是切半的蘋果，函數 h 的作用是把蘋果切半。 名稱 用關鍵字 def 來宣告函數，名稱接在 def...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">6</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%9E%E5%88%A5%EF%BC%88Class%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">類別（Class）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Private%E3%80%81Public%E3%80%81Protected"><span class="toc-number">1.1.</span> <span class="toc-text">Private、Public、Protected</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Getter-Setter"><span class="toc-number">1.1.1.</span> <span class="toc-text">Getter &amp; Setter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%81%E8%A3%9D%EF%BC%88Encapsulation%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">封裝（Encapsulation）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructor-Destructor"><span class="toc-number">1.2.</span> <span class="toc-text">Constructor &amp; Destructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#This"><span class="toc-number">1.3.</span> <span class="toc-text">This</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%93%A1%E5%87%BD%E5%BC%8F%E7%9A%84%E5%AE%A3%E5%91%8A%E8%88%87%E5%AE%9A%E7%BE%A9%EF%BC%88Car-%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">成員函式的宣告與定義（Car::）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#More-on-Class%EF%BC%9A%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">More on Class：繼承與多型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B9%BC%E6%89%BF%EF%BC%88Inheritance%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">繼承（Inheritance）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B9%BC%E6%89%BF%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">繼承方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%9E%8B%EF%BC%88Polymorphism%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">多型（Polymorphism）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E9%97%9C%E8%A3%9C%E5%85%85"><span class="toc-number">2.3.</span> <span class="toc-text">相關補充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E4%B8%BB%E9%A1%8C%EF%BC%9ACall-by-value-address-reference-assignment"><span class="toc-number">3.</span> <span class="toc-text">延伸主題：Call by value &#x2F; address &#x2F; reference &#x2F; assignment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E4%B8%BB%E9%A1%8C%EF%BC%9AC-STL"><span class="toc-number">4.</span> <span class="toc-text">延伸主題：C++ STL</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/sea_sky.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="突然想寫的生活近況更新"/></a><div class="content"><a class="title" href="/2025/04/01/life_update_2025_04/" title="突然想寫的生活近況更新">突然想寫的生活近況更新</a><time datetime="2025-04-01T15:30:58.000Z" title="發表於 2025-04-01 23:30:58">2025-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"/></a><div class="content"><a class="title" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</a><time datetime="2024-06-28T07:57:07.000Z" title="發表於 2024-06-28 15:57:07">2024-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (2) - 類別、延伸議題"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-2/" title="C++ 教學系列文 (2) - 類別、延伸議題">C++ 教學系列文 (2) - 類別、延伸議題</a><time datetime="2023-12-02T08:07:18.000Z" title="發表於 2023-12-02 16:07:18">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/C++.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="C++ 教學系列文 (1) - 基本語法速覽、指標"/></a><div class="content"><a class="title" href="/2023/12/02/cpp-tutorial-1/" title="C++ 教學系列文 (1) - 基本語法速覽、指標">C++ 教學系列文 (1) - 基本語法速覽、指標</a><time datetime="2023-12-02T08:07:13.000Z" title="發表於 2023-12-02 16:07:13">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ntu_card.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="極短篇：碩班第一個月之心得"/></a><div class="content"><a class="title" href="/2023/09/28/short-master-1st-month/" title="極短篇：碩班第一個月之心得">極短篇：碩班第一個月之心得</a><time datetime="2023-09-28T07:30:58.000Z" title="發表於 2023-09-28 15:30:58">2023-09-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2023/12/02/cpp-tutorial-2/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2023/12/02/cpp-tutorial-2/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = 'C++ 教學系列文 (2) - 類別、延伸議題'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
