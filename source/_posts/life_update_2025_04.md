@@ -5,7 +5,7 @@ categories:
 tags:
     - Life
     - Master
-cover: img/cover/sea_sky.jpeg
+cover: /img/cover/sea_sky.jpeg
 date: 2025-04-01 23:30:58
 ---
 

@@ -6,7 +6,7 @@ categories:
 tags:
     - Game
     - Generative
-cover: img/cover/nomanssky.jpg
+cover: /img/cover/nomanssky.jpg
 ---
 
 新的系列開始囉！這個系列我打算分享我打在 [臉書](https://www.facebook.com/jack.chen.89311) 上的文章，可能就是一些極短篇，可以在 3 - 5 分鐘內讀完的那種。內容就不一定，但大多應該會是我覺得很酷的東西，應該比較偏向資工或 AI 方面的科普吧，主要就以分享或探討為主。

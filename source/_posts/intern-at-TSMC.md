@@ -5,7 +5,7 @@ categories:
 tags:
   - Internship
   - TSMC
-cover: img/cover/tsmc_card.jpg
+cover: /img/cover/tsmc_card.jpg
 date: 2023-09-11 21:36:41
 ---
 

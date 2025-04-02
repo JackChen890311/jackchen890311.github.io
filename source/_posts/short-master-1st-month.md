@@ -5,7 +5,7 @@ categories:
     - 極短篇
 tags:
     - Master
-cover: img/cover/ntu_card.jpg
+cover: /img/cover/ntu_card.jpg
 ---
 
 距離開學大約經過一個月，昨天突然有感而發，於是就有了這篇簡短的心得文。

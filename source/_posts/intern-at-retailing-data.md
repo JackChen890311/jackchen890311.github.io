@@ -4,7 +4,7 @@ categories:
     - 工作紀錄
 tags:
     - Internship
-cover: img/cover/retailing.jpg
+cover: /img/cover/retailing.jpg
 date: 2023-04-30 23:16:55
 ---
 

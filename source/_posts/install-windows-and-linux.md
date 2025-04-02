@@ -8,7 +8,7 @@ tags:
   - OS
   - Windows
   - Linux
-cover: img/cover/windows_linux.png
+cover: /img/cover/windows_linux.png
 ---
 
 繼上一篇選完電腦配件、下完單取完貨之後，拿回家第一件事就是裝作業系統啦，不然開機只有 BIOS 介面，都沒辦法使用呢。我對這塊一開始也是完全不熟，還好在慢慢摸索跟問朋友之後，花個一兩天總算是都搞定了。本文會簡單分享我裝雙系統的過程，還有途中遇到的一些小困難，順便也會分享一些實用的資源給大家。
