@@ -5,7 +5,7 @@ categories:
 tags:
   - 
 cover: /img/cover/C++.png
-date: 2025-10-28 15:57:07
+date: 2025-03-28 15:57:07
 ---
 
 # 演算法與資料結構入門
@@ -855,13 +855,14 @@ Bit manipulation 是在電腦中用「位元」（bit）來進行操作的技巧
 #### 戴克斯特拉演算法（Dijkstra's Algorithm）
 ![image](https://hackmd.io/_uploads/HyE20njxJx.png)
 
-戴克斯特拉演算法是一種廣泛使用的方法，特別適用於權重非負的有向圖和無向圖，通過不斷選擇當前距離最小的未訪問節點，並更新其相鄰節點的最短距離，來尋找從起始節點到其他所有節點的最短路徑。
+戴克斯特拉演算法是一種廣泛使用的方法，特別適用於權重非負的有向圖和無向圖，通過不斷選擇**當前距離最小的未訪問節點**，並更新其所有相鄰節點的最短距離，來尋找從起始節點到其他所有節點的最短路徑。
 
 特別要注意的是，若存在負權重的邊，則戴克斯特拉演算法就不再適用。為什麼？讓我們看看以下的圖：
 ![image](https://hackmd.io/_uploads/BkrsVKGb1e.png)
 你想到原因了嗎？在這張圖中，使用戴克斯特拉演算法會發生什麼事情？
 
 - [基礎演算法系列 — Graph 資料結構與 Dijkstra’s Algorithm](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E5%9F%BA%E7%A4%8E%E6%BC%94%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97-graph-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%88%87dijkstras-algorithm-6134f62c1fc2)
+- [Visualization of Above Example](https://graphicmaths.com/computer-science/graph-theory/dijkstras-algorithm/)
 
 #### Bellman–Ford Algorithm
 相較於戴克斯特拉演算法，Bellman–Ford Algorithm 可以用在含有負權重邊的情況，是一種能處理負權重邊的最短路徑演算法。
@@ -873,14 +874,14 @@ Bellman–Ford 的核心步驟是反覆對所有邊做 Relaxation（檢查是否
 > 反過來說，若在 V−1 次放鬆後，還有可以縮短的路徑，則代表該圖中存在負權重環，因此最短路徑不存在。
 > 因此，Bellman–Ford 不僅適用於包含負權重邊的圖，還可以檢測負權重環。
 
-- [[演算法] 最短路徑 (Bellman-Ford 演算法)](https://ithelp.ithome.com.tw/m/articles/10209748)
+- [[演算法] 最短路徑 (Bellman-Ford 演算法)](https://ithelp.ithome.com.tw/articles/10209748)
 
 #### Floyd-Warshall Algorithm
 Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs Shortest Paths Problem），是一種基於動態規劃的方法。與 Dijkstra 和 Bellman-Ford 不同的是，Floyd-Warshall 可以計算算任意兩個節點之間的最短路徑。
 
 其主要的想法是：假設我們要從節點 i 到節點 j 找最短路徑，若能經由中間節點 k 獲得更短的距離，那麼我們就更新該最短路徑。用遞迴公式表示如下：$d[i][j] = min(d[i][j], d[i][k] + d[k][j])$。因此我們總共需要做 V 次更新，每次都檢查各點對之間的距離是否有更佳解。
 
-- [[演算法] 最短路徑 (Floyd-Warshall 演算法)](https://ithelp.ithome.com.tw/m/articles/10209186)
+- [[演算法] 最短路徑 (Floyd-Warshall 演算法)](https://ithelp.ithome.com.tw/articles/10209186)
 
 
 #### Leetcode
@@ -903,10 +904,10 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 以下為兩個常見且易懂的貪婪演算法，來尋找圖中的最小生成樹：
 
 ##### Kruskal's algorithm
-不斷從所有邊裡面選花費最小的邊，並判斷加入此邊可否連通兩個不同的 Component，直到所有的節點都被相連。
+不斷從所有邊裡面選花費最小的邊，並判斷加入此邊可否連通兩個不同的 Component，直到所有的節點都被相連。（以所有邊作為每輪檢查的對象）
 
 ##### Prim's Algorithm
-其精神與 Dijkstra's Algorithm 有幾分類似。選定一個起點，挑選與其連接的邊中，花費最小且可連接兩個不同 Component 的相連，再把新連接的所有邊加入下一輪的檢查。
+選定一個起點，挑選與其連接的邊中，花費最小且可連接兩個不同 Component 的相連，再把新連接的所有邊加入下一輪的檢查。其精神與 Dijkstra's Algorithm 有幾分類似。（以目前相連的點包含的所有邊，作為每輪檢查的對象）
 
 > 備註：也有所謂的最大生成樹，概念一模一樣
 
@@ -1026,9 +1027,50 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 ## 差分陣列（Difference Array）
 ![image](https://hackmd.io/_uploads/HkVH0QvMyl.png)
 
-差分陣列是一種工具，用來快速修改一段數列中的值。它的重點是，只改變起點和終點的記錄，讓整段的變化能在最後快速計算出來。
+差分陣列是一種快速處理**區間更新**的技巧，特別適用於頻繁對陣列特定區間進行加減的情境，其基於前綴和（Prefix Sum）的概念來輔助實現。
 
-以上圖的例子來看
+其核心概念是透過維護一個輔助陣列 diff，來記錄原陣列的數值變化，使得區間的加減可以在 O(1) 時間內完成，而最終結果則可透過前綴和的技巧來計算。
+
+
+### 輔助陣列的建立
+輔助陣列 diff 的計算方法為：
+diff[0] = nums[0]
+diff[i] = nums[i] - nums[i-1] (i > 0) 
+
+---
+
+以上圖來看，原陣列 nums 是 [8, 2, 6, 3, 1]：
+diff[0] = 8
+diff[1] = nums[1] - nums[0] = 8 - 2 = -6
+diff[2] = nums[2] - nums[1] = 6 - 2 = 4
+...
+diff = [8, -6, 4, -3, -2]
+
+有注意到嗎？每個 diff 記錄的是「這個位置與上個位置的差異」。紀錄差異而不記錄實際數值，將會幫助我們更容易的更新整個區間。
+
+
+### 區間的更新
+在建立完輔助陣列 diff 後，若要對原陣列 nums 在區間 [L, R] 內的所有元素加上 X，則執行：
+diff[L] += X（標記從 L 開始增加 X）
+diff[R+1] -= X（標記從 R+1 開始減少 X）
+
+最終透過前綴和來還原結果： 
+nums[i] = nums[i-1] + diff[i]
+
+---
+
+以上圖來看，若我們想在 [1, 3] 之間的所有元素增加 2：
+diff[1] += 2
+diff[3] -= 2
+diff = [8, -4, 4, -5, -2]
+
+透過前綴和還原的結果為：
+nums2 = [8, 4, 8, 3, 1]
+
+相比原本的結果：
+nums = [8, 2, 6, 3, 1]
+
+是不是很神奇！
 
 - [小而美的算法技巧：差分陣列](https://labuladong.online/algo/data-structure/diff-array/)
 
@@ -1036,15 +1078,13 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 - [1094. Car Pooling](https://leetcode.com/problems/car-pooling/description/)
 - [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/description/)
  
- 
- 
-<!-- TODO
+
 ## 背包問題（Knapsack Problem）
 ![image](https://hackmd.io/_uploads/SJHGJ6jgyx.png)
 
 ## 旅行銷售員問題（TSP, Traveling Salesman Problem）
 ![image](https://hackmd.io/_uploads/Sk8U16sekl.png) 
---->
+
 
 <!-- # Progress check
 ## 講義
@@ -1052,5 +1092,5 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 - TODO: Update to blog
 
 ## 學生
-- 進階演算法：Dijkstra 實作中
+- 進階演算法：Floyd-Warshall 實作
 -->

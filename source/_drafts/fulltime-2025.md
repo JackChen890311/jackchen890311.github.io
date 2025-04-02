@@ -1,12 +1,12 @@
 ---
-title: 2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, MediaTek, Perfect Corp.）
+title: 2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, MediaTek, Perfect Corp., Appier）
 categories:
   - 工作紀錄
 tags:
   - Fulltime
   - Interview
 cover: /img/cover/appier.jpg
-date: 2025-10-28 15:57:07
+date: 2025-03-28 15:57:07
 ---
 
 # 面試紀錄
@@ -64,16 +64,20 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 
 
 ## Google
-應徵職位：SWE New Grad, Silicon New Grad, Imaging and On-Device ML SWE (Silicon)  
+應徵職位：SWE New Grad, Silicon New Grad, Imaging and On-Device ML SWE (Silicon), Silicon Intern
 時程：
 - 10/1 請人內推，送出所有職位的申請
 - 10/16 收到 Imaging and On-Device ML SWE 感謝信
 - 10/21 收到 SWE 約面試
-- 11/7 1st Round Coding Interview （原本敲定 10/31，後來臨時往後延）
+- 11/7 SWE 1st Round Coding Interview （原本敲定 10/31，後來臨時往後延）
 - 11/15 主動寄信詢問後續，無聲卡
 - 12/25 無聊丟一下 Silicon Intern
-- 12/31 Silicon Intern 感謝信
-- 請學長內推 Silicon Intern
+- 12/31 Silicon Intern 感謝信（聽學長說是畢業時間問題）
+- 1/9 請學長內推 Silicon Intern
+- 2/6 Silicon Intern 1st Round Tech Interview
+- 2/19 Silicon Intern 2nd Round Tech Interview
+- 2/25 Positive Feedback (But waiting for other interviewees)
+- 3/21 Follow-up on Results but No Reply
 
 ### SWE 1st Round
 - 考官是中國人，但英文面試，所以有點痛苦
@@ -83,6 +87,27 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 - 我答的蠻爛的，應該是涼了，英文 + 不熟悉的題目完全無法
 - 但面試官還加時 20 mins 讓我把問題做完，最後有給出可行解，時間複雜度不算太糟
 
+### Silicon Intern 1st Round Tech Interview
+- English based
+- 介紹自己的 ML 專案
+- 介紹 GAN Diffusion
+- GAN / Diffusion Training problems and solutions
+- 介紹 Transformer and its pros and cons
+- 有沒有能力自幹 Training code
+- Training failed how to check
+- Explain any DL optimization methods (Literally Any)
+- Coding
+	- Circular array calculate shortest distance between 2 indexes
+	- Follow-up: shortest distance between given index and item
+
+### Silicon Intern 2nd Round Tech Interview
+- English based
+- Activation Functions
+  - Swish Analysis (Derivative, Choose of Constant, Characteristics, Compare with other Activation Functions)
+  - Activation Functions in Transformer 
+- Latent Diffusion Models
+  - Conditioning, Inference
+  - Extend to Video Generation: How to do that? Some related problems and how to solve it? 
 
 ## NVIDIA
 應徵職位：AI Engineer, DL Engineer  
@@ -107,7 +132,7 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 - 第三題：座標點朝向彼此移動，判斷是否全部聚在同一點
 
 #### Mutiple Choices
-考的內容很多元，我覺得出的蠻好的，內容包含主要圍繞在 DL，常見的模型如 CNN, GAN, UNet, AutoEncoder 等等都有出現，也有考一些基本的 CV 與 NLP 概念，像是怎麼訓練、微調、特定任務的標籤要怎麼處理等等，也會詢問常見的 library 像是 transformers，需要具備紮實的 DL 基礎。
+考的內容很多元，我覺得出的蠻好的，內容包含主要圍繞在 DL，常見的模型如 CNN, GAN, UNet, AutoEncoder 等等都有出現，也有考一些基本的 CV 與 NLP 概念，像是怎麼訓練、微調、特定任務的標籤要怎麼處理等等，也會詢問常見的 Library 像是 Transformers，需要具備紮實的 DL 基礎。
 
 ### 線上一面
 流程：
@@ -115,7 +140,7 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 - 簡介工作內容，大約 5 分鐘
 - 個人經歷介紹，大約 10 - 20 分鐘
 - AI 相關技術問題，大約 0 - 10 分鐘 <!-- 有被問 GAN，還有 Model train 不起來的情境題 -->
-- Coding 題與相關 follow-up，大約 30 分鐘
+- Coding 題與相關 Follow-up，大約 30 分鐘
 
 先前有寄信問 HR 面試流程，但沒有得到回覆，只好隨意準備。  
 
@@ -141,14 +166,14 @@ Coding 題的部分沒有很難，但很考驗基礎功力，我遇到的題目�
 後半部的個人經歷就一樣我介紹他問問題，這次的面試官問的蠻細節的，但也還好我都算有答出來，現在就是看前半的表現可不可以了。
 
 ## MediaTek
-應徵職位：演算法開發_影像演算法、軟韌體開發_ AI&Computing Platform  
+應徵職位：演算法開發_影像演算法、軟韌體開發_ AI & Computing Platform  
 時程：
 - 10/17 收到面談邀約
 - 11/15 以前 完成線上測驗（適性、TOEIC、Coding）
 - 11/15 第一次面試（演算法開發_影像演算法）
 - 12/18 寄信問後續，對方回覆無後續
 - 1/9 又收到另一個 Team 面試邀約
-- 1/17 第一次面試（軟韌體開發_ AI&Computing Platform）
+- 1/17 第一次面試（軟韌體開發_ AI & Computing Platform）
 
 ### Online Coding Test
 - 2 Coding + 16 Mutiple Choices + 8 Blank filling, 90 minutes
@@ -162,7 +187,7 @@ Coding 題的部分沒有很難，但很考驗基礎功力，我遇到的題目�
 但我覺得這部分相較好準備，就是把你的經歷都弄熟，展現出你的自信就好，相較之下 Google 的 Coding Interview 難多了。
 問完已經過一小時多，後面就換部門介紹與提問，整題感覺聊的很不錯，他們也有展現出一定的興趣，應該算蠻有機會的。
 
-### 第一次面試（軟韌體開發_ AI&Computing Platform）
+### 第一次面試（軟韌體開發_ AI & Computing Platform）
 這個部門我上次也有收到邀請，但面試沒出現，後來拿到 Offer 了想說就加減隨意面。
 流程一樣自介 -> 提問 -> 部門介紹，這個部門好像主要是寫不同的 OS Driver，還有把 AI Model 放到他們特化的 Chips 上面，跟一些相關的 Evaluation 跟 Verification 等等。
 其實算是我相對不熟 & 沒興趣的職位，大部分都在碰蠻底層的東西，主要 Skill Set 也是 C/C++、OS 等等，加上他還說每年大概一個月需要加班，所以其實我沒啥興趣。
@@ -228,5 +253,25 @@ HR 會看著你線上考，考完之後馬上看成績，確定沒問題後就�
 ### 後續
 後來主管聯繫我，跟我說他幫我談到的薪水，最後落在一開始的數字與我喊的數字之間（我原本以為會直接給到我的數字）。
 但我這邊因為還想等等看 NVIDIA，所以就請他在等我幾週，但 NVIDIA 那邊都沒有後續，所以最後決定先接受起來，之後再看狀況。
+
+## Appier
+應徵職位：Machine Learning Scientist & Engineer  
+備註：有研替，原本在這實習，請主管幫忙問能否轉正，但是轉到不同 Team，一樣需要面試，並且是跟不同主管  
+時程：
+- 與現主管約 1-on-1 聊目前 Offer 狀況與轉正情形
+- 2/5 收到 HR 聯絡說明並敲定面試時間
+- 3/6 主管一面（技術面試）
+- 3/20 Thank You Letter
+
+### 3/6 主管一面（Bidding Team）
+- 自我介紹與相關專案、Scientist Related Questions、Engineer Related Questions
+- 每個 Session 各 20-30 分鐘，但最後總共面了 2 小時
+- Scientist
+  - Design Product Search Recommendation Model
+  - Details: Feature / Model / Training / Online & Offline / Evaluation...
+- Engineer
+  - Pick one of your project and explain it from start to end
+  - Two Dimensional Logs Processing & Transformation
+  - Prefix Sum
 
 # 結語
