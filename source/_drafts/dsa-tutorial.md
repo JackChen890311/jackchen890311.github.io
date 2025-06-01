@@ -922,13 +922,13 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 
 有向無環圖（Directed Acyclic Graph）又稱 DAG，顧名思義，是有方向且不包含環的 Graph。
 
-拓樸排序（Topological Sorting）是一種將 DAG 中的所有節點排序的方式，使得每條有向邊的排序符合其方向性（舉例來說：u->v->w 的拓樸排序為 [u, v, w]）。
+拓樸排序（Topological Sorting）是一種將 DAG 中的所有節點排序的方式，使得每條有向邊的排序符合其方向性（舉例來說：u->v->w 的拓樸排序為 [u, v, w]）。因為 DAG 之中不會有環，故只要是 DAG 則必能找到一個拓樸排序。
 
 
 ![image](https://hackmd.io/_uploads/B1txFj8gR.png)
 
 
-以下介紹一個在有向無環圖中尋找拓樸排序的方法：
+以下介紹一個在 DAG 中尋找拓樸排序的方法：
 
 #### Kahn's Algorithm
 透過找出圖中的 in-degree 為零的節點，逐步移除這些節點，並同時更新圖的 in-degree，從而達到拓樸排序。
@@ -936,93 +936,10 @@ Floyd-Warshall 演算法用於解決所有點對最短路徑問題（All-Pairs S
 - 若無法移除所有節點，則代表圖中有環（因此此圖不會是 DAG）
 
 
-
 #### Leetcode
+- [207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)
 - [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/description/)
 
-
-
-## 單調堆疊/佇列（Monotonic Stack/Queue）
-單調堆疊和單調佇列是處理數列問題的工具，與一般的堆疊/佇列類似，但差異是我們在遍歷陣列時，會持續保持堆疊/佇列裡面的元素「有規律地排序」，比如從小到大或從大到小，而那些不符合順序的會將其剔除，並拿來做我們需要的運算。
-
-一般來說，比較常使用到的是單調堆疊，因此在 Leetcode 上也比較有機會看到。單調佇列的概念基本上差不多，只差在移除元素的方法與應用情景不同。
-
-<!-- ![image](https://hackmd.io/_uploads/rypgyhjgkx.png) -->
-
-<!-- - [演算法筆記系列 — Monotonic Stack/Queue](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-monotonic-stack-queue-5ad1c35a3dfe) -->
-
-### 單調堆疊（Monotonic Stack）
-覺得上面有點複雜的話，我們可以來看看以下的例子：
-
-#### 單調遞增堆疊（Monotonically Increasing Stack）
-![image](https://hackmd.io/_uploads/r1gLZiqBye.png)
-在遞增的情境下，我們遍歷原始陣列，並將元素加入堆疊中。但若新加入的元素比堆疊頂端的元素還小，我們就將頂端元素取出，再做一次檢查，重複執行直到「單調遞增」的性質被滿足為止。
-
-#### 單調遞減堆疊（Monotonically Decreasing Stack）
-![image](https://hackmd.io/_uploads/ByJw-ocByl.png)
-
-#### 單調堆疊的應用
-單調堆疊的主要應用是快速處理「最近相關」的問題，特別是數列中每個元素的上一個/下一個更大值/更小值。
-
-
-假設數列 [6, 1, 5, 7]，求每個數的「下一個更大值」。
-* 初始化：
-    * stack = [] # index of element
-    * result = [-1, -1, -1, -1] # next greater element
-* 遍歷：
-    * 2: stack = [0]
-    * 1: stack = [0, 1]
-    * 5: 
-        * 5 > stack[1], pop 1 from stack, result[1] = 5
-        * stack = [0, 2]
-    * 7:
-        * 7 > stack[2], pop 2 from stack, result[2] = 7
-        * 7 > stack[0], pop 0 from stack, result[0] = 7
-        * stack = [3]
-* 結果：[7, 5, 7, -1]
-
-- [參考：Monotonic Stack – 陪你刷題](https://haogroot.com/2020/09/01/monotonic-stack-leetcode/)
-
-#### Leetcode
-- [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
-
-
-### 單調佇列（Monotonic Queue）
-與單調堆疊類似，但單調佇列不是嚴格意義上的佇列。單調佇列允許從兩端移除元素，與一般佇列的只能進先出不同，這麼做的好處是方便我們處理特定的問題。
-
-#### 單調佇列的應用
-![image](https://hackmd.io/_uploads/Syq69Jsrkg.png)
-單調隊列的主要用途是處理「滑動窗口」問題。滑動窗口是指在數列中一段固定範圍內進行計算，像找最大值或最小值。
-
-
-假設數列 [3, 1, -3, -1, 0]，求各個滑動窗口（k = 3）的最大值。
-* 初始化：
-    * queue = [] # index of element
-    * result = [] # sliding window maximum
-* 遍歷：
-    * [3, 1, -3]: queue = [0, 1, 2], result = [3]
-    * [1, -3, -1]: queue = [1, 3], result = [3, 1]
-    * [-3, -1, 0]: queue = [3, 4], result = [3, 1, 0]
-* 結果：[3, 1, 0]
-
-- [參考：Sliding Window Maximum – Monotonic queue 的應用](https://bengersay.com/sliding-window-maximum/)
-
-
-#### Leetcode
-- [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-
-
-### 為什麼一個可以從兩端移除，一個只能從一端？
-為什麼會有這樣的差異？
-* 單調堆疊（Monotonic Stack）：
-    * 資料的處理是單方向的（例如從左到右或從右到左）。
-    * 只有最近加入的元素是相關的，因此僅需從頂部彈出即可。
-* 單調隊列（Monotonic Queue）：
-    * 資料是動態處理的，通常涉及一個範圍（例如滑動視窗）。
-    * 兩端的元素都可能變得不相關：前端的元素可能因為超出視窗範圍而需要移除，而後端的元素可能因違反單調性而需要移除。
-
-
-單調堆疊與單調佇列算是比較進階與特殊的資料結構，平常我們並不會常常使用，但在某些情況下，他們的單調性質可以很好的幫我們解決特定問題，因此也是值得學習的主題。
 
 ## 差分陣列（Difference Array）
 ![image](https://hackmd.io/_uploads/HkVH0QvMyl.png)
@@ -1077,10 +994,329 @@ nums = [8, 2, 6, 3, 1]
 ### Leetcode
 - [1094. Car Pooling](https://leetcode.com/problems/car-pooling/description/)
 - [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/description/)
+
+
+## 單調堆疊/佇列（Monotonic Stack/Queue）
+單調堆疊和單調佇列是處理數列問題的工具，與一般的堆疊/佇列類似，但差異是我們在遍歷陣列時，會持續保持堆疊/佇列裡面的元素「有規律地排序」，比如從小到大或從大到小，而那些不符合順序的會將其剔除，並拿來做我們需要的運算。
+
+一般來說，比較常使用到的是單調堆疊，因此在 Leetcode 上也比較有機會看到。單調佇列的概念基本上差不多，只差在移除元素的方法與應用情景不同。
+
+<!-- ![image](https://hackmd.io/_uploads/rypgyhjgkx.png) -->
+
+<!-- - [演算法筆記系列 — Monotonic Stack/Queue](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-monotonic-stack-queue-5ad1c35a3dfe) -->
+
+### 單調堆疊（Monotonic Stack）
+覺得上面有點複雜的話，我們可以來看看以下的例子：
+
+#### 單調遞增堆疊（Monotonically Increasing Stack）
+![image](https://hackmd.io/_uploads/r1gLZiqBye.png)
+在遞增的情境下，我們遍歷原始陣列，並將元素加入堆疊中。但若新加入的元素比堆疊頂端的元素還小，我們就將頂端元素取出，再做一次檢查，重複執行直到「單調遞增」的性質被滿足為止。
+
+#### 單調遞減堆疊（Monotonically Decreasing Stack）
+![image](https://hackmd.io/_uploads/ByJw-ocByl.png)
+
+#### 單調堆疊的應用
+單調堆疊的主要應用是快速處理「最近相關」的問題，特別是數列中每個元素的上一個/下一個更大值/更小值。
+
+
+假設數列 value = [6, 2, 5, 7]，求每個數的「下一個更大值」。
+* 初始化：
+    * stack = [] # (index, value) of element
+    * result = [-1, -1, -1, -1] # next greater element
+* 遍歷：
+    * 6: stack = [(0, 6)], result = [-1, -1, -1, -1]
+    * 2: stack = [(0, 6), (1, 2)], result = [-1, -1, -1, -1]
+    * 5: stack = [(0, 6), (2, 5)], result = [-1, 5, -1, -1]
+        * Remove (1, 2) (value[1] = 2 < value[2] = 5)
+        * result[1] = value[2] = 5
+    * 7: stack = [(3, 7)], result = [7, 5, 7, -1]
+        * Remove (2, 5) (value[2] = 5 < value[3] = 7)
+        * result[2] = value[3] = 7
+        * Remove (0, 6) (value[0] = 6 < value[3] = 7)
+        * result[0] = value[3] = 7
+* 結果：[7, 5, 7, -1]
+
+- [參考：Monotonic Stack – 陪你刷題](https://haogroot.com/2020/09/01/monotonic-stack-leetcode/)
+
+#### Leetcode
+- [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
+- [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
+- [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description)
+
+
+### 單調佇列（Monotonic Queue）
+與單調堆疊類似，但單調佇列不是嚴格意義上的佇列。單調佇列允許從兩端移除元素，與一般佇列的只能進先出不同，這麼做的好處是方便我們處理特定的問題。
+
+#### 單調佇列的應用
+![image](https://hackmd.io/_uploads/Syq69Jsrkg.png)
+單調隊列的主要用途是處理「滑動窗口」問題。滑動窗口是指在數列中一段固定範圍內進行計算，像找最大值或最小值。
+
+
+假設數列 value = [3, 2, -3, -1, 0]，求各個滑動窗口（k = 3）的最大值。
+* 初始化：
+    * queue = [] # (index, value) of element
+    * result = [] # sliding window maximum
+* 遍歷：
+    * [3, 2, -3]: queue = [(0, 3), (1, 2), (2, -3)], result = [3]
+        * The value of queue is monotonic
+        * Add value[0] = 3 to result
+    * [2, -3, -1]: queue = [(1, 2), (3, -1)], result = [3, 2]
+        * Remove (2, -3) (value[2] = -3 < value[3] = -1)
+        * Remove (0, -3) (exceeding boundary)
+        * Add value[1] = 2 to result
+    * [-3, -1, 0]: queue = [(4, 0)], result = [3, 1, 0]
+        * Remove (3, -1) (value[3] = -1 < value[4] = 0)
+        * Add (4, 0) in queue for this round
+        * Remove 1 for exceeding boundary
+        * Add value[4] = 0 to result
+* 結果：[3, 2, 0]
+
+- [參考：Sliding Window Maximum – Monotonic queue 的應用](https://bengersay.com/sliding-window-maximum/)
+
+
+#### Leetcode
+- [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+
+
+### 為什麼一個可以從兩端移除，一個只能從一端？
+為什麼會有這樣的差異？
+* 單調堆疊（Monotonic Stack）：
+    * 資料的處理是單方向的（例如從左到右或從右到左）。
+    * 只有最近加入的元素是相關的，因此僅需從頂部彈出即可。
+* 單調隊列（Monotonic Queue）：
+    * 資料是動態處理的，通常涉及一個範圍（例如滑動視窗）。
+    * 兩端的元素都可能變得不相關：前端的元素可能因為超出視窗範圍而需要移除，而後端的元素可能因違反單調性而需要移除。
+
+
+單調堆疊與單調佇列算是比較進階與特殊的資料結構，平常我們並不會常常使用，但在某些情況下，他們的單調性質可以很好的幫我們解決特定問題，因此也是值得學習的主題。
+ 
+ 
+## 最大子數列問題 (Maximum Subarray Problem)
+最大子陣列問題是指在一個整數數列中，找出一段連續子陣列，使其元素總和最大。這是經典的動態規劃問題之一，常用於資料分析，如股價變動趨勢。
+
+![image](https://hackmd.io/_uploads/BJFh7JLZxx.png)
+
+
+- 例子：給定一個陣列 [-2, -3, 4, -1, -2, 1, 5, -3]，找出總和最大的子陣列。
+- 解答：最大子陣列為 [4, -1, -2, 1, 5]，其總和為 7。
+
+### Kadane's Algorithm
+Kadane’s Algorithm 是一種專門用來解決此問題的演算法，可在線性時間內計算完成。要了解 Kadane's Algorithm，讓我們從暴力法一步一步來看。
+
+- [滴滴面试手撕算法题-kadane算法](https://zhuanlan.zhihu.com/p/85188269)
+
+#### 暴力法：遍歷全部連續子陣列
+最簡單的方式，就是窮舉所有可能的連續子陣列，並計算每一個子陣列的總和，再從中找出最大值。
+
+```python=
+def maxSubArrayBF(nums):
+    max_sum = nums[0]
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1, n+1):
+            total = sum(nums[i:j])
+            max_sum = max(max_sum, total)
+    return max_sum
+```
+
+- 時間複雜度：$O(n^3)$
+- 空間複雜度：$O(1)$
+
+就算我們用小技巧 curr_sum，來優化 sum() 的計算，時間複雜度依舊很高。
+
+```python=
+def maxSubArrayBF2(nums):
+    max_sum = nums[0]
+    n = len(nums)
+    for i in range(n):
+        curr_sum = 0
+        for j in range(i, n):
+            curr_sum += nums[j]
+            max_sum = max(max_sum, curr_sum)
+    return max_sum
+```
+
+- 時間複雜度：$O(n^2)$
+- 空間複雜度：$O(1)$
+
+#### 優化時間：動態規劃
+如果我們知道「以某個位置結尾的最大子陣列和」，那我們就可以用它來推導下一個位置的最大值 -> 動態規劃！
+
+* dp[i]: 表示 以 index i 結尾 的最大連續子陣列和。
+* dp[i] = max(dp[i-1], 0)+ nums[i]
+    * 延續之前的子陣列（dp[i-1] + nums[i]） or 重新開始（nums[i]）
+    * 若前面總和小於 0，則完全不取前面，重新計算
+
+```python=
+def maxSubArrayDP(nums):
+    n = len(nums)
+    dp = [0] * n
+    dp[0] = nums[0]
+    for i in range(1, n):
+        dp[i] = max(dp[i-1], 0) + nums[i]
+    return max(dp)
+```
+
+- 時間複雜度：$O(n)$
+- 空間複雜度：$O(n)$
+
+
+#### 優化空間：Kadane's Algorithm
+如果我們仔細觀察動態規劃的解法，會發現其實根本不需要整個 dp 陣列，因為我們只關心上一個 dp[i-1] 和目前的值。因此，Kadane's Algorithm 利用以下兩個變數，來更進一步優化 dp 解法的空間複雜度：
+
+- local_max：目前位置為結尾的最大子陣列和
+-  global_max：迄今為止出現過的最大子陣列和
+
+```python=
+def maxSubArrayKadane(nums):
+    local_max = global_max = nums[0]
+    for i in range(1, len(nums)):
+        local_max = max(local_max, 0) + nums[i]
+        global_max = max(global_max, local_max)
+    return global_max
+```
+
+- 時間複雜度：$O(n)$
+- 空間複雜度：$O(1)$
+
+至此，最大子數列問題已經被我們用僅僅 6 行的程式碼，加上 $O(n)$ 的時間與 $O(1)$ 的空間解決了。Kadane's Algorithm 是不是很精美呢？
+
+### Leetcode
+- [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
+- [918. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray)
  
 
 ## 背包問題（Knapsack Problem）
 ![image](https://hackmd.io/_uploads/SJHGJ6jgyx.png)
+
+背包問題（Knapsack Problem）是最佳化中的經典問題之一。
+該問題的基本形式是：
+- 給定一個背包，其容量為固定的正整數（C）
+- 給定 N 種物品，每個物品都有自己的重量（w）與價值（v）
+- 目標是在不超過背包容量的前提下，選擇若干物品，使得它們的總價值最大
+
+這個問題常用來模擬像是資源分配、投資選擇、或是行程安排等情境，也是一個常出現在演算法課程和競賽中的經典題型。
+
+- [Knapsack Problem - 演算法筆記](https://web.ntnu.edu.tw/~algo/KnapsackProblem.html)
+
+根據限制的種類，背包問題又可以分為以下幾種：
+
+### 分數背包問題（Fractional Knapsack Problem）
+- 每樣物品可以被切割（可放部分物品）
+- 解法：用貪婪演算法，依據「單位價值」高到低排序放入背包
+
+這個問題的解法很直覺，直接依據「單位價值」（v / w，也就是我們常說的 CP 值）的高低放入背包，直到背包裝滿為止。
+
+```python=
+def fractional_knapsack(weights, values, capacity):
+    items = sorted(zip(weights, values), key=lambda x: x[1]/x[0], reverse=True)
+    total_value = 0
+    for w, v in items:
+        if capacity >= w:
+            total_value += v
+            capacity -= w
+        else:
+            total_value += v * (capacity / w)
+            break
+    return total_value
+```
+
+### 0/1 背包問題（0/1 Knapsack Problem）
+- 每樣物品只能選一次（不可切割），也是最經典的背包問題
+- 解法：用動態規劃，考慮每一項物品「選」或「不選」
+
+最基本的解法是用 n x C 的 2D DP 矩陣，來代表在不同情況下，背包能達到的最大 total value，計算完後 dp[n][C] 即為解答。
+
+```python=
+def knapsack_2d(weights, values, capacity):
+    n = len(weights)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weights[i - 1]] + values[i - 1])
+            else:
+                dp[i][w] = dp[i - 1][w]
+    
+    return dp[n][capacity]
+```
+
+我們也可以再更優化成 1D DP 來節省空間，並同時維持方法的正確性。要注意的是在內層迴圈要以倒序方式，才不會讓在該輪更新的值影響到計算。
+
+```python=
+def knapsack_1d(weights, values, capacity):
+    n = len(weights)
+    dp = [0] * (capacity + 1)
+
+    for i in range(n):
+        for w in range(capacity, weights[i] - 1, -1):  # 倒序，避免重複選
+            dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+    
+    return dp[capacity]
+```
+
+### 有限背包問題（Bounded Knapsack Problem）
+- 每樣物品有固定數量，可能可以選擇大於 1 次
+- 解法：將物品拆成多個 0/1 物品，或用「進位優化」技巧加速 DP
+- 時間複雜度：約 O(n * W) ~ O(n log q * W)，視作法而定
+
+最簡單的解法就是將重複的物品拆成兩項物品，再用 0/1 背包問題的解法即可。
+```python=
+def bounded_knapsack_naive(weights, values, counts, capacity):
+    expanded_weights = []
+    expanded_values = []
+    for i in range(len(weights)):
+        for _ in range(counts[i]):
+            expanded_weights.append(weights[i])
+            expanded_values.append(values[i])
+    return knapsack_1d(expanded_weights, expanded_values, capacity)
+```
+
+也可以使用「進位優化」技巧加速。
+
+```python=
+def bounded_knapsack(weights, values, counts, capacity):
+    dp = [0] * (capacity + 1)
+    for i in range(len(weights)):
+        k = counts[i]
+        base = 1
+        while k > 0:
+            use = min(base, k)
+            weight = weights[i] * use
+            value = values[i] * use
+            for w in range(capacity, weight - 1, -1):
+                dp[w] = max(dp[w], dp[w - weight] + value)
+            k -= use
+            base <<= 1
+    return dp[capacity]
+```
+
+
+### 無限背包問題（Unbounded Knapsack Problem）
+- 每樣物品可以選無限次
+- 解法：動態規劃，不同於 0/1 背包，內層迴圈需順序處理
+
+因為每種物品可以選無限次，我們就不必用倒序方法來避免重複選擇，直接在內層迴圈順序選取即可。
+
+```python=
+def unbounded_knapsack(weights, values, capacity):
+    dp = [0] * (capacity + 1)
+    for i in range(len(weights)):
+        for w in range(weights[i], capacity + 1):  # 順序，允許重複選
+            dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+    return dp[capacity]
+
+```
+
+## 零錢問題（Coin Problem）
+
+- [Knapsack Problem#Coin Problem - 演算法筆記](https://web.ntnu.edu.tw/~algo/KnapsackProblem.html)
+- [Dynamic programming 深入淺出 - 以 Coin change 為例](https://medium.com/@cutesciuridae/dynamic-programming-%E6%B7%B1%E5%85%A5%E6%B7%BA%E5%87%BA-%E4%BB%A5coin-change%E7%82%BA%E4%BE%8B-4a4f3e7d98ea)
+
+### Leetcode
+- [322. Coin Change](https://leetcode.com/problems/coin-change/description/)
+- [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/description/)
 
 ## 旅行銷售員問題（TSP, Traveling Salesman Problem）
 ![image](https://hackmd.io/_uploads/Sk8U16sekl.png) 
@@ -1092,5 +1328,5 @@ nums = [8, 2, 6, 3, 1]
 - TODO: Update to blog
 
 ## 學生
-- 進階演算法：Floyd-Warshall 實作
+- 進階演算法： 單調堆疊 Leetcode second finish
 -->
