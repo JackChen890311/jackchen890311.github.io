@@ -1,20 +1,21 @@
 ---
-title: 2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, MediaTek, Perfect Corp., Appier, PicCollage, Synology）
+title: 2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)
 categories:
   - 工作紀錄
 tags:
   - Fulltime
   - Interview
-cover: /img/cover/perfect.png
-date: 2025-05-19 15:57:07
+cover: /img/cover/perfect_clean.png
+date: 2025-07-01 15:57:07
 ---
 
-# 面試紀錄
-- 投遞履歷：9 家公司
-- 面試邀請：7 家公司
-- Offer Get：2 家公司
+# 前言
+每年的面試分享文，似乎已經默默的成為我的某種習慣了（還沒看過我之前文章的，可以參考 [2023](https://jackchen890311.github.io/2023/05/24/summer-intern-2023/) 跟 [2024](https://jackchen890311.github.io/2024/06/28/summer-intern-2024/) 的分享）。但今年比較不同的是，我要碩士畢業了！因此本篇分享會從以往的實習轉成正職，職位的部分我大多都是找 ML 相關為主。
 
-最後決定去玩美移動當 Machine Learning Engineer，另一個拿到的 Offer 是 TSMC（興趣不大）。
+# 面試紀錄
+- 投遞履歷：7 家公司
+- 面試邀請：6 家公司
+- Offer Get：2 家公司
 
 ## TSMC
 應徵職位：沒分，統一丟  
@@ -40,11 +41,8 @@ date: 2025-05-19 15:57:07
 
 ### Online Coding Test (For IT)
 - 3 Questions 90 mins, no limit on language
-- 當初忘記紀錄，以下依我的印象大概寫一下
 - 聽說配分是 50, 50, 75，實習要 100 正職要 120，不確定真實性僅供參考
 - 我後兩題全對，第一題大概對一半（竟然敗在第一題嗎...）
-
-#### 題目內容
 - 第一題：經典的 1/0 背包問題，但對時間的要求蠻嚴格的，我寫到我覺得最佳了還是有一半沒過，回去複習...
 - 第二題：處理登入跟登出系統的 log，計算時間差並做一些判斷之類的，我用 hash table 輕鬆解決，不太難
 - 第三題：我忘記詳細內容了，但印象是用 Heap 的概念解的，也沒有很難。
@@ -58,7 +56,7 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 <!-- mainly focus on application in FAB (CV) -->
 
 ### 後續
-後續應該是拿到 AAID MLAD 的 Offer，但我基本上只是拿來做保底的，因為[前年已經在 TSMC 實習過了](https://jackchen890311.github.io/2023/09/11/intern-at-TSMC/)，對這間公司覺得還好。
+後續應該是拿到 AAID MLAD 的 Offer，但我因為[前年已經在 TSMC 實習過了](https://jackchen890311.github.io/2023/09/11/intern-at-TSMC/)，對這間公司的風氣覺得還好，最後就婉拒了。但不得不說 TSMC 的薪水是真的香，IT 部門大部分應該也不會太可怕，不失為一個選擇。
 
 ## Google
 應徵職位：SWE New Grad, Silicon New Grad, Imaging and On-Device ML SWE (Silicon), Silicon Intern
@@ -88,7 +86,7 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
 ### Silicon Intern 1st Round Tech Interview
 - English based
 - 介紹自己的 ML 專案
-- 介紹 GAN Diffusion
+- 介紹 GAN / Diffusion
 - GAN / Diffusion Training problems and solutions
 - 介紹 Transformer and its pros and cons
 - 有沒有能力自幹 Training code
@@ -108,7 +106,7 @@ IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處�
   - Extend to Video Generation: How to do that? Some related problems and how to solve it? 
 
 ### 後續
-SWE 後來就無聲卡了，Silicon Intern 收到的回覆是表現很不錯，但請我等他們面完其他候選人。殊不知這一等就等了好久，過程中我主動 follow-up 也被無聲，後來到四月底才收到感謝信，說雖然我表現很好，但他們最後找了其他更適合的人。再更後來我有打聽到，最後好像是選隔壁實驗室，以前上過課的老師的學生，只能說長江後浪推前浪，前浪死在沙灘上...？
+SWE 後來就無聲卡了，Silicon Intern 收到的回覆是表現很不錯，但請我等他們面完其他候選人。殊不知這一等就等了好久，過程中我主動 follow-up 也被無聲，後來到四月底才收到感謝信，說雖然我表現很好，但他們最後找了其他更適合的人。再更後來我有打聽到，最後好像是選隔壁實驗室，以前上過課的老師的學生，主因應該是因為那個老師有很多前輩在那個部門，並且他本身的發表經驗也比我多（雖然成績應該是沒有比我好）。這次大概是我最靠近 Google 的一次了，非常可惜！
 
 
 ## NVIDIA
@@ -116,21 +114,21 @@ SWE 後來就無聲卡了，Silicon Intern 收到的回覆是表現很不錯，�
 備註：有研替（他們家研替叫 intern，沒有 RSU 跟不算年資的樣子）  
 時程：
 - 10/21 收到主管聯絡詢問 RDSS 意願
-- 11/4 收到 AI Algorithm SWE (RDSS intern) Coding Test 邀請
+- 11/4 收到 AI Algorithm SWE (RDSS intern) Online Test 邀請
 - 11/25 收到一面邀請
 - 12/5 線上一面
 - 12/16 收到二面邀請
 - 12/20 線上二面
 - 12/26 寄信詢問後續（因為收到其他 Offer，想加快，但最後沒有理我）
 
-### Online Coding Test
+### Online Test
 - 3 Coding + 21 Mutiple Choices, 90 minutes
-- Coding 題蠻簡單的，感覺不著重考資結跟演算法
-- 選擇題著重 AI / DL 相關觀念
+- Coding 蠻簡單的，感覺不著重考資結跟演算法
+- Mutiple Choices 著重 AI / DL 相關觀念，會直接把 code 貼出來給你選
 
 #### Coding
 - 第一題：色碼處理（字串/十六進位/整數轉換）
-- 第二題：Scipy 基本操作（我對 Scipy 完全不熟，所以沒寫出來，到底誰做 AI 在用 scipy...）
+- 第二題：Scipy 基本操作（我對 Scipy 完全不熟，所以沒寫出來，誰做 AI 在用 scipy...）
 - 第三題：座標點朝向彼此移動，判斷是否全部聚在同一點
 
 #### Mutiple Choices
@@ -168,21 +166,23 @@ Coding 題的部分沒有很難，但很考驗基礎功力，我遇到的題目�
 
 ## Synology
 應徵職位：Product Developer
+備註：有研替  
 時程：
 - ? 投遞履歷
 
 ### 後續
-很後來才發現投過，直接被無聲卡，QQ
+很後來才發現投過，直接被無聲卡，QQ。聽說他們現在都沒在看履歷，或是定期會把舊的刷掉，不知道真假。
 
 ## MediaTek
-應徵職位：演算法開發_影像演算法、軟韌體開發_ AI & Computing Platform  
+應徵職位：演算法開發_影像演算法、軟韌體開發_AI & Computing Platform  
+備註：有研替  
 時程：
 - 10/17 收到面談邀約
 - 11/15 以前 完成線上測驗（適性、TOEIC、Coding）
 - 11/15 第一次面試（演算法開發_影像演算法）
 - 12/18 寄信問後續，對方回覆無後續
 - 1/9 又收到另一個 Team 面試邀約
-- 1/17 第一次面試（軟韌體開發_ AI & Computing Platform）
+- 1/17 第一次面試（軟韌體開發_AI & Computing Platform）
 
 ### Online Coding Test
 - 2 Coding + 16 Mutiple Choices + 8 Blank filling, 90 minutes
@@ -193,7 +193,7 @@ Coding 題的部分沒有很難，但很考驗基礎功力，我遇到的題目�
 ### 第一次面試（演算法開發_影像演算法）
 有聽說 MTK 是多部門一起，但不知為啥當天只來一個部門的兩位主管（來面我的是 AIDE，就是 MTK 裡面主要負責 AI 的部門，達哥就是他們做的）。面試前有要求做簡報，所以前半部都在自我介紹，全部講完後主管開始提問，他們真的問蠻細的，每頁經歷有興趣的都會問，也會 follow 一些相關問題來看你的人格特質，還有你遇到問題會如何解決等等。但我覺得這部分相較好準備，就是把你的經歷都弄熟，展現出你的自信就好，相較之下 Google 的 Coding Interview 難多了。問完已經過一小時多，後面就換部門介紹與提問，整題感覺聊的很不錯，他們也有展現出一定的興趣，應該算蠻有機會的。
 
-### 第一次面試（軟韌體開發_ AI & Computing Platform）
+### 第一次面試（軟韌體開發_AI & Computing Platform）
 這個部門我上次也有收到邀請，但面試沒出現，後來拿到 Offer 了想說就加減隨意面。流程一樣自介 -> 提問 -> 部門介紹，這個部門好像主要是寫不同的 OS Driver，還有把 AI Model 放到他們特化的 Chips 上面，跟一些相關的 Evaluation 跟 Verification 等等。其實算是我相對不熟 & 沒興趣的職位，大部分都在碰蠻底層的東西，主要 Skill Set 也是 C/C++、OS 等等，加上他還說每年大概一個月需要加班，所以其實我沒啥興趣。但還是花了一個半小時講好講滿，他們還問了很多關於你對工作的選擇看法，可惜的是我應該沒有要選他們。
 
 ### 後續
@@ -243,7 +243,7 @@ String Changes: N -> remove next / M -> duplicate previous
 他看起來也沒有面露難色，並表示會幫我問問看，最後還跟我要了 Line，感覺應該是有機會！於是就獲得了人生第一次談薪水的經驗，還蠻有趣的但有點怕怕的就是了哈哈哈。（其實原本的薪水我覺得也可以接受啦，但如果我有這個市場價那當然越高越好 XD）
 
 ### 後續
-後來主管聯繫我，跟我說他幫我談到的薪水，最後落在一開始的數字與我喊的數字之間（我原本以為會直接給到我的數字）。但我這邊因為還想等等看 NVIDIA，所以就請他在等我幾週，但 NVIDIA 那邊都沒有後續，所以最後決定先接受起來，之後再看狀況。
+後來主管聯繫我，跟我說他幫我談到的薪水，最後落在一開始的數字與我喊的數字之間（我原本以為會直接給到我的數字，不過我喊的確實比較高）。但我這邊因為還想等等看 NVIDIA，所以就請他再等我幾週，但 NVIDIA 那邊都沒有後續，所以最後決定先接受了。
 
 ## Appier
 應徵職位：Machine Learning Scientist & Engineer  
@@ -253,10 +253,11 @@ String Changes: N -> remove next / M -> duplicate previous
 - 2/5 收到 HR 聯絡說明並敲定面試時間
 - 3/6 主管一面（技術面試）
 - 3/20 Thank You Letter
+- 7/14 現主管幫我內推 AI Research Team，但後來沒去面試
 
 ### 主管一面（Bidding Team）
-- 自我介紹與相關專案、Scientist Related Questions、Engineer Related Questions
-- 每個 Session 各 20-30 分鐘，但最後總共面了 2 小時
+- 三個部分：自我介紹與相關專案、Scientist Related Questions、Engineer Related Questions
+- 每個部分各 20-30 分鐘，但最後總共面了 2 小時
 - Scientist
   - Design Product Search Recommendation Model
   - Details: Feature / Model / Training / Online & Offline / Evaluation...
@@ -266,32 +267,8 @@ String Changes: N -> remove next / M -> duplicate previous
   - Prefix Sum
 
 ### 後續
-後來收到 Thank You Letter 了，不太確定原因，但過幾天原主管跟我跟我約了個 1-on-1 聊天，好像說聽到的 Feedback 是我在這邊的專案太簡單，他們覺得還好。Hmmm......確實是有點簡單，我當初做就有類似的想法，不過也有可能是我包裝不好，但我好像也無可奈何，畢竟就是主管給的專案，也沒有其他 junior 或 senior 一起做。後來想說算了，反正現在這個新 Team 做的內容我也還好，相比之下我可能比較會想選完美移動，不過 Appier 的薪水、地理位置、公司風氣真的都很香......
+後來收到 Thank You Letter 了，不太確定原因，但過幾天原主管跟我跟我約了個 1-on-1 聊天，好像說聽到的 Feedback 是我在這邊的專案太簡單，他們覺得還好。Hmmm......確實是有點簡單，我當初做就有類似的想法，不過也有可能是我包裝不好，但我好像也無可奈何，畢竟就是主管給的專案，也沒有其他 junior 或 senior 一起做。後來想說算了，反正現在這個新 Team 做的內容我也還好，相比之下我可能比較會想選完美移動，不過 Appier 的薪水、地理位置、公司風氣真的都很香......。
 
-
-## PicCollage
-應徵職位：Machine Learning Engineer  
-時程：
-- 5/2 朋友幫忙內推完成
-- 5/7 朋友主管詢問畢業時間
-- 5/20 收到一面邀請
-- 5/27 主管 + HR 線上一面
-- 6/5 Engineer 線上二面
-
-這間也跟玩美移動類似，是做圖片相關的 App，我之前丟過好幾次他們的實習，但都是沒下文或直接感謝信。之前就業博覽會前後剛好得知有認識的朋友在裡面工作，當天也跟他聊了一下，後來覺得有點懶所以沒丟。但過了一陣子之後又覺得很心動，原本想麻煩我朋友內推，結果他隔了好一陣子才看到我訊息，但總之最後推到已經是五月初了，時程上可以說是小晚，想說我沒啥損失就加減投投看。
-
-### 主管 + HR 線上一面
-原本等兩週了還是沒下文，正打算放棄並且總算填了玩美的替代役，結果一面邀請就來了！
-
-Take-home Homework
-<!-- How would you explain the idea of attention in transformers to:
-- Someone with a knowledge of ML but no knowledge of transformers
-- Someone with a strong math background but no knowledge of ML -->
-
-面試流程 (30 mins)：
-- Follow-up on homework: 5-10 mins (Attention: shape of input / Q K V /output)
-- Resume: 5-10 mins (Education / Master's Thesis)
-- Behavioral Questions: 5-10 mins (Past Work Achievements / Difficulties / What do you want to build)
-- Q & A
 
 # 結語
+2025 的面試分享大概到這邊，體感今年景氣有比去年稍微好一些，但整體而言也不像疫情時那麼好找。很可惜的是這次與 Google 擦肩而過，真的是令我非常的遺憾，Google 真的是身為資工人都想進去體驗一輪的公司。另外，我也有稍微被資工的薪資水準驚訝到，這年代醫牙電資跟果然其他科系有很明顯的差異，很慶幸自己之前有決定轉換跑道，除了學的東西更好玩之外，也拿到了這些不錯的 Offer。
