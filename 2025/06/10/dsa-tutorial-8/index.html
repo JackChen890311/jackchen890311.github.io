@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="HackMD 完整版請點我 字串比對（String Matching）KMP 演算法 KMP 演算法是一種用於字串搜尋的高效方法。透過建立部分配對表（最長的相同前後綴），可以快速定位搜尋字串中的可能配對位置，減少不必要的重複比較，從而加速搜尋過程。 KMP 演算法其實相對複雜且較難實作，我個人認為有大概理解概念就好，實際上也很少遇到需要直接實作該演算法的情境。  初學者學 KMP 演算法 補充：K">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標">
+<meta property="og:url" content="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="HackMD 完整版請點我 字串比對（String Matching）KMP 演算法 KMP 演算法是一種用於字串搜尋的高效方法。透過建立部分配對表（最長的相同前後綴），可以快速定位搜尋字串中的可能配對位置，減少不必要的重複比較，從而加速搜尋過程。 KMP 演算法其實相對複雜且較難實作，我個人認為有大概理解概念就好，實際上也很少遇到需要直接實作該演算法的情境。  初學者學 KMP 演算法 補充：K">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/color_macbook.jpg">
+<meta property="article:published_time" content="2025-06-10T07:57:08.000Z">
+<meta property="article:modified_time" content="2025-07-12T15:47:11.690Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Data Structure">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/color_macbook.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標",
+  "url": "https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/",
+  "image": "https://jackchen890311.github.io/img/cover/color_macbook.jpg",
+  "datePublished": "2025-06-10T07:57:08.000Z",
+  "dateModified": "2025-07-12T15:47:11.690Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/color_macbook.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2025-06-10T07:57:08.000Z" title="發表於 2025-06-10 15:57:08">2025-06-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-07-12T15:47:11.690Z" title="更新於 2025-07-12 23:47:11">2025-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/DSA-%E6%95%99%E5%AD%B8/">DSA 教學</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">510</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>1分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://hackmd.io/KM8DV4vRSzSnm9z3HZCC5Q">HackMD 完整版請點我</a></p>
+<h2 id="字串比對（String-Matching）"><a href="#字串比對（String-Matching）" class="headerlink" title="字串比對（String Matching）"></a>字串比對（String Matching）</h2><h3 id="KMP-演算法"><a href="#KMP-演算法" class="headerlink" title="KMP 演算法"></a>KMP 演算法</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/ry2SjfO4C.png" alt="image"></p>
+<p>KMP 演算法是一種用於字串搜尋的高效方法。透過建立部分配對表（最長的相同前後綴），可以快速定位搜尋字串中的可能配對位置，減少不必要的重複比較，從而加速搜尋過程。</p>
+<p>KMP 演算法其實相對複雜且較難實作，我個人認為有大概理解概念就好，實際上也很少遇到需要直接實作該演算法的情境。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yeefun.github.io/kmp-algorithm-for-beginners/">初學者學 KMP 演算法</a><blockquote>
+<p>補充：<a target="_blank" rel="noopener" href="https://medium.com/@c.s.fangyolk/kmp-%E6%BC%94%E7%AE%97%E6%B3%95-%E5%BE%9E%E8%87%AA%E5%AD%B8%E5%88%B0%E6%94%BE%E6%A3%84-1-7f71e65839a0">KMP algorithm，從自學到放棄 (1)</a><br>補充：<a target="_blank" rel="noopener" href="https://medium.com/@c.s.fangyolk/kmp-%E6%BC%94%E7%AE%97%E6%B3%95-%E5%BE%9E%E8%87%AA%E5%AD%B8%E5%88%B0%E6%94%BE%E6%A3%84-2-94dda22f80b2">KMP algorithm，從自學到放棄 (2)</a><br>補充：<a target="_blank" rel="noopener" href="https://web.ntnu.edu.tw/~algo/Substring.html">演算法筆記：substring</a><br>補充：<a target="_blank" rel="noopener" href="https://cmps-people.ok.ubc.ca/ylucet/DS/KnuthMorrisPratt.html">KMP Visualization</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/">28. Find the Index of the First Occurrence in a String</a></li>
+</ul>
+<h2 id="位元運算（Bit-Manipulation）"><a href="#位元運算（Bit-Manipulation）" class="headerlink" title="位元運算（Bit Manipulation）"></a>位元運算（Bit Manipulation）</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HyHM0lpLR.png" alt="image"></p>
+<p>Bit manipulation 是在電腦中用「位元」（bit）來進行操作的技巧，這種技巧常在程式設計競賽或像 Leetcode 這樣的題目中出現。位元是電腦中最基本的單位，由 0 或 1 組成，這跟開關一樣，只有開或關的狀態。這些 0 與 1 會再經由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6">二進位制</a>與<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%A3%9C%E6%95%B8">二補數</a>的方式，組成所有的其他數字。常見的位元操作有：AND, OR, XOR, NOT, Shift 等等，參考以下：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HkgbJHIDR.png" alt="image"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hackmd.io/@apcser/H14FONT4n?utm_source=preview-mode&utm_medium=rec">Python 的位元運算</a></li>
+</ul>
+<h3 id="Leetcode-1"><a href="#Leetcode-1" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/power-of-two/description/">231. Power of Two</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/missing-number/description/">268. Missing Number</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-bit-flips-to-convert-number/description/">2220. Minimum Bit Flips to Convert Number</a></li>
+</ul>
+<h2 id="雙重指標（Two-Pointers）"><a href="#雙重指標（Two-Pointers）" class="headerlink" title="雙重指標（Two Pointers）"></a>雙重指標（Two Pointers）</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/BkqW-uvkyl.png" alt="image"><br>常用於陣列當中，用兩個指標指著不同的位置，與滑動視窗（Sliding Window）有異曲同工之妙，兩者基本上是相同技巧。</p>
+<h3 id="快慢指標（Fast-Slow-Pointers）"><a href="#快慢指標（Fast-Slow-Pointers）" class="headerlink" title="快慢指標（Fast &amp; Slow Pointers）"></a>快慢指標（Fast &amp; Slow Pointers）</h3><p>此種技巧為雙重指標的特殊版本，使用一快一慢的指標（一次走不同步數 or 一個先走一個後走），常用在 Linked List 當中。</p>
+<p>這樣可以幹嘛呢？我們來看看以下的例子：</p>
+<h4 id="尋找中點"><a href="#尋找中點" class="headerlink" title="尋找中點"></a>尋找中點</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/H1c7bdv1Jl.png" alt="image"></p>
+<h4 id="判斷-Cycle-是否存在-Linked-List-中"><a href="#判斷-Cycle-是否存在-Linked-List-中" class="headerlink" title="判斷 Cycle 是否存在 Linked List 中"></a>判斷 Cycle 是否存在 Linked List 中</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HkLZzOPJJg.png" alt="image"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/Byf5Wdv11e.png" alt="image"></p>
+<h4 id="尋找倒數第-K-個節點"><a href="#尋找倒數第-K-個節點" class="headerlink" title="尋找倒數第 K 個節點"></a>尋找倒數第 K 個節點</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/ry3NMVU8yx.png" alt="image"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-two-pointer-%E8%88%87sliding-window-8742f45f3f55">演算法筆記系列 — Two Pointer 與Sliding Window</a></li>
+</ul>
+<h3 id="Leetcode-2"><a href="#Leetcode-2" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sort-colors/">75. Sort Colors</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-cycle/">141. Linked List Cycle</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/">https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Tutorial/">Tutorial</a><a class="post-meta__tags" href="/tags/Data-Structure/">Data Structure</a><a class="post-meta__tags" href="/tags/Algorithm/">Algorithm</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/color_macbook.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/06/10/dsa-tutorial-7/" title="資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 分治法（Divide-and-Conquer） Divide-and-Conquer又稱為分治法。其中 Divide 指的是將一個較大的問題不斷切割成小問題。而 Conquer 是當最後切割成的小問題簡單到可以直接解決，就可以組合成大問題的答案。在程式語言中時常都會用到分治法的觀念，並結合遞迴的概念求解。  Source: 分而治之法與遞迴關係  還記得之前教過的 Merge Sort 嗎？（合併排序法：將陣列不斷細分，再將細分後的結果兩兩合併。）其實 Merge Sort 的精神本質上就是 Divide-and-Conquer！  【舌尖上的演算法】Day15 – Divide and Conquer - Merge Sort  Leetcode  108. Convert Sorted Array to Binary Search Tree 148. Sort List  動態規劃（Dynamic Programming） Dynamic Programming &#x3D; Divide-and-Conquer +...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">資料結構與演算法教學系列文 (9) - 圖的進階議題</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 圖的進階議題（Advanced Topic on Graph）最短路徑（Shortest Path）最短路徑問題（Shortest Path Problem）是圖論中的一個重要課題，目的是尋找從一個起始節點到其他節點的最短路徑。相關的應用像是地圖中的導航系統、網路路由選擇等等，背後都是使用最短路徑的演算法。  path - 演算法筆記  戴克斯特拉演算法（Dijkstra’s Algorithm） 戴克斯特拉演算法是一種廣泛使用的方法，特別適用於權重非負的有向圖和無向圖，通過不斷選擇當前距離最小的未訪問節點，並更新其所有相鄰節點的最短距離，來尋找從起始節點到其他所有節點的最短路徑。 特別要注意的是，若存在負權重的邊，則戴克斯特拉演算法就不再適用。為什麼？讓我們看看以下的圖：你想到原因了嗎？在這張圖中，使用戴克斯特拉演算法會發生什麼事情？  基礎演算法系列 — Graph 資料結構與 Dijkstra’s Algorithm Visualization of Above Example  Bellman–Ford...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/10/dsa-tutorial-4/" title="資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 矩陣（Matrix） 在介紹 Graph 的表示方法時，我們提到了兩種不同的表示方式，分別是鄰接串列（Adjacency List）與鄰接矩陣（Adjacency Matrix）。不過其實，矩陣本身也可以被當作一種資料結構來使用，舉凡像是迷宮、地圖等等具有 2D 性質的資料型態，都可以使用矩陣來表示。 Matrix 的相關操作其實都與 Graph 差不多，不外乎就是在 Matrix 中進行搜尋或遍歷，但因為我們可以以 $O(1)$ 的複雜度，直接取用 Matrix 內部中的任一元素（matrix[row][col]），所以 Matrix 在某些應用上具有較為快速的優勢。那接著就讓我們直接實戰演練吧！ Leetcode 200. Number of Islands 994. Rotting Oranges 1351. Count Negative Numbers in a Sorted Matrix  堆積（Heap）一種具有特殊性質（Parent Node 大於或小於 Child Node）的 Complete Binary...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-2/" title="資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 資料結構（Data Structure）資料結構是一種設計、組織、儲存資料的方式，以實現最佳性能和效率。這些結構包含不同形式，像是陣列、鍊結列表、樹、圖等等。選擇適當的資料結構對於解決特定的問題至關重要，不同的資料結構可以用於不同的應用，並且可以極大地影響程序的運行時間和記憶體使用。 陣列（Array）可隨機存取的一串連續記憶體位址。  陣列 (Array) 簡介 補充：List Are Arrays in Python    Leetcode 26. Remove Duplicates from Sorted Array 27. Remove Element  鏈結串列（Linked List）元素間彼此串聯在一起，形成一條鍊子的資料結構。也可以是上圖雙向連結的形式。  Linked List：Intro(簡介) Linked List：新增資料、刪除資料、反轉  Leetcode 21. Merge Two Sorted Lists 24. Swap Nodes in Pairs 206. Reverse Linked...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-1/" title="資料結構與演算法教學系列文 (1) - 概述、排序、搜尋、時間複雜度"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (1) - 概述、排序、搜尋、時間複雜度</div></div><div class="info-2"><div class="info-item-1">哈囉！久違又來更新教學文系列了，這次的主題是在學完基礎程式設計後，一定也需要會的東西：資料結構與演算法。若你對程式設計還不太熟悉，或是想回去複習一下 Python 或 C++，可以參考我下面的系列文：  Python 教學  C++ 教學  這個系列文應該會很長，因為 DSA（i.e. Data Structure and Algorithm）這個主題是在是涵蓋太多東西了，甚至我寫的內容也沒有到很完整。這次的來源一樣是拿來做家教講義，文字部分不會太詳盡，有需要更詳盡的內容歡迎聯絡我，如果我有空就可以幫你上課 XD。 最後就是轉載請記得標註來源，這裡面的內容都是作者本人收集的心血！ HackMD 完整版請點我  入門介紹 Google Coding Style 甚麼是演算法？ 甚麼是資料結構？  來複習一下學習地圖，以臺大資工系必修為例：以臺大資管系必修為例： 而在演算法與資料結構的世界裡面，大概又可以分為以下幾種類別。在我們之後的課程中，會逐漸的介紹每個名詞以及其對應概念： 相關連結：  How to master DSA labuladong...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-7/" title="資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 分治法（Divide-and-Conquer） Divide-and-Conquer又稱為分治法。其中 Divide 指的是將一個較大的問題不斷切割成小問題。而 Conquer 是當最後切割成的小問題簡單到可以直接解決，就可以組合成大問題的答案。在程式語言中時常都會用到分治法的觀念，並結合遞迴的概念求解。  Source: 分而治之法與遞迴關係  還記得之前教過的 Merge Sort 嗎？（合併排序法：將陣列不斷細分，再將細分後的結果兩兩合併。）其實 Merge Sort 的精神本質上就是 Divide-and-Conquer！  【舌尖上的演算法】Day15 – Divide and Conquer - Merge Sort  Leetcode  108. Convert Sorted Array to Binary Search Tree 148. Sort List  動態規劃（Dynamic Programming） Dynamic Programming &#x3D; Divide-and-Conquer +...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-3/" title="資料結構與演算法教學系列文 (3) - 樹、圖"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (3) - 樹、圖</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 樹（Tree）基本單位為 Node，且只有一個 Node 是 Root（無人指向的 Node），且不存在任何 Cycle。每個 Node 可以指向多個 Child。  Tree(樹): Intro(簡介)  二元樹（Binary Tree）當樹中的每個 Node 都只有兩個 Child，即為 Binary Tree。  Binary Tree: Intro(簡介) Binary Tree: Traversal(尋訪)  以上面的 Binary Tree 為例： Pre-Order Traversal: ABDECFG In-Order Traversal: DBEAFCG Post-Order Traversal: DEBFGCA   延伸閱讀：Binary Tree: 建立一棵Binary Tree      二元搜尋樹（Binary Search Tree）若一個二元樹中，所有 Node 都滿足 Node.left.value &lt; Node.value &lt;...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2%E6%AF%94%E5%B0%8D%EF%BC%88String-Matching%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">字串比對（String Matching）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KMP-%E6%BC%94%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">KMP 演算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode"><span class="toc-number">1.2.</span> <span class="toc-text">Leetcode</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E5%85%83%E9%81%8B%E7%AE%97%EF%BC%88Bit-Manipulation%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">位元運算（Bit Manipulation）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-1"><span class="toc-number">2.1.</span> <span class="toc-text">Leetcode</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%99%E9%87%8D%E6%8C%87%E6%A8%99%EF%BC%88Two-Pointers%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">雙重指標（Two Pointers）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%85%A2%E6%8C%87%E6%A8%99%EF%BC%88Fast-Slow-Pointers%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">快慢指標（Fast &amp; Slow Pointers）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8B%E6%89%BE%E4%B8%AD%E9%BB%9E"><span class="toc-number">3.1.1.</span> <span class="toc-text">尋找中點</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%B7-Cycle-%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8-Linked-List-%E4%B8%AD"><span class="toc-number">3.1.2.</span> <span class="toc-text">判斷 Cycle 是否存在 Linked List 中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8B%E6%89%BE%E5%80%92%E6%95%B8%E7%AC%AC-K-%E5%80%8B%E7%AF%80%E9%BB%9E"><span class="toc-number">3.1.3.</span> <span class="toc-text">尋找倒數第 K 個節點</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-2"><span class="toc-number">3.2.</span> <span class="toc-text">Leetcode</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/perfect_clean.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"/></a><div class="content"><a class="title" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</a><time datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題">資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題</a><time datetime="2025-06-10T07:57:11.000Z" title="發表於 2025-06-10 15:57:11">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列">資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列</a><time datetime="2025-06-10T07:57:10.000Z" title="發表於 2025-06-10 15:57:10">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (9) - 圖的進階議題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題">資料結構與演算法教學系列文 (9) - 圖的進階議題</a><time datetime="2025-06-10T07:57:09.000Z" title="發表於 2025-06-10 15:57:09">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標">資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標</a><time datetime="2025-06-10T07:57:08.000Z" title="發表於 2025-06-10 15:57:08">2025-06-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2025/06/10/dsa-tutorial-8/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2025/06/10/dsa-tutorial-8/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

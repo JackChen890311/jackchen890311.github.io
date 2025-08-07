@@ -1,0 +1,383 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>資料結構與演算法教學系列文 (3) - 樹、圖 | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="HackMD 完整版請點我 樹（Tree）基本單位為 Node，且只有一個 Node 是 Root（無人指向的 Node），且不存在任何 Cycle。每個 Node 可以指向多個 Child。  Tree(樹): Intro(簡介)  二元樹（Binary Tree）當樹中的每個 Node 都只有兩個 Child，即為 Binary Tree。  Binary Tree: Intro(簡介) Bi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料結構與演算法教學系列文 (3) - 樹、圖">
+<meta property="og:url" content="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="HackMD 完整版請點我 樹（Tree）基本單位為 Node，且只有一個 Node 是 Root（無人指向的 Node），且不存在任何 Cycle。每個 Node 可以指向多個 Child。  Tree(樹): Intro(簡介)  二元樹（Binary Tree）當樹中的每個 Node 都只有兩個 Child，即為 Binary Tree。  Binary Tree: Intro(簡介) Bi">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/color_macbook.jpg">
+<meta property="article:published_time" content="2025-06-10T07:57:03.000Z">
+<meta property="article:modified_time" content="2025-07-12T15:46:57.945Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Data Structure">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/color_macbook.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "資料結構與演算法教學系列文 (3) - 樹、圖",
+  "url": "https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/",
+  "image": "https://jackchen890311.github.io/img/cover/color_macbook.jpg",
+  "datePublished": "2025-06-10T07:57:03.000Z",
+  "dateModified": "2025-07-12T15:46:57.945Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '資料結構與演算法教學系列文 (3) - 樹、圖',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/color_macbook.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">資料結構與演算法教學系列文 (3) - 樹、圖</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">資料結構與演算法教學系列文 (3) - 樹、圖</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2025-06-10T07:57:03.000Z" title="發表於 2025-06-10 15:57:03">2025-06-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-07-12T15:46:57.945Z" title="更新於 2025-07-12 23:46:57">2025-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/DSA-%E6%95%99%E5%AD%B8/">DSA 教學</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>5分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://hackmd.io/KM8DV4vRSzSnm9z3HZCC5Q">HackMD 完整版請點我</a></p>
+<h2 id="樹（Tree）"><a href="#樹（Tree）" class="headerlink" title="樹（Tree）"></a>樹（Tree）</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/S13npBFMp.png"><br>基本單位為 Node，且只有一個 Node 是 Root（無人指向的 Node），且不存在任何 Cycle。每個 Node 可以指向多個 Child。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/treeshu-introjian-jie.html">Tree(樹): Intro(簡介)</a></li>
+</ul>
+<h3 id="二元樹（Binary-Tree）"><a href="#二元樹（Binary-Tree）" class="headerlink" title="二元樹（Binary Tree）"></a>二元樹（Binary Tree）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/SJQuAds7a.png" alt="image"><br>當樹中的每個 Node 都只有兩個 Child，即為 Binary Tree。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-tree-introjian-jie.html">Binary Tree: Intro(簡介)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html">Binary Tree: Traversal(尋訪)</a><br>  以上面的 Binary Tree 為例：<ul>
+<li>Pre-Order Traversal: ABDECFG</li>
+<li>In-Order Traversal: DBEAFCG</li>
+<li>Post-Order Traversal: DEBFGCA<br>  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/rJEw81ajp.png" alt="image"><blockquote>
+<p>延伸閱讀：<a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-tree-jian-li-yi-ke-binary-tree.html">Binary Tree: 建立一棵Binary Tree</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二元搜尋樹（Binary-Search-Tree）"><a href="#二元搜尋樹（Binary-Search-Tree）" class="headerlink" title="二元搜尋樹（Binary Search Tree）"></a>二元搜尋樹（Binary Search Tree）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/rJ5d1tom6.png" alt="image"><br>若一個二元樹中，所有 Node 都滿足 Node.left.value &lt; Node.value &lt; Node.right.value，就稱為二元搜尋樹。二元搜尋樹有良好的排序特質，可以幫助我們找到想要的資料。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-search-tree-introjian-jie.html">Binary Search Tree: Intro(簡介)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-search-tree-searchsou-xun-zi-liao-insertxin-zeng-zi-liao.html">Binary Search Tree: Search(搜尋資料)、Insert(新增資料)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/binary-search-tree-sortpai-xu-deleteshan-chu-zi-liao.html">Binary Search Tree: Sort(排序)、Delete(刪除資料)</a><blockquote>
+<p>注意：在 Binary Search Tree 上做 In-Order Traversal，即可得到排序好的資料！</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="進階-紅黑樹（Red-Black-Tree）"><a href="#進階-紅黑樹（Red-Black-Tree）" class="headerlink" title="進階 - 紅黑樹（Red Black Tree）"></a>進階 - 紅黑樹（Red Black Tree）</h3><p>紅黑樹是一種進階的 BST（Binary Search Tree），透過將每個節點塗上紅色或黑色，並在新增或刪除資料時進行適當的結構調整（旋轉子樹），可以維持 BST 的高度不會相差太多，進而在搜尋時能有較好的效率。細節太過複雜這邊暫時跳過，之後有時間 or 有興趣再回來講。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HyclMKj7p.png" alt="image"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/red-black-tree-introjian-jie.html">Red Black Tree: Intro(簡介)</a><blockquote>
+<p>延伸閱讀：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/red-black-tree-rotationxuan-zhuan.html">Red Black Tree: Rotation(旋轉)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/red-black-tree-insertxin-zeng-zi-liao-yu-fixupxiu-zheng.html">Red Black Tree: Insert(新增資料)與Fixup(修正)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/red-black-tree-deleteshan-chu-zi-liao-yu-fixupxiu-zheng.html">Red Black Tree: Delete(刪除資料)與Fixup(修正)</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="進階-AVL-樹（AVL-Tree）"><a href="#進階-AVL-樹（AVL-Tree）" class="headerlink" title="進階 - AVL 樹（AVL Tree）"></a>進階 - AVL 樹（AVL Tree）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/r1GAdTXt6.png" alt="image"><br>AVL Tree 是一種 Binary search tree 實做方式，大部分的實做方式與 BST 一樣，差異在於 AVL tree 在過程中會透過計算並調整樹的結構來讓樹維持平衡，而不會導致 BST 過度傾斜(不平衡），與紅黑樹的目標類似。細節太過複雜這邊暫時跳過，之後有時間 or 有興趣再回來講。</p>
+<blockquote>
+<p>延伸閱讀：<a target="_blank" rel="noopener" href="https://josephjsf2.github.io/data/structure/and/algorithm/2019/06/22/avl-tree.html">資料結構與演算法：AVL Tree</a></p>
+</blockquote>
+<h3 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h3><h4 id="Basic-Traversal-Search"><a href="#Basic-Traversal-Search" class="headerlink" title="Basic - Traversal &amp; Search"></a>Basic - Traversal &amp; Search</h4><p>Please try to use both recursion and stack&#x2F;queue to solve problem 102 and 144. (Hint: For 102(Level-Order) you should use <strong>Queue</strong>, for 144(Pre-Order) you should use <strong>Stack</strong>)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-inorder-traversal/description/">94. Binary Tree Inorder Traversal</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-level-order-traversal/description/">102. Binary Tree Level Order Traversal</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-preorder-traversal/description/">144. Binary Tree Preorder Traversal</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-postorder-traversal/description/">145. Binary Tree Postorder Traversal</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-in-a-binary-search-tree/description/">700. Search in A Binary Search Tree</a></li>
+</ul>
+<h4 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/same-tree/description/">100. Same Tree</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/invert-binary-tree/description/">226. Invert Binary Tree</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-absolute-difference-in-bst/description/">530. Minimum Absolute Difference in BST</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/description/">1026. Maximum Difference Between Node and Ancestor</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/even-odd-tree/description">1609. Even Odd Tree</a></li>
+</ul>
+<h4 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://eniac00.github.io/btv/">BT Visualizer</a></li>
+</ul>
+<h2 id="圖（Graph）"><a href="#圖（Graph）" class="headerlink" title="圖（Graph）"></a>圖（Graph）</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/S1v-AHFM6.png"><br>圖比樹的限制更少，給定一群節點與相連的邊，即可稱為圖。邊可以分為有向與無向，節點之間的連結並沒有限制，也因此圖並不像樹有 root、parent、siblings、height 等等屬性，且有可能會有 cycle 的出現。</p>
+<h3 id="Graph-Tree-的比較"><a href="#Graph-Tree-的比較" class="headerlink" title="Graph &amp; Tree 的比較"></a>Graph &amp; Tree 的比較</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/HkvhyNtf6.png"><br>Tree 可以被看成一種特殊的 Graph，就像 Binary Tree 是一種特殊的 Tree 一樣。</p>
+<h3 id="Graph-的表示法"><a href="#Graph-的表示法" class="headerlink" title="Graph 的表示法"></a>Graph 的表示法</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/H1otPi8gA.png" alt="image"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-introjian-jie.html">Graph: Intro(簡介)</a></li>
+</ul>
+<h3 id="Graph-的搜尋"><a href="#Graph-的搜尋" class="headerlink" title="Graph 的搜尋"></a>Graph 的搜尋</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/r1Ef-7Pnp.png" alt="image"><br>最常見、也最常使用的搜尋方法有兩種：BFS 與 DFS。兩者的差異在於搜尋的優先順序不同，並且分別可以使用 Queue 與 Stack 來實作。</p>
+<h4 id="廣度優先搜尋（Breadth-First-Search-BFS）"><a href="#廣度優先搜尋（Breadth-First-Search-BFS）" class="headerlink" title="廣度優先搜尋（Breadth First Search, BFS）"></a>廣度優先搜尋（Breadth First Search, BFS）</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/">Breadth First Search or BFS for a Graph</a></li>
+</ul>
+<h4 id="深度優先搜尋（Depth-First-Search-DFS）"><a href="#深度優先搜尋（Depth-First-Search-DFS）" class="headerlink" title="深度優先搜尋（Depth First Search, DFS）"></a>深度優先搜尋（Depth First Search, DFS）</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/">Depth First Search or DFS for a Graph</a></li>
+</ul>
+<h4 id="那-DFS-與-BFS-可以應用在-Tree-上嗎？"><a href="#那-DFS-與-BFS-可以應用在-Tree-上嗎？" class="headerlink" title="那 DFS 與 BFS 可以應用在 Tree 上嗎？"></a>那 DFS 與 BFS 可以應用在 Tree 上嗎？</h4><p>因為 Tree 也是 Graph 的一種，所以當然可以，而且非常常用！</p>
+<blockquote>
+<p>延伸閱讀：<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/57598470/15894431">DFS、BFS 與 Pre-Order、In-Order、Post-Order、Level-Order 的關係</a></p>
+</blockquote>
+<h3 id="Leetcode-1"><a href="#Leetcode-1" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/clone-graph/description/">133. Clone Graph</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/all-paths-from-source-to-target/description/">797. All Paths From Source to Target</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/keys-and-rooms/">841. Keys and Rooms</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-town-judge/description/">997. Find the Town Judge</a></li>
+</ul>
+<hr>
+<h4 id="在圖中找環（Cycle）"><a href="#在圖中找環（Cycle）" class="headerlink" title="在圖中找環（Cycle）"></a>在圖中找環（Cycle）</h4><p>上面的兩個例子中，都使用 <code>visited</code> 來紀錄該節點是否被拜訪過。因此，在<strong>無向圖</strong>中，若我們下一個要拜訪的節點的 <code>visited</code> 為 <code>True</code>，那我們就可以知道該圖中有環的存在。那在<strong>有向圖</strong>中呢？以下圖來說：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/rkSj6pq0a.png" alt="image"><br>若我們在右邊的有向圖 b 中，用相同的 DFS 來尋找是否有環，假設第一次尋訪的路徑為 (1,2,4,5)，而第二次尋訪退回到 2 並往下尋訪 (3,4)，我們這時候會發現 <code>visited[4] == True</code>，並且判定該圖有環，但實際上是沒有的。那我們該怎麼做呢？</p>
+<p>在往下看之前，先自己想想看喔！</p>
+<hr>
+<p>答案：使用三個不同的值來表示每個節點不同的尋訪狀態（黑、白、灰）。黑色代表已經完成搜尋，白色代表還沒搜尋過，灰色代表正在這條 path 上搜尋，等搜尋完成後就會改為黑色。因此，若我們搜尋時遇到灰色節點，就可以知道該圖存在 cycle！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Determine if a directed graph is acyclic</span></span><br><span class="line"><span class="comment"># True: Acyclic; False: Cyclic</span></span><br><span class="line">graph = ... <span class="comment"># adjacency list representation</span></span><br><span class="line">N = <span class="built_in">len</span>(graph)</span><br><span class="line">visited = [<span class="number">0</span>] * N</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">checkNoCycle</span>(<span class="params">node</span>):</span><br><span class="line">    <span class="keyword">if</span> visited[node] == -<span class="number">1</span>: <span class="comment"># gray, currently visiting</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">elif</span> visited[node] == <span class="number">1</span>: <span class="comment"># black, done visiting</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment"># white, not visited yet (visited[node] == 0)</span></span><br><span class="line">        visited[node] = -<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> neighbor <span class="keyword">in</span> graph[node]:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> dfs(neighbor):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        visited[node] = <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(node)</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>補充：<a target="_blank" rel="noopener" href="https://cs.stackexchange.com/questions/9676/the-purpose-of-grey-node-in-graph-depth-first-search">The purpose of grey node in graph depth-first search</a></p>
+</blockquote>
+<h3 id="連通分量（Connected-Components）"><a href="#連通分量（Connected-Components）" class="headerlink" title="連通分量（Connected Components）"></a>連通分量（Connected Components）</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/r1EGVkc-A.png" alt="image"><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://hackmd.io/_uploads/BkStEJ9WR.png" alt="ConnectedComponent4"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://web.ntnu.edu.tw/~algo/ConnectedComponent.html">Connected Component - 演算法筆記</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/RioTian/p/14026585.html">Strongly Connected Components - Kosaraju 演算法</a></li>
+</ul>
+<blockquote>
+<p>補充：<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/">Connected Components in an Undirected Graph</a><br>補充：<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/strongly-connected-components/">Strongly Connected Components</a><br>補充：<a target="_blank" rel="noopener" href="https://hackmd.io/@erichung0906/HkjZBH_IK">Tarjan 演算法與 Kosaraju 演算法</a></p>
+</blockquote>
+<h3 id="Leetcode-2"><a href="#Leetcode-2" class="headerlink" title="Leetcode"></a>Leetcode</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/course-schedule/description/">207. Course Schedule</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-if-path-exists-in-graph/description/">1971. Find if Path Exists in Graph</a></li>
+</ul>
+<blockquote>
+<p>延伸閱讀：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html">Graph: Breadth-First Search(BFS，廣度優先搜尋)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-depth-first-searchdfsshen-du-you-xian-sou-xun.html">Graph: Depth-First Search(DFS，深度優先搜尋)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-li-yong-dfshe-bfsxun-zhao-connected-component.html">Graph: 利用DFS和BFS尋找Connected Component</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-li-yong-dfsxun-zhao-strongly-connected-componentscc.html">Graph: 利用DFS尋找Strongly Connected Component(SCC)</a></li>
+<li><a target="_blank" rel="noopener" href="https://alrightchiu.github.io/SecondRound/graph-li-yong-dfsxun-zhao-dagde-topological-sorttuo-pu-pai-xu.html">Graph: 利用DFS尋找DAG的Topological Sort(拓撲排序)</a></li>
+</ul>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/">https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Tutorial/">Tutorial</a><a class="post-meta__tags" href="/tags/Data-Structure/">Data Structure</a><a class="post-meta__tags" href="/tags/Algorithm/">Algorithm</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/color_macbook.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/06/10/dsa-tutorial-2/" title="資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 資料結構（Data Structure）資料結構是一種設計、組織、儲存資料的方式，以實現最佳性能和效率。這些結構包含不同形式，像是陣列、鍊結列表、樹、圖等等。選擇適當的資料結構對於解決特定的問題至關重要，不同的資料結構可以用於不同的應用，並且可以極大地影響程序的運行時間和記憶體使用。 陣列（Array）可隨機存取的一串連續記憶體位址。  陣列 (Array) 簡介 補充：List Are Arrays in Python    Leetcode 26. Remove Duplicates from Sorted Array 27. Remove Element  鏈結串列（Linked List）元素間彼此串聯在一起，形成一條鍊子的資料結構。也可以是上圖雙向連結的形式。  Linked List：Intro(簡介) Linked List：新增資料、刪除資料、反轉  Leetcode 21. Merge Two Sorted Lists 24. Swap Nodes in Pairs 206. Reverse Linked...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-4/" title="資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 矩陣（Matrix） 在介紹 Graph 的表示方法時，我們提到了兩種不同的表示方式，分別是鄰接串列（Adjacency List）與鄰接矩陣（Adjacency Matrix）。不過其實，矩陣本身也可以被當作一種資料結構來使用，舉凡像是迷宮、地圖等等具有 2D 性質的資料型態，都可以使用矩陣來表示。 Matrix 的相關操作其實都與 Graph 差不多，不外乎就是在 Matrix 中進行搜尋或遍歷，但因為我們可以以 $O(1)$ 的複雜度，直接取用 Matrix 內部中的任一元素（matrix[row][col]），所以 Matrix 在某些應用上具有較為快速的優勢。那接著就讓我們直接實戰演練吧！ Leetcode 200. Number of Islands 994. Rotting Oranges 1351. Count Negative Numbers in a Sorted Matrix  堆積（Heap）一種具有特殊性質（Parent Node 大於或小於 Child Node）的 Complete Binary...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/10/dsa-tutorial-4/" title="資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (4) - 矩陣、堆積、優先佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 矩陣（Matrix） 在介紹 Graph 的表示方法時，我們提到了兩種不同的表示方式，分別是鄰接串列（Adjacency List）與鄰接矩陣（Adjacency Matrix）。不過其實，矩陣本身也可以被當作一種資料結構來使用，舉凡像是迷宮、地圖等等具有 2D 性質的資料型態，都可以使用矩陣來表示。 Matrix 的相關操作其實都與 Graph 差不多，不外乎就是在 Matrix 中進行搜尋或遍歷，但因為我們可以以 $O(1)$ 的複雜度，直接取用 Matrix 內部中的任一元素（matrix[row][col]），所以 Matrix 在某些應用上具有較為快速的優勢。那接著就讓我們直接實戰演練吧！ Leetcode 200. Number of Islands 994. Rotting Oranges 1351. Count Negative Numbers in a Sorted Matrix  堆積（Heap）一種具有特殊性質（Parent Node 大於或小於 Child Node）的 Complete Binary...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-2/" title="資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (2) - 陣列、鏈結串列、堆疊、佇列</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 資料結構（Data Structure）資料結構是一種設計、組織、儲存資料的方式，以實現最佳性能和效率。這些結構包含不同形式，像是陣列、鍊結列表、樹、圖等等。選擇適當的資料結構對於解決特定的問題至關重要，不同的資料結構可以用於不同的應用，並且可以極大地影響程序的運行時間和記憶體使用。 陣列（Array）可隨機存取的一串連續記憶體位址。  陣列 (Array) 簡介 補充：List Are Arrays in Python    Leetcode 26. Remove Duplicates from Sorted Array 27. Remove Element  鏈結串列（Linked List）元素間彼此串聯在一起，形成一條鍊子的資料結構。也可以是上圖雙向連結的形式。  Linked List：Intro(簡介) Linked List：新增資料、刪除資料、反轉  Leetcode 21. Merge Two Sorted Lists 24. Swap Nodes in Pairs 206. Reverse Linked...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-1/" title="資料結構與演算法教學系列文 (1) - 概述、排序、搜尋、時間複雜度"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (1) - 概述、排序、搜尋、時間複雜度</div></div><div class="info-2"><div class="info-item-1">哈囉！久違又來更新教學文系列了，這次的主題是在學完基礎程式設計後，一定也需要會的東西：資料結構與演算法。若你對程式設計還不太熟悉，或是想回去複習一下 Python 或 C++，可以參考我下面的系列文：  Python 教學  C++ 教學  這個系列文應該會很長，因為 DSA（i.e. Data Structure and Algorithm）這個主題是在是涵蓋太多東西了，甚至我寫的內容也沒有到很完整。這次的來源一樣是拿來做家教講義，文字部分不會太詳盡，有需要更詳盡的內容歡迎聯絡我，如果我有空就可以幫你上課 XD。 最後就是轉載請記得標註來源，這裡面的內容都是作者本人收集的心血！ HackMD 完整版請點我  入門介紹 Google Coding Style 甚麼是演算法？ 甚麼是資料結構？  來複習一下學習地圖，以臺大資工系必修為例：以臺大資管系必修為例： 而在演算法與資料結構的世界裡面，大概又可以分為以下幾種類別。在我們之後的課程中，會逐漸的介紹每個名詞以及其對應概念： 相關連結：  How to master DSA labuladong...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-7/" title="資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (7) - 分治法、動態規劃、前綴和</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 分治法（Divide-and-Conquer） Divide-and-Conquer又稱為分治法。其中 Divide 指的是將一個較大的問題不斷切割成小問題。而 Conquer 是當最後切割成的小問題簡單到可以直接解決，就可以組合成大問題的答案。在程式語言中時常都會用到分治法的觀念，並結合遞迴的概念求解。  Source: 分而治之法與遞迴關係  還記得之前教過的 Merge Sort 嗎？（合併排序法：將陣列不斷細分，再將細分後的結果兩兩合併。）其實 Merge Sort 的精神本質上就是 Divide-and-Conquer！  【舌尖上的演算法】Day15 – Divide and Conquer - Merge Sort  Leetcode  108. Convert Sorted Array to Binary Search Tree 148. Sort List  動態規劃（Dynamic Programming） Dynamic Programming &#x3D; Divide-and-Conquer +...</div></div></div></a><a class="pagination-related" href="/2025/06/10/dsa-tutorial-5/" title="資料結構與演算法教學系列文 (5) - 雜湊表、字典樹、並查集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">資料結構與演算法教學系列文 (5) - 雜湊表、字典樹、並查集</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 雜湊表（Hash Table） 雜湊函數的性質雜湊函式是一種把輸入數據轉換成固定長度的字符串（雜湊值）的工具。它有以下特點：  固定長度輸出：無論輸入數據有多長，輸出都是固定長度。 無法回推：從雜湊值無法反推出原始輸入（即單向性），保證了數據的不可逆性。 抗碰撞性：難以找到兩個不同的輸入有相同的雜湊值。 快速計算：能快速生成雜湊值。    [資料結構] 雜湊 (Hash)   Images are from 什麼是Hash Function? 有什麼特性及用途?   雜湊函數的應用 資料完整性驗證：確保收到的資料是完整的，或確保文件未被篡改。 密碼儲存：儲存密碼的雜湊值，而不是明文密碼，提高安全性。常見的加密方式如 MD5、SHA-256 等等，若有興趣可以再研究密碼學。 資料結構：用於實現雜湊表，能夠快速存取資料。使用雜湊函數的常見資料結構包含集合（Set）、字典（Dictionary）等等。 數位簽章：保護資料完整性和驗證身份。   補充：雜湊函數 - 維基百科  Leetcode 49. Group Anagrams 387. First...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%B9%EF%BC%88Tree%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">樹（Tree）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%85%83%E6%A8%B9%EF%BC%88Binary-Tree%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">二元樹（Binary Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9%EF%BC%88Binary-Search-Tree%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">二元搜尋樹（Binary Search Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E-%E7%B4%85%E9%BB%91%E6%A8%B9%EF%BC%88Red-Black-Tree%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">進階 - 紅黑樹（Red Black Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E-AVL-%E6%A8%B9%EF%BC%88AVL-Tree%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">進階 - AVL 樹（AVL Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode"><span class="toc-number">1.5.</span> <span class="toc-text">Leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Basic-Traversal-Search"><span class="toc-number">1.5.1.</span> <span class="toc-text">Basic - Traversal &amp; Search</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Applications"><span class="toc-number">1.5.2.</span> <span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tools"><span class="toc-number">1.5.3.</span> <span class="toc-text">Tools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%96%EF%BC%88Graph%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">圖（Graph）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Tree-%E7%9A%84%E6%AF%94%E8%BC%83"><span class="toc-number">2.1.</span> <span class="toc-text">Graph &amp; Tree 的比較</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">Graph 的表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-%E7%9A%84%E6%90%9C%E5%B0%8B"><span class="toc-number">2.3.</span> <span class="toc-text">Graph 的搜尋</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%A3%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B%EF%BC%88Breadth-First-Search-BFS%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">廣度優先搜尋（Breadth First Search, BFS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%84%AA%E5%85%88%E6%90%9C%E5%B0%8B%EF%BC%88Depth-First-Search-DFS%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">深度優先搜尋（Depth First Search, DFS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%A3-DFS-%E8%88%87-BFS-%E5%8F%AF%E4%BB%A5%E6%87%89%E7%94%A8%E5%9C%A8-Tree-%E4%B8%8A%E5%97%8E%EF%BC%9F"><span class="toc-number">2.3.3.</span> <span class="toc-text">那 DFS 與 BFS 可以應用在 Tree 上嗎？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-1"><span class="toc-number">2.4.</span> <span class="toc-text">Leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%9C%96%E4%B8%AD%E6%89%BE%E7%92%B0%EF%BC%88Cycle%EF%BC%89"><span class="toc-number">2.4.1.</span> <span class="toc-text">在圖中找環（Cycle）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%A3%E9%80%9A%E5%88%86%E9%87%8F%EF%BC%88Connected-Components%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">連通分量（Connected Components）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-2"><span class="toc-number">2.6.</span> <span class="toc-text">Leetcode</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/perfect_clean.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"/></a><div class="content"><a class="title" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</a><time datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題">資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題</a><time datetime="2025-06-10T07:57:11.000Z" title="發表於 2025-06-10 15:57:11">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列">資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列</a><time datetime="2025-06-10T07:57:10.000Z" title="發表於 2025-06-10 15:57:10">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (9) - 圖的進階議題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題">資料結構與演算法教學系列文 (9) - 圖的進階議題</a><time datetime="2025-06-10T07:57:09.000Z" title="發表於 2025-06-10 15:57:09">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標">資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標</a><time datetime="2025-06-10T07:57:08.000Z" title="發表於 2025-06-10 15:57:08">2025-06-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2025/06/10/dsa-tutorial-3/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2025/06/10/dsa-tutorial-3/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '資料結構與演算法教學系列文 (3) - 樹、圖'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

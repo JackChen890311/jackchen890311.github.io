@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier) | Jack's Space</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="前言每年的面試分享文，似乎已經默默的成為我的某種習慣了（還沒看過我之前文章的，可以參考 2023 跟 2024 的分享）。但今年比較不同的是，我要碩士畢業了！因此本篇分享會從以往的實習轉成正職，職位的部分我大多都是找 ML 相關為主。 面試紀錄 投遞履歷：7 家公司 面試邀請：6 家公司 Offer Get：2 家公司  TSMC應徵職位：沒分，統一丟備註：有研替時程：  8&#x2F;30 EP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025 年科技業正職預聘&#x2F;研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">
+<meta property="og:url" content="https://jackchen890311.github.io/2025/07/01/fulltime-2025/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="前言每年的面試分享文，似乎已經默默的成為我的某種習慣了（還沒看過我之前文章的，可以參考 2023 跟 2024 的分享）。但今年比較不同的是，我要碩士畢業了！因此本篇分享會從以往的實習轉成正職，職位的部分我大多都是找 ML 相關為主。 面試紀錄 投遞履歷：7 家公司 面試邀請：6 家公司 Offer Get：2 家公司  TSMC應徵職位：沒分，統一丟備註：有研替時程：  8&#x2F;30 EP">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/cover/perfect_clean.png">
+<meta property="article:published_time" content="2025-07-01T07:57:07.000Z">
+<meta property="article:modified_time" content="2025-08-07T17:04:02.796Z">
+<meta property="article:author" content="Jack Chen">
+<meta property="article:tag" content="Interview">
+<meta property="article:tag" content="Fulltime">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/cover/perfect_clean.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)",
+  "url": "https://jackchen890311.github.io/2025/07/01/fulltime-2025/",
+  "image": "https://jackchen890311.github.io/img/cover/perfect_clean.png",
+  "datePublished": "2025-07-01T07:57:07.000Z",
+  "dateModified": "2025-08-07T17:04:02.796Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jack Chen",
+      "url": "https://jackchen890311.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/2025/07/01/fulltime-2025/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/cover/perfect_clean.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a><a class="nav-page-title" href="/"><span class="site-name">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-08-07T17:04:02.796Z" title="更新於 2025-08-08 01:04:02">2025-08-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>18分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>每年的面試分享文，似乎已經默默的成為我的某種習慣了（還沒看過我之前文章的，可以參考 <a href="https://jackchen890311.github.io/2023/05/24/summer-intern-2023/">2023</a> 跟 <a href="https://jackchen890311.github.io/2024/06/28/summer-intern-2024/">2024</a> 的分享）。但今年比較不同的是，我要碩士畢業了！因此本篇分享會從以往的實習轉成正職，職位的部分我大多都是找 ML 相關為主。</p>
+<h1 id="面試紀錄"><a href="#面試紀錄" class="headerlink" title="面試紀錄"></a>面試紀錄</h1><ul>
+<li>投遞履歷：7 家公司</li>
+<li>面試邀請：6 家公司</li>
+<li>Offer Get：2 家公司</li>
+</ul>
+<h2 id="TSMC"><a href="#TSMC" class="headerlink" title="TSMC"></a>TSMC</h2><p>應徵職位：沒分，統一丟<br>備註：有研替<br>時程：</p>
+<ul>
+<li>8&#x2F;30 EPO interview invitation</li>
+<li>9&#x2F;12 EPO interview</li>
+<li>10&#x2F;1 EPO Thank you</li>
+<li>9&#x2F;16? 收到 IT 副理電話聊天詢問面試意願</li>
+<li>9&#x2F;23? 沒收到後續，打電話回去問，他好像說他忘記，當天就收到面試邀請</li>
+<li>10&#x2F;15 收到 IT 另一個處約時間，想約同天但卡到</li>
+<li>10&#x2F;18 IT interview (AAPD)</li>
+<li>10&#x2F;25 IT interview (MLAD)</li>
+<li>11&#x2F;1 收到資歷查核</li>
+<li>11&#x2F;5 資歷查核送出，有問是否需要廠測，對方說去年有紀錄不用</li>
+<li>11&#x2F;20 收到 HR 致電說明 Offer 細節並確認意願</li>
+<li>11&#x2F;28 Offer Get (MLAD)</li>
+</ul>
+<p>台積電的面試是各部門自己安排，但大部分的形式似乎都差不多，就是請你自我介紹，然後再針對經歷提問。所以建議準備個簡單的簡報，照著講就好，不難準備。</p>
+<h3 id="EBO-OPC-SWE-for-Advanced-Optical-Lithography-Technology"><a href="#EBO-OPC-SWE-for-Advanced-Optical-Lithography-Technology" class="headerlink" title="EBO OPC - SWE for Advanced Optical Lithography Technology"></a>EBO OPC - SWE for Advanced Optical Lithography Technology</h3><p>這是我最早收到的面試，在聽完我自我介紹後，他好像也沒有太多問題，就開始介紹部門工作，大致上是開發光照相關的內部軟體之類的。但我印象特別深刻的是他一直問我可不可以接受加班，還跟我打預防針說進來每天大概都是八點以後下班，不停的跟我確認可不可以接受。雖然打預防針是不錯啦，但我真的不知道怎麼回答，畢竟我也不想說不接受（雖然最後也稍微表達出不想加班了），搞得有點尷尬。過了一陣子收到感謝信，我想也是好啦，我也不想進去賣肝。</p>
+<h3 id="Online-Coding-Test-For-IT"><a href="#Online-Coding-Test-For-IT" class="headerlink" title="Online Coding Test (For IT)"></a>Online Coding Test (For IT)</h3><ul>
+<li>3 Questions 90 mins, no limit on language</li>
+<li>聽說配分是 50, 50, 75，實習要 100 正職要 120，不確定真實性僅供參考</li>
+<li>我後兩題全對，第一題大概對一半（竟然敗在第一題嗎…）</li>
+<li>第一題：經典的 1&#x2F;0 背包問題，但對時間的要求蠻嚴格的，我寫到我覺得最佳了還是有一半沒過，回去複習…</li>
+<li>第二題：處理登入跟登出系統的 log，計算時間差並做一些判斷之類的，我用 hash table 輕鬆解決，不太難</li>
+<li>第三題：我忘記詳細內容了，但印象是用 Heap 的概念解的，也沒有很難。</li>
+</ul>
+<h3 id="IT-AAID-AAPD-AI-ML-Engineer-LLM"><a href="#IT-AAID-AAPD-AI-ML-Engineer-LLM" class="headerlink" title="IT AAID AAPD - AI&#x2F;ML Engineer (LLM)"></a>IT AAID AAPD - AI&#x2F;ML Engineer (LLM)</h3><p>IT 也是台積最主要的核心 AI 部門，底下還有分幾個不同的處。這個單位的話，主要是在做給台積內部使用的工具，像是他們其實有內部自己的 Chatbot 叫 T-genie，去年實習的時候有用過，就是這個單位開發的。所以這個單位主要的服務對象是內部的 general user，主要接觸的工具應該比較偏 LLM 相關。</p>
+<!-- mainly focus on application in internal user (LLM) -->
+
+<h3 id="IT-AAID-MLAD-AI-ML-Engineer-CV"><a href="#IT-AAID-MLAD-AI-ML-Engineer-CV" class="headerlink" title="IT AAID MLAD - AI&#x2F;ML Engineer (CV)"></a>IT AAID MLAD - AI&#x2F;ML Engineer (CV)</h3><p>這個單位跟上面應該算是平行的單位，主要做的事情是把 AI 應用在 FAB 相關的場域上（我去年的是 FAC，不太一樣）。這邊的 FAB 就跟晶圓製造比較直接相關了，像是瑕疵檢測等等，技術方面的話應該比較偏重 CV。但我印象中他們對於 Gen AI 的應用相對較少，頂多就是有一些 Synthetic Data Generation 之類的。</p>
+<!-- mainly focus on application in FAB (CV) -->
+
+<h3 id="後續"><a href="#後續" class="headerlink" title="後續"></a>後續</h3><p>後續應該是拿到 AAID MLAD 的 Offer，但我因為<a href="https://jackchen890311.github.io/2023/09/11/intern-at-TSMC/">前年已經在 TSMC 實習過了</a>，對這間公司的風氣覺得還好，最後就婉拒了。但不得不說 TSMC 的薪水是真的香，IT 部門大部分應該也不會太可怕，不失為一個選擇。</p>
+<h2 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h2><p>應徵職位：SWE New Grad, Silicon New Grad, Imaging and On-Device ML SWE (Silicon), Silicon Intern<br>時程：</p>
+<ul>
+<li>10&#x2F;1 請人內推，送出所有職位的申請</li>
+<li>10&#x2F;16 收到 Imaging and On-Device ML SWE 感謝信</li>
+<li>10&#x2F;21 收到 SWE 約面試</li>
+<li>11&#x2F;7 SWE 1st Round Coding Interview （原本敲定 10&#x2F;31，後來臨時往後延）</li>
+<li>11&#x2F;15 主動寄信詢問後續，無聲卡</li>
+<li>12&#x2F;25 無聊丟一下 Silicon Intern</li>
+<li>12&#x2F;31 Silicon Intern 感謝信（聽學長說是畢業時間問題）</li>
+<li>1&#x2F;9 請學長內推 Silicon Intern</li>
+<li>2&#x2F;6 Silicon Intern 1st Round Tech Interview</li>
+<li>2&#x2F;19 Silicon Intern 2nd Round Tech Interview</li>
+<li>2&#x2F;25 Positive Feedback (But waiting for other interviewees)</li>
+<li>3&#x2F;21 Follow-up on Results but No Reply</li>
+<li>4&#x2F;15 Thank You Letter (Reason: Strong performance but found better fit candidate)</li>
+</ul>
+<h3 id="SWE-1st-Round"><a href="#SWE-1st-Round" class="headerlink" title="SWE 1st Round"></a>SWE 1st Round</h3><ul>
+<li>考官是中國人，但英文面試，所以有點痛苦</li>
+<li>題目大概是 Multi-source distinct shortest path，只有一個 destination</li>
+<li>走過的路徑只算一次，也就是說兩個 source 可以藉由 share path 來減少路徑</li>
+<li>Warm-up 就是給我一個 case 請我找出更好的走法</li>
+<li>我答的蠻爛的，應該是涼了，英文 + 不熟悉的題目完全無法</li>
+<li>但面試官還加時 20 mins 讓我把問題做完，最後有給出可行解，時間複雜度不算太糟</li>
+</ul>
+<h3 id="Silicon-Intern-1st-Round-Tech-Interview"><a href="#Silicon-Intern-1st-Round-Tech-Interview" class="headerlink" title="Silicon Intern 1st Round Tech Interview"></a>Silicon Intern 1st Round Tech Interview</h3><ul>
+<li>English based</li>
+<li>介紹自己的 ML 專案</li>
+<li>介紹 GAN &#x2F; Diffusion</li>
+<li>GAN &#x2F; Diffusion Training problems and solutions</li>
+<li>介紹 Transformer and its pros and cons</li>
+<li>有沒有能力自幹 Training code</li>
+<li>Training failed how to check</li>
+<li>Explain any DL optimization methods (Literally Any)</li>
+<li>Coding<ul>
+<li>Circular array calculate shortest distance between 2 indexes</li>
+<li>Follow-up: shortest distance between given index and item</li>
+</ul>
+</li>
+</ul>
+<h3 id="Silicon-Intern-2nd-Round-Tech-Interview"><a href="#Silicon-Intern-2nd-Round-Tech-Interview" class="headerlink" title="Silicon Intern 2nd Round Tech Interview"></a>Silicon Intern 2nd Round Tech Interview</h3><ul>
+<li>English based</li>
+<li>Activation Functions<ul>
+<li>Swish Analysis (Derivative, Choose of Constant, Characteristics, Compare with other Activation Functions)</li>
+<li>Activation Functions in Transformer</li>
+</ul>
+</li>
+<li>Latent Diffusion Models<ul>
+<li>Conditioning, Inference</li>
+<li>Extend to Video Generation: How to do that? Some related problems and how to solve it?</li>
+</ul>
+</li>
+</ul>
+<h3 id="後續-1"><a href="#後續-1" class="headerlink" title="後續"></a>後續</h3><p>SWE 後來就無聲卡了，Silicon Intern 收到的回覆是表現很不錯，但請我等他們面完其他候選人。殊不知這一等就等了好久，過程中我主動 follow-up 也被無聲，後來到四月底才收到感謝信，說雖然我表現很好，但他們最後找了其他更適合的人。再更後來我有打聽到，最後好像是選隔壁實驗室，以前上過課的老師的學生，主因應該是因為那個老師有很多前輩在那個部門，並且他本身的發表經驗也比我多（雖然成績應該是沒有比我好）。這次大概是我最靠近 Google 的一次了，非常可惜！</p>
+<h2 id="NVIDIA"><a href="#NVIDIA" class="headerlink" title="NVIDIA"></a>NVIDIA</h2><p>應徵職位：AI Engineer, DL Engineer<br>備註：有研替（他們家研替叫 intern，沒有 RSU 跟不算年資的樣子）<br>時程：</p>
+<ul>
+<li>10&#x2F;21 收到主管聯絡詢問 RDSS 意願</li>
+<li>11&#x2F;4 收到 AI Algorithm SWE (RDSS intern) Online Test 邀請</li>
+<li>11&#x2F;25 收到一面邀請</li>
+<li>12&#x2F;5 線上一面</li>
+<li>12&#x2F;16 收到二面邀請</li>
+<li>12&#x2F;20 線上二面</li>
+<li>12&#x2F;26 寄信詢問後續（因為收到其他 Offer，想加快，但最後沒有理我）</li>
+</ul>
+<h3 id="Online-Test"><a href="#Online-Test" class="headerlink" title="Online Test"></a>Online Test</h3><ul>
+<li>3 Coding + 21 Mutiple Choices, 90 minutes</li>
+<li>Coding 蠻簡單的，感覺不著重考資結跟演算法</li>
+<li>Mutiple Choices 著重 AI &#x2F; DL 相關觀念，會直接把 code 貼出來給你選</li>
+</ul>
+<h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><ul>
+<li>第一題：色碼處理（字串&#x2F;十六進位&#x2F;整數轉換）</li>
+<li>第二題：Scipy 基本操作（我對 Scipy 完全不熟，所以沒寫出來，誰做 AI 在用 scipy…）</li>
+<li>第三題：座標點朝向彼此移動，判斷是否全部聚在同一點</li>
+</ul>
+<h4 id="Mutiple-Choices"><a href="#Mutiple-Choices" class="headerlink" title="Mutiple Choices"></a>Mutiple Choices</h4><p>考的內容很多元，我覺得出的蠻好的，內容包含主要圍繞在 DL，常見的模型如 CNN, GAN, UNet, AutoEncoder 等等都有出現，也有考一些基本的 CV 與 NLP 概念，像是怎麼訓練、微調、特定任務的標籤要怎麼處理等等，也會詢問常見的 Library 像是 Transformers，需要具備紮實的 DL 基礎。</p>
+<h3 id="線上一面"><a href="#線上一面" class="headerlink" title="線上一面"></a>線上一面</h3><p>流程：</p>
+<ul>
+<li>同一天兩輪，一輪一人一小時</li>
+<li>簡介工作內容，大約 5 分鐘</li>
+<li>個人經歷介紹，大約 10 - 20 分鐘</li>
+<li>AI 相關技術問題，大約 0 - 10 分鐘 <!-- 有被問 GAN，還有 Model train 不起來的情境題 --></li>
+<li>Coding 題與相關 Follow-up，大約 30 分鐘</li>
+</ul>
+<p>先前有寄信問 HR 面試流程，但沒有得到回覆，只好隨意準備。  </p>
+<p>Coding 題的部分沒有很難，但很考驗基礎功力，我遇到的題目如下：</p>
+<ul>
+<li>實作 Convolution（可能會包含 Stride、Padding 等等設定） <!-- 最後還有加考 Dilated，但我來不及做完 --></li>
+<li>實作兩個知名 CV Backbone 裡面的 Block，包含 Layer 定義跟 Forward Process</li>
+</ul>
+<h4 id="關於部門"><a href="#關於部門" class="headerlink" title="關於部門"></a>關於部門</h4><p>我面的這個職缺聽他說是新成立的，主要負責打造內部用的 AI Toolkit（TAO），會把最新的 Paper 的 Code 整合進去，因此感覺是個介於 Research 與 Engineer 之間的存在，同時也有跟一些工廠合作，來推他們的這個 Toolkit，也會幫他們解決一些相關問題。我個人是覺得這東西感覺蠻好玩的，因為同時有 AI 跟 SWE，主要領域又是著重在 CV 上面，完全是很適合我，感覺我面的也還算不賴，希望還有機會。</p>
+<h3 id="線上二面"><a href="#線上二面" class="headerlink" title="線上二面"></a>線上二面</h3><p>流程：</p>
+<ul>
+<li>只有一輪一人一小時</li>
+<li>AI 相關技術問題，大約 30 分鐘 </li>
+<li>個人經歷介紹與相關提問，大約 30 分鐘</li>
+<li>(Optional) Coding Test，我最後因為時間關係沒有遇到</li>
+</ul>
+<p>前半部的 AI 相關討論跟第一次有點類似，但這次的更深入並更開放，如果對 AI 沒有很深刻的了解，我想是很難答的好的。像是他有問你覺得分類問題可以用 MSE Loss 嗎、L1 Loss 跟 L2 Loss 的好處壞處各是什麼、Bias Variance Tradeoff 的概念等等。雖然有些我大學上課有學過，但我當時還真的快忘光，因此我覺得我答的不太好 QQ，希望不要在這個階段告吹，畢竟前面技術關都通過了。後半部的個人經歷就一樣我介紹他問問題，這次的面試官問的蠻細節的，但也還好我都算有答出來，現在就是看前半的表現可不可以了。</p>
+<h3 id="後續-2"><a href="#後續-2" class="headerlink" title="後續"></a>後續</h3><p>後來等一段時間後，我有寄信給 recruiter follow-up，但都被無聲卡，看來敗在第二面表現太爛了……QQ。</p>
+<h2 id="Synology"><a href="#Synology" class="headerlink" title="Synology"></a>Synology</h2><p>應徵職位：Product Developer<br>備註：有研替<br>時程：</p>
+<ul>
+<li>? 投遞履歷</li>
+</ul>
+<h3 id="後續-3"><a href="#後續-3" class="headerlink" title="後續"></a>後續</h3><p>很後來才發現投過，直接被無聲卡，QQ。聽說他們現在都沒在看履歷，或是定期會把舊的刷掉，不知道真假。</p>
+<h2 id="MediaTek"><a href="#MediaTek" class="headerlink" title="MediaTek"></a>MediaTek</h2><p>應徵職位：演算法開發_影像演算法、軟韌體開發_AI &amp; Computing Platform<br>備註：有研替<br>時程：</p>
+<ul>
+<li>10&#x2F;17 收到面談邀約</li>
+<li>11&#x2F;15 以前 完成線上測驗（適性、TOEIC、Coding）</li>
+<li>11&#x2F;15 第一次面試（演算法開發_影像演算法）</li>
+<li>12&#x2F;18 寄信問後續，對方回覆無後續</li>
+<li>1&#x2F;9 又收到另一個 Team 面試邀約</li>
+<li>1&#x2F;17 第一次面試（軟韌體開發_AI &amp; Computing Platform）</li>
+</ul>
+<h3 id="Online-Coding-Test"><a href="#Online-Coding-Test" class="headerlink" title="Online Coding Test"></a>Online Coding Test</h3><ul>
+<li>2 Coding + 16 Mutiple Choices + 8 Blank filling, 90 minutes</li>
+<li>語言限定 C &#x2F; C++ (Coding 只有 C)</li>
+<li>選擇與填空注重語法與 OOP 觀念，需要很熟悉 C &#x2F; C++</li>
+<li>Coding 皆偏基礎（Palindrome, Swap with bit operation）</li>
+</ul>
+<h3 id="第一次面試（演算法開發-影像演算法）"><a href="#第一次面試（演算法開發-影像演算法）" class="headerlink" title="第一次面試（演算法開發_影像演算法）"></a>第一次面試（演算法開發_影像演算法）</h3><p>有聽說 MTK 是多部門一起，但不知為啥當天只來一個部門的兩位主管（來面我的是 AIDE，就是 MTK 裡面主要負責 AI 的部門，達哥就是他們做的）。面試前有要求做簡報，所以前半部都在自我介紹，全部講完後主管開始提問，他們真的問蠻細的，每頁經歷有興趣的都會問，也會 follow 一些相關問題來看你的人格特質，還有你遇到問題會如何解決等等。但我覺得這部分相較好準備，就是把你的經歷都弄熟，展現出你的自信就好，相較之下 Google 的 Coding Interview 難多了。問完已經過一小時多，後面就換部門介紹與提問，整題感覺聊的很不錯，他們也有展現出一定的興趣，應該算蠻有機會的。</p>
+<h3 id="第一次面試（軟韌體開發-AI-Computing-Platform）"><a href="#第一次面試（軟韌體開發-AI-Computing-Platform）" class="headerlink" title="第一次面試（軟韌體開發_AI &amp; Computing Platform）"></a>第一次面試（軟韌體開發_AI &amp; Computing Platform）</h3><p>這個部門我上次也有收到邀請，但面試沒出現，後來拿到 Offer 了想說就加減隨意面。流程一樣自介 -&gt; 提問 -&gt; 部門介紹，這個部門好像主要是寫不同的 OS Driver，還有把 AI Model 放到他們特化的 Chips 上面，跟一些相關的 Evaluation 跟 Verification 等等。其實算是我相對不熟 &amp; 沒興趣的職位，大部分都在碰蠻底層的東西，主要 Skill Set 也是 C&#x2F;C++、OS 等等，加上他還說每年大概一個月需要加班，所以其實我沒啥興趣。但還是花了一個半小時講好講滿，他們還問了很多關於你對工作的選擇看法，可惜的是我應該沒有要選他們。</p>
+<h3 id="後續-4"><a href="#後續-4" class="headerlink" title="後續"></a>後續</h3><p>後來都無聲卡，再更後來好像聽到 AIDE 被解散的風聲。</p>
+<h2 id="玩美移動"><a href="#玩美移動" class="headerlink" title="玩美移動"></a>玩美移動</h2><p>應徵職位：AI Engineer (Image processing)、Machine Learning Engineer<br>備註：有研替<br>時程：</p>
+<ul>
+<li>11&#x2F;18 收到 Mobile Development invitation，但我跑去投 AI &#x2F; ML 的缺</li>
+<li>11&#x2F;19~11&#x2F;21 收到面試詢問與邀約，有 Coding Test</li>
+<li>11&#x2F;28 IQ + 英文 + 主管面談（App AI）</li>
+<li>12&#x2F;12 主管面談（Gen AI）</li>
+<li>12&#x2F;13 收到 Gen AI 口頭 Offer &amp; 約時間現場談薪水 + 參觀辦公室</li>
+<li>12&#x2F;25 現場談薪水 + 參觀辦公室</li>
+<li>1&#x2F;13 Offer Accepted</li>
+</ul>
+<h3 id="Online-Coding-Test-1"><a href="#Online-Coding-Test-1" class="headerlink" title="Online Coding Test"></a>Online Coding Test</h3><p>限定語言：C &#x2F; C++，有開放網路查詢語法</p>
+<ul>
+<li>第一題（M）：String Reduction, given a reduction rule find minimum length</li>
+<li>第二題（M）：Cipher (Rotation based) </li>
+<li>第三題（E）：String Changes, given a change rule (skip &#x2F; duplicate) find changed string</li>
+</ul>
+<!-- 
+String Reduction: ab, ba -> c / ac, ca -> b / bc, cb -> a
+Caesar Cipher: Case Sensitive & General (Might have more than english character)
+String Changes: N -> remove next / M -> duplicate previous
+-->
+
+<h3 id="IQ-英文-主管面談（App-AI）"><a href="#IQ-英文-主管面談（App-AI）" class="headerlink" title="IQ + 英文 + 主管面談（App AI）"></a>IQ + 英文 + 主管面談（App AI）</h3><p>面試當天共兩小時，第一小時是 IQ + 英文測驗。IQ 的部分分為中文、數學、圖像理解，就跟一般的 IQ 測驗差不多，但時間蠻短的要自己注意速度。英文的部分就是標準的多益測驗，沒啥難度。HR 會看著你線上考，考完之後馬上看成績，確定沒問題後就進入面試環節（不知道太爛會不會直接結束面試 XD）。</p>
+<p>主管面談的部分就一樣，由我講經歷他問問題，但有個比較特別的是他有針對我 Github 上整理的課程作業問細節，特別是 DLCV 的作業內容，我甚至一個一個作業開給他跟他解釋。這部分問蠻細的，包含這個 Task 在做什麼、你為什麼選這麼 Model、有遇到什麼狀況、Dataset 用啥、Performance 多好都有問，雖然我有些都忘記了但還是大致有回答出來。接著就是問一些基本的 DL 相關問題，像是你平常怎麼訓練 Model、參數怎麼選、如何避免 Overfitting 等等，同時也有確認我的一些相關技能，像是影像處理、計算機圖形等等。</p>
+<p>最後部門介紹的部分，他們說他們部門主要做的是 App 端的 Model，也因此模型的大小與效率很重要，除了演算法的開發也會蠻多時間在考慮這個模型能否在手機端直接運算，或是能否用傳統的影像處理方式就做掉節省運算量等等。但也有 Gen AI 相關的應用，像是更換背景、去除物件，但比較是另一個 Team 做的事情。相較之下我其實對另一個 Team 會比較有興趣，所以也有跟面試官表達，也許之後還有機會可以面面看。</p>
+<h3 id="主管面談（Gen-AI）"><a href="#主管面談（Gen-AI）" class="headerlink" title="主管面談（Gen AI）"></a>主管面談（Gen AI）</h3><p>流程跟前面類似，但今天的主管似乎比較少提問，不知道是不是我講得太投入，他就聽著我講偶爾問一兩句這樣，沒有太深入的想了解我經歷的感覺。但後半的部門介紹他講了蠻多的，相較前面的部門，這個部門更著重在一些關於 Gen AI 相關的應用。從需求面出發的話，最近熱門的應用有虛擬試裝、圖片編輯（用自然語言）等等，而這些的相關技術大多圍繞在 Diffusion Models，因此也是主要用到的工具。令我意外的是，他們也有在做一些 LLM &#x2F; VLM 相關的應用，像是 AI 櫃姐等等，還蠻酷的。整體來說這個 Team 做的東西感覺蠻好玩，也會用到很多最近熱門的技術，又跟我的研究大致有相關，只希望他對我還有興趣了。</p>
+<h3 id="現場談薪水-參觀辦公室"><a href="#現場談薪水-參觀辦公室" class="headerlink" title="現場談薪水 + 參觀辦公室"></a>現場談薪水 + 參觀辦公室</h3><p>後來面完隔天就收到 HR 的電話，詢問我的意願並發給我口頭 Offer，同時想跟我約一天現場實體面談（但不是面試，應該就是談 Offer）。蠻驚喜的，因為還在想他面試時感覺沒有問太深入，結果就直接給我 Offer 了，後來就跟他敲定聖誕節去辦公室面談。</p>
+<p>當天來到他們位於大坪林附近的辦公室，是在一般的辦公大樓裡，一共十幾層，大概 1&#x2F;4 ~ 1&#x2F;3 是屬於訊連科技與玩美移動的，兩者又差不多再佔各半。面談進行的還蠻順利的，應該是我未來的主管讓我對於工作提問，並且他也補充了很多他們部門正在做或過去的專案經驗等等。<br>他一開始就先問我有沒有在面其他家，然後再跟我分析說這些工作差異，並且有點像在說服我的感覺，確實聽完之後我又更想去了一點 XD。</p>
+<p>主管還蠻健談的，我問了幾個問題就過了快一小時，最後問完後就是來到談薪水環節。來之前我有做了一點研究，也問了一下我學長有沒有什麼要注意的地方，跟他之前談的數字。一開始給的數字差不多跟我打聽的一致，但我用已經有的 Offer 跟他 Compete，試試看能不能談更高。<br>他看起來也沒有面露難色，並表示會幫我問問看，最後還跟我要了 Line，感覺應該是有機會！於是就獲得了人生第一次談薪水的經驗，還蠻有趣的但有點怕怕的就是了哈哈哈。（其實原本的薪水我覺得也可以接受啦，但如果我有這個市場價那當然越高越好 XD）</p>
+<h3 id="後續-5"><a href="#後續-5" class="headerlink" title="後續"></a>後續</h3><p>後來主管聯繫我，跟我說他幫我談到的薪水，最後落在一開始的數字與我喊的數字之間（我原本以為會直接給到我的數字，不過我喊的確實比較高）。但我這邊因為還想等等看 NVIDIA，所以就請他再等我幾週，但 NVIDIA 那邊都沒有後續，所以最後決定先接受了。</p>
+<h2 id="Appier"><a href="#Appier" class="headerlink" title="Appier"></a>Appier</h2><p>應徵職位：Machine Learning Scientist &amp; Engineer<br>備註：有研替，原本在這實習，請主管幫忙問能否轉正，但是轉到不同 Team，一樣需要面試，並且是跟不同主管<br>時程：</p>
+<ul>
+<li>與現主管約 1-on-1 聊目前 Offer 狀況與轉正情形</li>
+<li>2&#x2F;5 收到 HR 聯絡說明並敲定面試時間</li>
+<li>3&#x2F;6 主管一面（技術面試）</li>
+<li>3&#x2F;20 Thank You Letter</li>
+<li>7&#x2F;14 現主管幫我內推 AI Research Team，但後來沒去面試</li>
+</ul>
+<h3 id="主管一面（Bidding-Team）"><a href="#主管一面（Bidding-Team）" class="headerlink" title="主管一面（Bidding Team）"></a>主管一面（Bidding Team）</h3><ul>
+<li>三個部分：自我介紹與相關專案、Scientist Related Questions、Engineer Related Questions</li>
+<li>每個部分各 20-30 分鐘，但最後總共面了 2 小時</li>
+<li>Scientist<ul>
+<li>Design Product Search Recommendation Model</li>
+<li>Details: Feature &#x2F; Model &#x2F; Training &#x2F; Online &amp; Offline &#x2F; Evaluation…</li>
+</ul>
+</li>
+<li>Engineer<ul>
+<li>Pick one of your project and explain it from start to end</li>
+<li>Two Dimensional Logs Processing &amp; Transformation</li>
+<li>Prefix Sum</li>
+</ul>
+</li>
+</ul>
+<h3 id="後續-6"><a href="#後續-6" class="headerlink" title="後續"></a>後續</h3><p>後來收到 Thank You Letter 了，不太確定原因，但過幾天原主管跟我跟我約了個 1-on-1 聊天，好像說聽到的 Feedback 是我在這邊的專案太簡單，他們覺得還好。Hmmm……確實是有點簡單，我當初做就有類似的想法，不過也有可能是我包裝不好，但我好像也無可奈何，畢竟就是主管給的專案，也沒有其他 junior 或 senior 一起做。後來想說算了，反正現在這個新 Team 做的內容我也還好，相比之下我可能比較會想選完美移動，不過 Appier 的薪水、地理位置、公司風氣真的都很香……。</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>2025 的面試分享大概到這邊，體感今年景氣有比去年稍微好一些，但整體而言也不像疫情時那麼好找。很可惜的是這次與 Google 擦肩而過，真的是令我非常的遺憾，Google 真的是身為資工人都想進去體驗一輪的公司。另外，我也有稍微被資工的薪資水準驚訝到，這年代醫牙電資跟果然其他科系有很明顯的差異，很慶幸自己之前有決定轉換跑道，除了學的東西更好玩之外，也拿到了這些不錯的 Offer。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io">Jack Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://jackchen890311.github.io/2025/07/01/fulltime-2025/">https://jackchen890311.github.io/2025/07/01/fulltime-2025/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://jackchen890311.github.io" target="_blank">Jack's Space</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Interview/">Interview</a><a class="post-meta__tags" href="/tags/Fulltime/">Fulltime</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/perfect_clean.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="onerror=null;src='/img/website/404_cool.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題</div></div><div class="info-2"><div class="info-item-1">HackMD 完整版請點我 最大子數列問題 (Maximum Subarray Problem)最大子陣列問題是指在一個整數數列中，找出一段連續子陣列，使其元素總和最大。這是經典的動態規劃問題之一，常用於資料分析，如股價變動趨勢。   例子：給定一個陣列 [-2, -3, 4, -1, -2, 1, 5, -3]，找出總和最大的子陣列。 解答：最大子陣列為 [4, -1, -2, 1, 5]，其總和為 7。  Kadane’s AlgorithmKadane’s Algorithm 是一種專門用來解決此問題的演算法，可在線性時間內計算完成。要了解 Kadane’s Algorithm，讓我們從暴力法一步一步來看。  滴滴面试手撕算法题-kadane算法  暴力法：遍歷全部連續子陣列最簡單的方式，就是窮舉所有可能的連續子陣列，並計算每一個子陣列的總和，再從中找出最大值。 12345678def maxSubArrayBF(nums):    max_sum = nums[0]    n = len(nums)    for i in range(n):        for j...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/06/28/summer-intern-2024/" title="2024 年科技業暑期實習面試心得（Google, Gamania, Appier）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/appier.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-28</div><div class="info-item-2">2024 年科技業暑期實習面試心得（Google, Gamania, Appier）</div></div><div class="info-2"><div class="info-item-1">一年又過去啦～又到了要找暑期實習的時間了，如果還沒看過去年的暑期實習面試心得文可以 點我 觀看。今年我的策略一樣是只找大公司 &amp; 有興趣的職位，因為順利的話畢業也許可以直接拿 Return Offer，就不用再找工作了。另外我主要是找暑期，以 SWE、AI &amp; ML 相關的職缺為主。（雖然我最後去的是長期實習 XD） 面試紀錄 投遞履歷：18 家公司 面試邀請：3 家公司 Offer Get：1 家公司  最後去 Appier 做 Machine Learning Scientist Intern，我也只有拿到這個 Offer。 Google - SWE Intern第一關（1&#x2F;29 &amp; 1&#x2F;30）- Online Coding Interview x 2一月初投的，中間兩三周都沒收到任何消息，還以為涼去，結果到快月底了才收到面試邀請，還好我一月都算有在加減刷題，話雖如此但面試前幾天還是緊張到靠北。題外話，我原本選一中一英，但莫名其妙變成二中，不知道該開心還是該難過，因為我也不知道到底語言會不會影響評分 @@。 以下因為 Google...</div></div></div></a><a class="pagination-related" href="/2023/05/24/summer-intern-2023/" title="2023 年科技業暑期實習面試心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/tsmc.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-24</div><div class="info-item-2">2023 年科技業暑期實習面試心得</div></div><div class="info-2"><div class="info-item-1">在正式進入研究所前的暑假，有人會拿來大玩特玩、有人要先進實驗室做準備、而我則是選擇將這兩個月投入實習。主要是因為自己還沒有甚麼大公司實習的經驗，加上也希望早日體驗不同的工作內容，在未來選擇第一份工作時會比較有方向。我在今年一到四月陸陸續續投了十幾家公司，皆以大公司暑期實習為主，職位包含 Software Engineer、Data Scientist 等等，也因為我只投暑期實習，加上不想再去新創，因此公司選擇上有一定的限制。這篇文章就簡單分享我的面試過程與心得，然後我很爛大家就看看笑笑就好。另外，聽很多人說今年的缺比去年少很多，也比較難拿到面試機會與 Offer，不知道這種狀況何時才會好轉。 面試紀錄以下粗略地按照投遞時間排序。  投遞履歷：15 家公司 面試邀請：6 家公司 13 個職位 Offer Get：2 家公司 2 個職位  最後決定去 TSMC 的廠務數位發展部擔任暑期實習生。 Google - SWE Intern結果：直接感謝信，枉費我還有請人內推…… Yahoo - DevOps Intern第一關（3&#x2F;10）- 線上技術面談面試前瘋狂刷...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack, currently pursing master's degree at NTU CSIE.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://medium.com/@JackChen89" target="_blank" title="Medium"><i class="fab fa-medium"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a0930522803@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome :)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%A9%A6%E7%B4%80%E9%8C%84"><span class="toc-number">2.</span> <span class="toc-text">面試紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TSMC"><span class="toc-number">2.1.</span> <span class="toc-text">TSMC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EBO-OPC-SWE-for-Advanced-Optical-Lithography-Technology"><span class="toc-number">2.1.1.</span> <span class="toc-text">EBO OPC - SWE for Advanced Optical Lithography Technology</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Coding-Test-For-IT"><span class="toc-number">2.1.2.</span> <span class="toc-text">Online Coding Test (For IT)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IT-AAID-AAPD-AI-ML-Engineer-LLM"><span class="toc-number">2.1.3.</span> <span class="toc-text">IT AAID AAPD - AI&#x2F;ML Engineer (LLM)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IT-AAID-MLAD-AI-ML-Engineer-CV"><span class="toc-number">2.1.4.</span> <span class="toc-text">IT AAID MLAD - AI&#x2F;ML Engineer (CV)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C"><span class="toc-number">2.1.5.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google"><span class="toc-number">2.2.</span> <span class="toc-text">Google</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SWE-1st-Round"><span class="toc-number">2.2.1.</span> <span class="toc-text">SWE 1st Round</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Silicon-Intern-1st-Round-Tech-Interview"><span class="toc-number">2.2.2.</span> <span class="toc-text">Silicon Intern 1st Round Tech Interview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Silicon-Intern-2nd-Round-Tech-Interview"><span class="toc-number">2.2.3.</span> <span class="toc-text">Silicon Intern 2nd Round Tech Interview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-1"><span class="toc-number">2.2.4.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NVIDIA"><span class="toc-number">2.3.</span> <span class="toc-text">NVIDIA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Test"><span class="toc-number">2.3.1.</span> <span class="toc-text">Online Test</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Coding"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">Coding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mutiple-Choices"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">Mutiple Choices</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%9A%E4%B8%8A%E4%B8%80%E9%9D%A2"><span class="toc-number">2.3.2.</span> <span class="toc-text">線上一面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E9%83%A8%E9%96%80"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">關於部門</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%9A%E4%B8%8A%E4%BA%8C%E9%9D%A2"><span class="toc-number">2.3.3.</span> <span class="toc-text">線上二面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-2"><span class="toc-number">2.3.4.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Synology"><span class="toc-number">2.4.</span> <span class="toc-text">Synology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-3"><span class="toc-number">2.4.1.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaTek"><span class="toc-number">2.5.</span> <span class="toc-text">MediaTek</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Coding-Test"><span class="toc-number">2.5.1.</span> <span class="toc-text">Online Coding Test</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%A9%A6%EF%BC%88%E6%BC%94%E7%AE%97%E6%B3%95%E9%96%8B%E7%99%BC-%E5%BD%B1%E5%83%8F%E6%BC%94%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">2.5.2.</span> <span class="toc-text">第一次面試（演算法開發_影像演算法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%A9%A6%EF%BC%88%E8%BB%9F%E9%9F%8C%E9%AB%94%E9%96%8B%E7%99%BC-AI-Computing-Platform%EF%BC%89"><span class="toc-number">2.5.3.</span> <span class="toc-text">第一次面試（軟韌體開發_AI &amp; Computing Platform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-4"><span class="toc-number">2.5.4.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E7%BE%8E%E7%A7%BB%E5%8B%95"><span class="toc-number">2.6.</span> <span class="toc-text">玩美移動</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-Coding-Test-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">Online Coding Test</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IQ-%E8%8B%B1%E6%96%87-%E4%B8%BB%E7%AE%A1%E9%9D%A2%E8%AB%87%EF%BC%88App-AI%EF%BC%89"><span class="toc-number">2.6.2.</span> <span class="toc-text">IQ + 英文 + 主管面談（App AI）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%AE%A1%E9%9D%A2%E8%AB%87%EF%BC%88Gen-AI%EF%BC%89"><span class="toc-number">2.6.3.</span> <span class="toc-text">主管面談（Gen AI）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8F%BE%E5%A0%B4%E8%AB%87%E8%96%AA%E6%B0%B4-%E5%8F%83%E8%A7%80%E8%BE%A6%E5%85%AC%E5%AE%A4"><span class="toc-number">2.6.4.</span> <span class="toc-text">現場談薪水 + 參觀辦公室</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-5"><span class="toc-number">2.6.5.</span> <span class="toc-text">後續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appier"><span class="toc-number">2.7.</span> <span class="toc-text">Appier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%AE%A1%E4%B8%80%E9%9D%A2%EF%BC%88Bidding-Team%EF%BC%89"><span class="toc-number">2.7.1.</span> <span class="toc-text">主管一面（Bidding Team）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C-6"><span class="toc-number">2.7.2.</span> <span class="toc-text">後續</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">3.</span> <span class="toc-text">結語</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/perfect_clean.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"/></a><div class="content"><a class="title" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</a><time datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題">資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題</a><time datetime="2025-06-10T07:57:11.000Z" title="發表於 2025-06-10 15:57:11">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列">資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列</a><time datetime="2025-06-10T07:57:10.000Z" title="發表於 2025-06-10 15:57:10">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (9) - 圖的進階議題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-9/" title="資料結構與演算法教學系列文 (9) - 圖的進階議題">資料結構與演算法教學系列文 (9) - 圖的進階議題</a><time datetime="2025-06-10T07:57:09.000Z" title="發表於 2025-06-10 15:57:09">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-8/" title="資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標">資料結構與演算法教學系列文 (8) 字串比對、位元運算、雙重指標</a><time datetime="2025-06-10T07:57:08.000Z" title="發表於 2025-06-10 15:57:08">2025-06-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By Jack Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2025/07/01/fulltime-2025/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://jackchen890311.github.io/2025/07/01/fulltime-2025/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://jackchen890311.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=jackchen890311&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !true) {
+    if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
