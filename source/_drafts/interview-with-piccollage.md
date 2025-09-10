@@ -7,7 +7,7 @@ tags:
   - Interview
   - PicCollage
 cover: /img/cover/piccollage.png
-date: 2025-07-29 15:57:07
+date: 2025-08-01 15:57:07
 ---
 
 # 前言
@@ -16,7 +16,7 @@ date: 2025-07-29 15:57:07
 
 ## 面試過程
 應徵職位：Machine Learning Engineer  
-部門介紹：[Medium](https://piccollage-company.medium.com/%E6%B7%B1%E5%85%A5%E7%9E%AD%E8%A7%A3-piccollage-%E4%B8%80%E6%8E%A2-piccollage-mlad-%E5%9C%98%E9%9A%8A-1d3ceff7e35b)
+部門介紹：[PicCollage MLAD - Medium](https://piccollage-company.medium.com/%E6%B7%B1%E5%85%A5%E7%9E%AD%E8%A7%A3-piccollage-%E4%B8%80%E6%8E%A2-piccollage-mlad-%E5%9C%98%E9%9A%8A-1d3ceff7e35b)
 
 時程：
 - 5/2 朋友幫忙內推完成

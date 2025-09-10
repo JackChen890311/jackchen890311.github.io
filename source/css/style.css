@@ -1,6 +1,12 @@
 
-#footer-wrap {
+#footer {
     background-color: black !important;
+}
+
+#footer .footer-other {
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
 }
 
 .framework-info {
