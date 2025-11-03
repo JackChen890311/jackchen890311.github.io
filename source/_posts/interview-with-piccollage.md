@@ -47,11 +47,11 @@ Explain attention to people with different background knowledge
 
 #### 面試流程 (30 mins)：
 - Follow-up on homework: 5-10 mins 
-<!-- (Attention: shape of input / Q K V /output) -->
 - Resume: 5-10 mins (Education / Master's Thesis)
 - Behavioral Questions: 5-10 mins 
-<!-- (Past Work Achievements / Difficulties / What do you want to build) -->
 - Q & A
+<!-- (Follow-up: Attention: shape of input / Q K V /output) -->
+<!-- (Behavioral: Past Work Achievements / Difficulties / What do you want to build) -->
 
 ### Engineer 線上二面
 這次的面試體驗數一數二的好，工程師人很好，會引導我寫題目，忘記的細節也可以向他提問；並且題目難度適中，順順的就可以在時間內解完。加上最後 Q & A 聽他描述工作內容、工作風氣等等，又讓我更想去了一點！
@@ -75,6 +75,7 @@ Use numpy to speed up a simulation process
 Train a small model that follows a given distribution (colored image, specific pattern)  
 Can choose from various models like VAE, GAN, AR, Diffusion...  
 <!-- Data: One 300 x 300 photo of a colored "Pi" notation, given in [x, y, r, g, b] -->
+
 Focus:
 - Problem Formulation, Solution Correctness, and their Explanation
 - Code Organization
