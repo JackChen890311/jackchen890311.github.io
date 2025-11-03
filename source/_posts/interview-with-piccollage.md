@@ -17,7 +17,7 @@ date: 2025-11-01 15:57:07
 起因是三月多去逛就業博覽會的時候，剛好遇到認識的朋友在裡面工作，就跟他聊了一下，畢竟我一直對這間公司很感興趣，雖然後來覺得有點懶所以沒丟。但過了一陣子之後又覺得很心動，不挑戰一下有點可惜，就去麻煩我朋友內推。又隔了一陣子他看到訊息之後，到五月初總算成功推到了，雖然時程上算是小晚，但想說我沒啥損失就還是面面看。
 
 
-## 面試過程
+# 面試過程
 應徵職位：Machine Learning Engineer  
 部門介紹：[PicCollage MLAD - Medium](https://piccollage-company.medium.com/%E6%B7%B1%E5%85%A5%E7%9E%AD%E8%A7%A3-piccollage-%E4%B8%80%E6%8E%A2-piccollage-mlad-%E5%9C%98%E9%9A%8A-1d3ceff7e35b)
 
@@ -36,16 +36,16 @@ date: 2025-11-01 15:57:07
 - 7/24 Follow-up Offer Call
 - 7/28 Offer Accepted
 
-### ML Head + HR 線上一面
+## ML Head + HR 線上一面
 原本等兩週了還是沒下文，正打算放棄並且總算填了替代役，結果一面邀請就來了！
 
-#### Take-home Work
+### Take-home Work
 Explain attention to people with different background knowledge
 <!-- How would you explain the idea of attention in transformers to:
 - Someone with a knowledge of ML but no knowledge of transformers
 - Someone with a strong math background but no knowledge of ML -->
 
-#### 面試流程 (30 mins)：
+### 面試流程 (30 mins)：
 - Follow-up on homework: 5-10 mins 
 - Resume: 5-10 mins (Education / Master's Thesis)
 - Behavioral Questions: 5-10 mins 
@@ -53,14 +53,14 @@ Explain attention to people with different background knowledge
 <!-- (Follow-up: Attention: shape of input / Q K V /output) -->
 <!-- (Behavioral: Past Work Achievements / Difficulties / What do you want to build) -->
 
-### Engineer 線上二面
+## Engineer 線上二面
 這次的面試體驗數一數二的好，工程師人很好，會引導我寫題目，忘記的細節也可以向他提問；並且題目難度適中，順順的就可以在時間內解完。加上最後 Q & A 聽他描述工作內容、工作風氣等等，又讓我更想去了一點！
 
-#### Take-home Work
+### Take-home Work
 Use numpy to speed up a simulation process
 <!-- https://en.wikipedia.org/wiki/Logistic_map -->
 
-#### 面試流程 (45 mins)
+### 面試流程 (45 mins)
 - Follow-up on homework: <5 mins 
 - Coding (CV): 35 mins
 - Q & A
@@ -68,10 +68,10 @@ Use numpy to speed up a simulation process
 - Rotation of 2d points
 - Broadcasting: Pairwise l2 loss -->
 
-### Engineer 線上三面
+## Engineer 線上三面
 面完前面兩輪後，我被 HR 加入他們的 Slack Channel，第三階段的面試與討論都在裡面進行。原本想說是不是用來討論作法的，但問了 HR 他說「可以確認題目」，想了想還是不討論作法相關的問題。
 
-#### Take-home Quiz
+### Take-home Quiz
 Train a small model that follows a given distribution (colored image, specific pattern)  
 Can choose from various models like VAE, GAN, AR, Diffusion...  
 <!-- Data: One 300 x 300 photo of a colored "Pi" notation, given in [x, y, r, g, b] -->
@@ -81,7 +81,7 @@ Focus:
 - Code Organization
 - Evaluation Method
 
-#### 面試流程 (45 mins)
+### 面試流程 (45 mins)
 - Follow-up on quiz: Until finished (~30 mins)
 - Q & A  
 
@@ -89,20 +89,20 @@ Focus:
 
 最後問他下一關，他說下一關是 onsite session，會到公司跟他們討論題目 & pair programming，大概會要 4-5 hours，我想說天啊我以為下一關就是發 offer 了嗚，雖然我成功挺進到第三關，但我越來越害怕下一關會被面得體無完膚......（說不定也沒有下一關）。
 
-### Engineer Director 線上四面
+## Engineer Director 線上四面
 等了一週多後，迎來的竟然不是 onsite session 也不是 thank you letter，而是一個 20 minutes 的 "Casual Chat with Engineer Director"。不太確定到底會問什麼，但反正是 Casual Chat，也只能直接上了吧。
 
-#### 面試流程 (20 mins)
+### 面試流程 (20 mins)
 - Resume & Chat (~15 mins)
 - Q & A  
 
 面完之後的感想，就是確實是 Casual Chat，但我口說退步好多 QQ。這關我感覺不篩人，就是想了解一下人選而已。面試官人很好，英文也很順暢聽很清楚，主要就是問一些履歷上他好奇的問題，像是他問了我之前的面試體驗、論文內容、實習經歷、專案架構等等，基本上熟自己的履歷就可以答的不錯。此外，也有一些延伸問題，像是你的興趣、如何跟上最新 AI 發展等等，不會太難。最後我也問了他像是如何決定產品開發方向、目前遇到什麼問題等等，整體來說就是有收穫的聊天。
 
 
-### Onsite Interview 實體五面
+## Onsite Interview 實體五面
 最終總算迎來大魔王 - Onsite Interview。這關要去他們辦公室，進行總共 5 小時半的面試，其中會有不同環節與不同面試官來跟你面試，也會有一些像是辦公室導覽的環節。這樣的面試模式算是非常少見，畢竟前面已經經歷了那麼多關，再加上把一堆環節塞在同一天，這過程中公司要耗費的人力可想而知。HR 說裡面的每位員工都經歷過這個環節，雖然我自己覺得到這關代表蠻有機會（這是最後一關），但我也有看到幾個面完這關後還是收到感謝信的例子。總之，懷抱著忐忑不安的心情，我來到了他們位於國館附近的辦公室（地點實在是很讚！）。
 
-#### 面試流程 (~5.5 hrs)
+### 面試流程 (~5.5 hrs)
 - 20 mins - Office Tour & Reminder：這部分主要以參觀辦公室環境以及介紹今天面試流程與注意事項為主，參加者是 HR
 - 12 mins - Fast QA：這部分會有 10 個以上的員工參加，主要就是針對你的履歷問相關問題，藉由把大家聚在一起一次了解你
 - 40 mins - Casual Lunch Chat：PicCollage 會提供午餐餐點，這邊就是跟他們團隊成員一起用餐聊天，氣氛算是輕鬆
@@ -124,7 +124,7 @@ Focus:
 
 附帶一提，PicCollage 的公司環境很不錯，有興趣的可以參考[這個影片](https://youtu.be/QpZibLTpFjI?si=L4pxDgQ7p9JlV_a7)。
 
-### 面試結果
+## 面試結果
 Offer Get! 太開心了！在拿到 Offer 之後，花了一陣子跟他談（compete）薪水，還有選擇到底要不要放棄已經有的 offer 跟研替來這間。過程中也是猶豫了幾週，問了很多不同人的意見，最後因為地點、工作風氣、工作內容、職涯考量、公司福利等等因素，決定放棄研替加入 PicCollage。談薪水真的是門大學問，必須跟大家說，不論如何，一！定！要！談！薪！水！
 
 # 結語
