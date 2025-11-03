@@ -1,5 +1,5 @@
 ---
-title: 獨一無二的面試體驗：My Interview Experience with PicCollage
+title: My Interview Experience with PicCollage
 categories:
   - 工作紀錄
 tags:
@@ -7,11 +7,14 @@ tags:
   - Interview
   - PicCollage
 cover: /img/cover/piccollage.png
-date: 2025-08-01 15:57:07
+date: 2025-11-01 15:57:07
 ---
 
-# 前言
 
+# 前言
+上次說到我[找正職的故事](https://jackchen890311.github.io/2025/07/01/fulltime-2025/)，但其實還有後續。過了幾個月之後，不安分的我又去面試了 [PicCollage](https://piccollage.com/) 這間公司。這間也跟玩美移動類似，是做圖片相關的 App，我之前丟過好幾次他們的實習，但都是沒下文或直接感謝信。
+
+起因是三月多去逛就業博覽會的時候，剛好遇到認識的朋友在裡面工作，就跟他聊了一下，畢竟我一直對這間公司很感興趣，雖然後來覺得有點懶所以沒丟。但過了一陣子之後又覺得很心動，不挑戰一下有點可惜，就去麻煩我朋友內推。又隔了一陣子他看到訊息之後，到五月初總算成功推到了，雖然時程上算是小晚，但想說我沒啥損失就還是面面看。
 
 
 ## 面試過程
@@ -20,7 +23,7 @@ date: 2025-08-01 15:57:07
 
 時程：
 - 5/2 朋友幫忙內推完成
-- 5/7 朋友主管詢問畢業時間
+- 5/7 主管詢問畢業時間
 - 5/20 收到一面邀請
 - 5/27 ML Head + HR 線上一面
 - 6/5 Engineer 線上二面
@@ -29,14 +32,12 @@ date: 2025-08-01 15:57:07
 - 7/2 Onsite Interview 實體五面
 - 7/8 Offer Get (Oral)
 - 7/9 線上 Offer Call
-- 7/10 主動約線上 Offer Call
+- 7/10 主動再約線上 Offer Call
 - 7/24 Follow-up Offer Call
 - 7/28 Offer Accepted
 
-這間也跟玩美移動類似，是做圖片相關的 App，我之前丟過好幾次他們的實習，但都是沒下文或直接感謝信。之前就業博覽會前後剛好得知有認識的朋友在裡面工作，當天也跟他聊了一下，後來覺得有點懶所以沒丟。但過了一陣子之後又覺得很心動，原本想麻煩我朋友內推，結果他隔了好一陣子才看到我訊息，但總之最後推到已經是五月初了，時程上可以說是小晚，想說我沒啥損失就加減投投看。
-
 ### ML Head + HR 線上一面
-原本等兩週了還是沒下文，正打算放棄並且總算填了玩美的替代役，結果一面邀請就來了！
+原本等兩週了還是沒下文，正打算放棄並且總算填了替代役，結果一面邀請就來了！
 
 #### Take-home Work
 Explain attention to people with different background knowledge
@@ -45,9 +46,11 @@ Explain attention to people with different background knowledge
 - Someone with a strong math background but no knowledge of ML -->
 
 #### 面試流程 (30 mins)：
-- Follow-up on homework: 5-10 mins (Attention: shape of input / Q K V /output)
+- Follow-up on homework: 5-10 mins 
+<!-- (Attention: shape of input / Q K V /output) -->
 - Resume: 5-10 mins (Education / Master's Thesis)
-- Behavioral Questions: 5-10 mins (Past Work Achievements / Difficulties / What do you want to build)
+- Behavioral Questions: 5-10 mins 
+<!-- (Past Work Achievements / Difficulties / What do you want to build) -->
 - Q & A
 
 ### Engineer 線上二面
@@ -83,7 +86,7 @@ Focus:
 
 原本以為會有類似的 Follow-up，結果完全就是在討論這份作業而已，也因此他問得很細節，包含資料前處理、模型設計、參數選擇、可能的問題與解法、程式碼架構等等都有涵蓋到，也因此你要很清楚知道自己在幹嘛。雖然我對我的訓練結果還算滿意，但有點可惜的地方是我因為時間不足，加上可能稍微放錯重點，因此我選用了相較簡單的評估方式（i.e. 用眼睛看），因此也被工程師挑說這部分沒做蠻可惜的（週四給題目週二面試，加上我還邊上班邊搞論文，週末才開始做，確實是有點緊湊）。
 
-最後問他下一關，他說下一關是 onsite session，會到公司跟他們討論題目 & pair programming，大概會要 4-5 hours，我想說天啊我以為下一關就是發 offer 了 QQ，雖然我成功挺進到第三關，但我越來越害怕下一關會被看得體無完膚......（說不定也沒有下一關）。
+最後問他下一關，他說下一關是 onsite session，會到公司跟他們討論題目 & pair programming，大概會要 4-5 hours，我想說天啊我以為下一關就是發 offer 了嗚，雖然我成功挺進到第三關，但我越來越害怕下一關會被面得體無完膚......（說不定也沒有下一關）。
 
 ### Engineer Director 線上四面
 等了一週多後，迎來的竟然不是 onsite session 也不是 thank you letter，而是一個 20 minutes 的 "Casual Chat with Engineer Director"。不太確定到底會問什麼，但反正是 Casual Chat，也只能直接上了吧。
@@ -96,7 +99,7 @@ Focus:
 
 
 ### Onsite Interview 實體五面
-最終總算迎來大魔王 - Onsite Interview。這關要去他們辦公室，進行總共 5 小時半的面試，其中會有不同環節與不同面試官來跟你面試，也會有一些像是辦公室導覽的環節。這樣的面試模式算是非常少見，畢竟前面已經經歷了那麼多關，再加上把一堆環節塞在同一天，這過程中公司要耗費的人力可想而知。HR 說裡面的每位員工都經歷過這個環節，雖然我自己覺得到這關代表蠻有機會（這是最後一關），但我也有看到幾個面完這關後還是收到感謝信的例子。總之，懷抱著忐忑不安的心情，我來到了他們位於國館的辦公室。
+最終總算迎來大魔王 - Onsite Interview。這關要去他們辦公室，進行總共 5 小時半的面試，其中會有不同環節與不同面試官來跟你面試，也會有一些像是辦公室導覽的環節。這樣的面試模式算是非常少見，畢竟前面已經經歷了那麼多關，再加上把一堆環節塞在同一天，這過程中公司要耗費的人力可想而知。HR 說裡面的每位員工都經歷過這個環節，雖然我自己覺得到這關代表蠻有機會（這是最後一關），但我也有看到幾個面完這關後還是收到感謝信的例子。總之，懷抱著忐忑不安的心情，我來到了他們位於國館附近的辦公室（地點實在是很讚！）。
 
 #### 面試流程 (~5.5 hrs)
 - 20 mins - Office Tour & Reminder：這部分主要以參觀辦公室環境以及介紹今天面試流程與注意事項為主，參加者是 HR
@@ -112,7 +115,7 @@ Focus:
 - 5 mins - (Break)
 - 30 mins - Closing Chat：簡單聊一下對面試整體的體驗與想法，參加者是 Engineer Head & Maybe COO/CFO
 
-結束的時候只覺得天哪好累，還有我終於走完所有的面試流程了，好不容易（他應該是我面試生涯中面過最累人的一間公司）！整體的面試體驗是很不錯的，PicCollage 的員工人都很好，面試題目設計都很扎實有趣，也可以透過面試的過程來模擬體驗公司環境與風氣，還有以後工作的感覺。
+結束的時候只覺得天哪好累，還有我終於走完所有的面試流程了，好不容易（他應該是我面試生涯中面過最累人的一間公司）！整體的面試體驗是很不錯的，PicCollage 的人都很好，面試題目設計都很扎實有趣，也可以透過面試的過程來模擬體驗公司環境與風氣，還有以後工作的感覺。
 
 整體的面試體驗我覺得我表現還可，沒有很好也沒有太失常，但有些應該要表現出來的地方沒有表現好，像是突然忘記某個東西的計算方法（結束後馬上想起來...）還有 Coding 時前面卡住太久（不過最後有完成，並且還有多時間）等等。
 
@@ -120,7 +123,8 @@ Focus:
 
 附帶一提，PicCollage 的公司環境很不錯，有興趣的可以參考[這個影片](https://youtu.be/QpZibLTpFjI?si=L4pxDgQ7p9JlV_a7)。
 
-### Offer Call
-最後 Offer Get! 太開心了！
+### 面試結果
+Offer Get! 太開心了！在拿到 Offer 之後，花了一陣子跟他談（compete）薪水，還有選擇到底要不要放棄已經有的 offer 跟研替來這間。過程中也是猶豫了幾週，問了很多不同人的意見，最後因為地點、工作風氣、工作內容、職涯考量、公司福利等等因素，決定放棄研替加入 PicCollage。談薪水真的是門大學問，必須跟大家說，不論如何，一！定！要！談！薪！水！
 
 # 結語
+發這篇文的時候，已經在 PicCollage 工作大約一個月，並且要準備去當兵了。雖然我因為來這間公司而放棄了研發替代役，因此還要去服四個月的兵役（也許下一篇文會是兵旅生活？），但目前為止在 PicCollage 的生活都過得很開心，也很享受 PicCollage 的公司文化、福利跟風氣，讓我更加堅信自己的選擇，還有感謝當初有好好努力的自己！之後有機會再回來跟大家分享工作生活，我先去當兵囉～
