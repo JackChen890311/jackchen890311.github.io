@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Jack's Space - A place where I share anything</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Hello there! I&#39;m Jack Chen. This is the place where I share my thoughts and experiences.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack&#39;s Space">
+<meta property="og:url" content="https://jackchen890311.github.io/page/5/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="Hello there! I&#39;m Jack Chen. This is the place where I share my thoughts and experiences.">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/me/ghent.jpg">
+<meta property="article:author" content="Jack Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/me/ghent.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jack\'s Space',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">34</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/cover/space_and_man.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Jack's Space</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jackchen20000311@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2020/02/21/social_media/" title="找回自己 - 戒除社交軟體後"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/ig_hearts.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="找回自己 - 戒除社交軟體後"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02/21/social_media/" title="找回自己 - 戒除社交軟體後">找回自己 - 戒除社交軟體後</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2020-02-21T07:57:07.000Z" title="發表於 2020-02-21 15:57:07">2020-02-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/">生活隨筆</a></span></div><div class="content">2025 更新：這篇文章是我 2020 在 Medium 寫的，不過現在已經被我隱藏所以看不到了。當初嘗試了一個月不使用社交軟體，因此想順便記錄一下自己的想法與心路歷程（但覺得自己文筆太爛，加上沒人看，所以後來就隱藏了）。但我這幾天看到賀瓏夜夜秀在介紹演算法，以及其在社群媒體中扮演的角色，就讓我想到這篇文章。剛好最近又在整理 Blog，因此就把它搬回來，作為紀念以及提醒。 雖說現在我依然會使用社交媒體，但我覺得我的焦慮感以及依賴感已經相較之前好很多。有一點還可以改善的，是對於Facebook的依賴，因為目前研究還蠻需要接觸一些AI界的消息，而我最主要的方法還是透過Facebook，因此就會仍然被上面的內容給佔用不少時間，如果有專門討論學術的平台就好了……。  這個月初，我做了一個決定 - 我決定登出Instagram跟Facebook。 相信有些人曾經考慮過這個念頭，而每個人都會有不同的動機。對我來說，Instagram跟Facebook雖然讓社交、獲取資訊、分享心情等等變得非常簡單，卻也簡單到容易上癮，無意識地就會把Instagram打開來滑個兩下，不論在念書、等待、或是有任何...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack Chen. This is the place where I share my thoughts and experiences.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">34</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">7</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jackchen20000311@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome! Feel free to explore and connect with me!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/01/interview-with-piccollage/" title="My Interview Experience with PicCollage"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/piccollage.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="My Interview Experience with PicCollage"/></a><div class="content"><a class="title" href="/2025/11/01/interview-with-piccollage/" title="My Interview Experience with PicCollage">My Interview Experience with PicCollage</a><time datetime="2025-11-01T07:57:07.000Z" title="發表於 2025-11-01 15:57:07">2025-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/01/master-thesis-agtree/" title="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/concept_decomp.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解"/></a><div class="content"><a class="title" href="/2025/10/01/master-thesis-agtree/" title="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解">我的碩士論文 - AGTree：基於注意力引導的視覺概念分解</a><time datetime="2025-10-01T15:30:58.000Z" title="發表於 2025-10-01 23:30:58">2025-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/perfect_clean.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"/></a><div class="content"><a class="title" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</a><time datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-11/" title="資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題">資料結構與演算法教學系列文 (11) - 最大子數列問題、背包問題、換錢問題</a><time datetime="2025-06-10T07:57:11.000Z" title="發表於 2025-06-10 15:57:11">2025-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/color_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列"/></a><div class="content"><a class="title" href="/2025/06/10/dsa-tutorial-10/" title="資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列">資料結構與演算法教學系列文 (10) - 差分陣列、單調堆疊/佇列</a><time datetime="2025-06-10T07:57:10.000Z" title="發表於 2025-06-10 15:57:10">2025-06-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分類</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">C++ 教學</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/DSA-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">DSA 教學</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">Python 教學</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"><span class="card-category-list-name">學習筆記</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/"><span class="card-category-list-name">工作紀錄</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/"><span class="card-category-list-name">極短篇</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/"><span class="card-category-list-name">生活隨筆</span><span class="card-category-list-count">4</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>標籤</span></div><div class="card-tag-cloud"><a href="/tags/Exchange/" style="font-size: 1.15em; color: rgb(144, 164, 81);">Exchange</a><a href="/tags/UK/" style="font-size: 1.15em; color: rgb(185, 159, 121);">UK</a><a href="/tags/Birmingham/" style="font-size: 1.15em; color: rgb(113, 75, 161);">Birmingham</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(105, 184, 104);">Hexo</a><a href="/tags/Github/" style="font-size: 1.15em; color: rgb(50, 199, 176);">Github</a><a href="/tags/PC/" style="font-size: 1.22em; color: rgb(170, 50, 133);">PC</a><a href="/tags/Python/" style="font-size: 1.38em; color: rgb(101, 147, 68);">Python</a><a href="/tags/Conda/" style="font-size: 1.15em; color: rgb(62, 135, 50);">Conda</a><a href="/tags/C/" style="font-size: 1.22em; color: rgb(98, 149, 50);">C++</a><a href="/tags/Tutorial/" style="font-size: 1.45em; color: rgb(199, 134, 197);">Tutorial</a><a href="/tags/Data-Structure/" style="font-size: 1.38em; color: rgb(123, 50, 175);">Data Structure</a><a href="/tags/Algorithm/" style="font-size: 1.38em; color: rgb(86, 78, 50);">Algorithm</a><a href="/tags/Fulltime/" style="font-size: 1.22em; color: rgb(62, 50, 134);">Fulltime</a><a href="/tags/Interview/" style="font-size: 1.3em; color: rgb(50, 50, 55);">Interview</a><a href="/tags/NTU/" style="font-size: 1.15em; color: rgb(50, 113, 187);">NTU</a><a href="/tags/Master/" style="font-size: 1.3em; color: rgb(50, 164, 192);">Master</a><a href="/tags/OS/" style="font-size: 1.15em; color: rgb(176, 193, 151);">OS</a><a href="/tags/Windows/" style="font-size: 1.15em; color: rgb(134, 108, 135);">Windows</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(50, 50, 159);">Linux</a><a href="/tags/Shell/" style="font-size: 1.15em; color: rgb(134, 117, 124);">Shell</a><a href="/tags/Zsh/" style="font-size: 1.15em; color: rgb(128, 193, 50);">Zsh</a><a href="/tags/Oh-My-Zsh/" style="font-size: 1.15em; color: rgb(68, 198, 51);">Oh My Zsh</a><a href="/tags/Internship/" style="font-size: 1.3em; color: rgb(109, 68, 121);">Internship</a><a href="/tags/TSMC/" style="font-size: 1.15em; color: rgb(72, 109, 50);">TSMC</a><a href="/tags/Instagram/" style="font-size: 1.15em; color: rgb(184, 170, 50);">Instagram</a><a href="/tags/API/" style="font-size: 1.15em; color: rgb(69, 97, 138);">API</a><a href="/tags/Ramen/" style="font-size: 1.15em; color: rgb(129, 192, 96);">Ramen</a><a href="/tags/PicCollage/" style="font-size: 1.15em; color: rgb(72, 131, 50);">PicCollage</a><a href="/tags/Life/" style="font-size: 1.22em; color: rgb(195, 132, 139);">Life</a><a href="/tags/AI/" style="font-size: 1.15em; color: rgb(82, 150, 64);">AI</a><a href="/tags/Diffusion/" style="font-size: 1.15em; color: rgb(95, 52, 161);">Diffusion</a><a href="/tags/Game/" style="font-size: 1.15em; color: rgb(91, 113, 149);">Game</a><a href="/tags/Generative/" style="font-size: 1.15em; color: rgb(158, 51, 183);">Generative</a><a href="/tags/Social-Media/" style="font-size: 1.15em; color: rgb(101, 165, 100);">Social Media</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>歸檔</span>
+      <a class="card-more-btn" href="/archives/"
+            title="檢視更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">11</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/12/">
+            <span class="card-archive-list-date">
+              十二月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">41</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">73.3k</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-22T08:58:37.432Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2023 - 2026 By Jack Chen</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Keep learning and exploring.","Stay open to possibilities.","Embrace challenges and grow.","Life is a journey, not a destination.","Feel free to connect!"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Keep learning and exploring.","Stay open to possibilities.","Embrace challenges and grow.","Life is a journey, not a destination.","Feel free to connect!"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
