@@ -39,3 +39,6 @@ In this work, we reveal a strong correlation between decomposed visual subconcep
 Quantitative results show that our method achieves an 8.62% improvement on a CLIP-based metric, while qualitative analyses demonstrate its effectiveness in disentangling background information from the learned representations. Code is available at: https://github.com/JackChen890311/AGTree.
 
 Keywords: Attention Mechanism, Diffusion Model, Generative AI, Visual Concept, Concept Decomposition
+
+# Reference
+Cover Image Source: Vinker, Yael, et al. "Concept decomposition for visual exploration and inspiration." ACM Transactions on Graphics (TOG) 42.6 (2023): 1-13.
