@@ -211,7 +211,6 @@ def unbounded_knapsack(weights, values, capacity):
         for w in range(weights[i], capacity + 1):  # 順序，允許重複選
             dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
     return dp[capacity]
-
 ```
 
 ## 換錢問題（Coin Change Problem）
@@ -236,23 +235,16 @@ DP[n] =找出n元最精簡的找零零錢數目(用最少數目的銅板湊出)
 ![image](https://hackmd.io/_uploads/HkegB9YFfgl.png)
 3. 釐清初始狀態(終止條件) [第一步怎麼走，怎麼出發的]
 用每個銅板去縮小找零問題的規模，從n元找零問題一直化簡，降到0元的找
-終止狀態：
-0元的找零方法：0，代表不拿任何一枚銅板
-<0元的找零方法：不合法，應該停止計算，可用 float('inf') 來處理
+    終止狀態：
+    - 0元的找零方法：0，代表不拿任何一枚銅板
+    - < 0元的找零方法：不合法，應該停止計算，可用 float('inf') 來處理
 
 ### Leetcode
 - [322. Coin Change](https://leetcode.com/problems/coin-change/description/)
-<!-- - [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/description/) -->
+- [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/description/)
 
 <!-- ## 旅行銷售員問題（TSP, Traveling Salesman Problem）
-![image](https://hackmd.io/_uploads/Sk8U16sekl.png)  -->
+![image](https://hackmd.io/_uploads/Sk8U16sekl.png) 
 
-
-<!-- # Progress check
-## 講義
-- TODO: 尋找更多主題
-- TODO: Update to blog
-
-## 學生
-- 進階演算法： LC 42, 239 not finished, Kadane finish
--->
+## 區間問題（Interval Problem）
+### 線段樹（Segment Tree） -->
