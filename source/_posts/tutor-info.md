@@ -10,7 +10,7 @@ date: 2025-12-01 15:57:07
 
 嗨！這篇文章主要想把我的家教經歷放上來，讓有興趣的人可以參考。
 
-如果你想學基礎的 Python 程式設計，或是更進階的資料結構、演算法，甚至是刷 Leetcode 等等，都非常歡迎透過[臉書](https://www.facebook.com/jack.chen.89311/)或 [Email](mailto:jackchen20000311@gmail.com) 來聯絡我，時間上許可的話我就會接！單純想聊聊的也歡迎聯絡我～～
+如果你想學基礎的 Python 程式設計，或是更進階的資料結構、演算法，甚至是刷 Leetcode 等等，都非常歡迎透過 [臉書](https://www.facebook.com/jack.chen.89311/) 或 [Email](mailto:jackchen20000311@gmail.com) 來聯絡我，時間上許可的話我就會接！單純想聊聊的也歡迎聯絡我～～
 
 # 家教經歷
 ## 姓名
@@ -49,5 +49,5 @@ Python 入門：$1000+ / hr
 地點 - 以臺北市為主或線上，松山/信義/內湖區為佳，若地點距離較遠會斟酌調整收費
 
 ## 聯絡方式
-Email: jackchen20000311@gmail.com
+Email：jackchen20000311@gmail.com
 臉書：https://www.facebook.com/jack.chen.89311/
