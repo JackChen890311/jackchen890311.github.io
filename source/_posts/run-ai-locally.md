@@ -94,7 +94,7 @@ ComfyUI 是一個開源的節點式（node-based）圖像與影片生成工具�
 
 安裝完成後，照著他的教學走，建立一個新的 Instance。左邊的選單分別是 Assets, Nodes, Models, Workflows, Apps 跟 Templates。如果想要快速體驗看看 ComfyUI 的能力，直接點 Templates 選一個熱門的，他會在你的中間建立預設的 Workflow（以多個 Nodes 組成的有向圖），你可以修改圖中 Node 的內容（像是 Text Prompt），然後點擊右上角的 Run，就可以等待結果出現了！
 
-除了官方提供的 Model 與 Workflow 之外，也可以到 [Civit AI](https://civitai.com) 去逛逛。ComfyUI 相較於 LM Studio 來說比較複雜，我也還沒有研究透徹，等哪天有更多心得再回來分享 XD。
+除了官方提供的 Model 與 Workflow 之外，也可以到 [Civit AI](https://civitai.com) 去逛逛。ComfyUI 相較於 LM Studio 來說比較複雜，我也還沒有研究透徹，等哪天有更多心得再回來分享 XD。聽說 [pixaroma 的 ComfyUI 介紹](https://www.youtube.com/watch?v=HkoRkNLWQzY) 很不錯，有興趣的話可以點進去看看，但有點長就是了。
 
 > Q: Civit AI 是什麼？
 > A: Civit AI 是一個以圖像生成模型為主的模型分享社群平台，類似圖像生成領域的 Hugging Face，但更偏向 Stable Diffusion 生態系（包含 SD1.5、SDXL、Flux 等）。使用者可以在上面上傳、下載各種 checkpoint、LoRA、embedding、ControlNet 模型，也能瀏覽其他人用該模型生成的範例圖片，通常會附上使用的 prompt、參數設定（steps、CFG、sampler）方便重現效果。它的特色是模型分類細緻，包含寫實風格、動漫風格、特定角色、特定畫風等各種微調 LoRA，社群會針對特定主題（例如某個角色、某種美術風格）持續發布優化版本，並有評分、留言、範例圖庫等機制讓使用者判斷模型品質。因為平台內容較開放，包含大量 NSFW 內容，所以也常伴隨版權與內容審核方面的爭議。
