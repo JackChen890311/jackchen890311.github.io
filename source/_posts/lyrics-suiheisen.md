@@ -11,7 +11,7 @@ date: 2026-09-20 15:57:07
 ---
 
 # 前言
-第二篇日文翻譯來了！這次要翻譯的是 Back Number 的水平線，據說是 Back Number 原本要在全日本高中運動會上開場，但遇到 2020 Covid 疫情而中止，主唱便創作了這首歌為選手們打氣，鼓勵選手們從悲傷中站起來繼續努力。
+第二篇日文翻譯來了！這次要翻譯的是 Back Number 的水平線，據說是 Back Number 原本要在全日本高中運動會上開場，但遇到 2020 Covid 疫情而中止，主唱便創作了這首歌為選手們打氣，鼓勵選手們從悲傷中站起來繼續努力。印象中第一次聽到是在國外，就被旋律給吸引了，後來才知道是一首這麼溫柔的歌。
 
 
 <iframe width="800" height="600" src="https://www.youtube.com/embed/iqEr3P78fz8?si=s_7uZKI8BURVrVE3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -140,5 +140,5 @@ Back Number - 海平線
 - ～といい：～就好了、應該要～
 - 內容/想法/說的話 + と + 說/想/叫/寫
 - ～ほど： 表示程度
-- {% ruby 幾つ いくつ %}：幾個
+- {% ruby 幾 いく %}つ：幾個
 - 數量詞 + も：數量很多
