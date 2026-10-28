@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Jack's Space - A place where I share anything</title><meta name="author" content="Jack Chen"><meta name="copyright" content="Jack Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Hello there! I&#39;m Jack Chen. This is the place where I share my thoughts and experiences.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack&#39;s Space">
+<meta property="og:url" content="https://jackchen890311.github.io/index.html">
+<meta property="og:site_name" content="Jack&#39;s Space">
+<meta property="og:description" content="Hello there! I&#39;m Jack Chen. This is the place where I share my thoughts and experiences.">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://jackchen890311.github.io/img/me/ghent.jpg">
+<meta property="article:author" content="Jack Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jackchen890311.github.io/img/me/ghent.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Jack's Space",
+  "url": "https://jackchen890311.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon_J.ico"><link rel="canonical" href="https://jackchen890311.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-V3TXPM1E19"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-V3TXPM1E19')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-V3TXPM1E19', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jack Chen","link":"連結: ","source":"來源: Jack's Space","info":"著作權歸作者所有。如需商業轉載，請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jack\'s Space',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/cover/space_and_man.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Jack's Space</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/ramen/"><i class="fa-fw fas fa-utensils"></i><span> 拉麵</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Jack's Space</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jackwjchen2000@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2026/10/18/lyrics-yoruwokoete/" title="歌詞翻譯：羊文学 - 夜を越えて"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/yoruwokoete.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：羊文学 - 夜を越えて"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/10/18/lyrics-yoruwokoete/" title="歌詞翻譯：羊文学 - 夜を越えて">歌詞翻譯：羊文学 - 夜を越えて</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-10-18T07:57:07.000Z" title="發表於 2026-10-18 15:57:07">2026-10-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AA%9E%E8%A8%80%E5%AD%B8%E7%BF%92/">語言學習</a></span></div><div class="content">前言這次要翻譯的是羊文学的夜を越えて，我一直很喜歡這首歌的音樂本身，算是我最喜歡的幾首羊文學的歌其中之一。剛好昨天突然刷到羊文學為這首五年前的歌新推出的 Special Music Video（好意外！），就決定要來翻譯這首歌了 XD。 這首歌想傳達的意境是一個人從依附著另一半的眼光而活，努力想成為對方眼中正確的樣子，到最後決定活出自我的過程。我特別喜歡最後一句，除了呼應前面之外，還有一種懸而未完的感覺，留給大家自由解讀，只能說羊文學真的很厲害～～ 題外話，我有去逛前幾天辦在中山的 Pop-up Store，買了一個吊飾，可惜今年 Tour 辦在高雄，我就沒有特地跑下去聽了 QQ    歌詞翻譯羊文学(ひつじぶんがく) - 夜(よる)を越(こ)えて 羊文學 - 跨過黑夜  君(きみ)の言(い)うことが何(なん)でも正(ただ)しいような気(き)がして 感覺無論你說什麼都是正確的 花(はな)のワンピース着(き)たり、可愛(かわ)いひとになったり 穿著花朵樣式的連身裙 成為你心中可愛的人  していた日々(ひび)は遠(とお)くへ、夜(よる)のラジオがかき消(け)し那些日子已經遠去 隨著夜...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2026/09/20/lyrics-suiheisen/" title="歌詞翻譯：Back Number - 水平線"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/suiheisen.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：Back Number - 水平線"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/09/20/lyrics-suiheisen/" title="歌詞翻譯：Back Number - 水平線">歌詞翻譯：Back Number - 水平線</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-09-20T07:57:07.000Z" title="發表於 2026-09-20 15:57:07">2026-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AA%9E%E8%A8%80%E5%AD%B8%E7%BF%92/">語言學習</a></span></div><div class="content">前言第二篇日文翻譯來了！這次要翻譯的是 Back Number 的水平線，據說是 Back Number 原本要在全日本高中運動會上開場，但遇到 2020 Covid 疫情而中止，主唱便創作了這首歌為選手們打氣，鼓勵選手們從悲傷中站起來繼續努力。印象中第一次聽到是在國外，就被旋律給吸引了，後來才知道是一首這麼溫柔的歌。    歌詞翻譯Back Number - 水平線(すいへいせん)Back Number - 海平線  出来(でき)るだけ嘘(うそ)は無(な)いように 盡可能的不對他人說謊 どんな時(とき)も優(やさ)しくあれるように盡可能的在任何時候都能保持溫柔 人(ひと)が痛(いた)みを感(かん)じた時(とき)には 在人們感受到痛苦的時候 自分(じぶん)の事(こと)のように思(おも)えるように 盡可能的讓自己能夠感同身受  正(ただ)しさを 別(べつ)の正(ただ)しさで 「將正確的事情用另一種正確的事情來取代」 失(な)くす悲(かな)しみにも 出会(であ)うけれど 雖然也是會遇到這種失去的悲傷呢  水平線(すいへいせん)が光(ひか)る朝(あさ)に あなたの希望(きぼう)が崩(く...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2026/08/23/lyrics-hikarutoki/" title="歌詞翻譯：羊文学 - 光るとき"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/our_hope.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：羊文学 - 光るとき"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/08/23/lyrics-hikarutoki/" title="歌詞翻譯：羊文学 - 光るとき">歌詞翻譯：羊文学 - 光るとき</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-08-23T07:57:07.000Z" title="發表於 2026-08-23 15:57:07">2026-08-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AA%9E%E8%A8%80%E5%AD%B8%E7%BF%92/">語言學習</a></span></div><div class="content">前言新的系列開始囉！希望這次我可以堅持久一點（之前的極短篇只做兩篇 XD）。 這次想做的是日文歌詞翻譯，因為我是個很喜歡聽音樂的人，對於 J-Pop 也算略有涉獵，在聽歌的時候，也會想知道這首歌的歌詞想傳達的意義是什麼；再來就是我也有學過一點基礎的日文，但很久沒複習了，想說透過這種方式來學習應該也不錯。我覺得日文歌有個與中文歌跟英文歌比較不同的地方是，他的歌詞通常會寫的比較隱晦一點，但同時又會默默的營造一種意境感，每次聽歌時邊看歌詞翻譯都會讓我覺得很有趣。 第一篇想翻譯的歌詞是羊文学的光るとき，這首歌是日劇《平家物語》的主題曲，也是一首意境很美的歌，大意是在鼓勵人們用自己的方式前進不要放棄。羊文學是我很喜歡的樂團，他們的歌詞都非常有文學感，也是我在聽這首歌的時候，想到透過歌詞翻譯來學習日文的這個 Idea。我會搭配 AI 來幫忙，但最後的翻譯都是我自己寫的，如果有不對的地方還請指教～    歌詞翻譯羊文学(ひつじぶんがく) - 光(ひか)るとき 羊文學 - 閃耀之時  あの花(はな)が咲(さ)いたのは そこに種(たね)が落(お)ちたからで那朵花之所以會綻放 是因為種子落在了那裡 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2026/08/20/run-ai-locally/" title="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/08/20/run-ai-locally/" title="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI">在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-08-20T07:57:07.000Z" title="發表於 2026-08-20 15:57:07">2026-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="content">前言隨著近年來 AI 模型的快速發展，以及各家開源廠商朝向「強力小模型」的趨勢，AI 應用已經不再是 Server 的專利，只要善加利用你我手中的 Macbook，便能在本地端運行具有一定水準的 AI 模型。 這篇文章會非常簡單的介紹兩個最主流的本地 AI 工具：LM Studio (LLM &#x2F; VLM) 與 ComfyUI (Image &#x2F; Video)。因為我最近主要在研究 LM Studio，這篇文章會花比較多篇幅在他上面。 為什麼要在本地跑 AI 模型?在本地跑 AI 模型有幾個好處：  隱私與資料安全：程式碼、文件、對話內容不會離開你的電腦，適合處理敏感資料。 零 API 費用：模型下載後可無限次使用，不用擔心 token 計費。 離線可用：沒有網路也能跑，適合出差或網路不穩定的環境。 客製化彈性：可以自由切換不同開源模型、調整參數，甚至微調(fine-tune)。  不過，在本地跑的模型能力通常不如 GPT-5、Claude 等雲端旗艦模型，且需要一定的硬體資源與設定門檻，運算時也會消耗較大量的電力。建議大家還是可以在雲端跟本地做取捨，或者是依情況...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2026/04/01/life-update-2026-04/" title="Another Year, yet Another Life Update!"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/cloud.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Another Year, yet Another Life Update!"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/04/01/life-update-2026-04/" title="Another Year, yet Another Life Update!">Another Year, yet Another Life Update!</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-04-01T15:30:58.000Z" title="發表於 2026-04-01 23:30:58">2026-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/">生活隨筆</a></span></div><div class="content">嗨嗨！距離上次生活更新已經過一年了（撒花）！ 這一年發生了許多大大小小的事，感覺是時候再來個近況分享，也藉機對自己這一年做個總結（也許可以變成每年傳統？）。 關於碩士去年八月，我順利畢業了！我現在是臺大資工碩士了（驕傲）！還好後來在做實驗跟寫論文的過程中都很順利，運氣很不錯，也謝謝許永真教授的指導，讓我可以如期順利畢業～ 想了解更多我的碩論可以參考：  我的碩士論文 - AGTree：基於注意力引導的視覺概念分解  關於工作上次寫生活更新時，我還在 Appier 實習；現在我已經在 PicCollage 擔任正職了，職位是 Machine Learning Engineer。目前是我的第二個月（雖然中間隔了四個月當兵 XD），一切都很開心，不論是公司風氣或是工作內容都是我喜歡的，而且 PicCollage 是個很活潑有趣的公司，待在這邊很快樂（感謝當初有認真拼一把的自己）！ 關於我找工作的峰迴路轉，可以參考以下：  2025 年科技業正職預聘&#x2F;研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2026/03/15/uv-tutorial/" title="Managing Environment with UV"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/uv.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Managing Environment with UV"></a></div><div class="recent-post-info"><a class="article-title" href="/2026/03/15/uv-tutorial/" title="Managing Environment with UV">Managing Environment with UV</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2026-03-15T15:30:58.000Z" title="發表於 2026-03-15 23:30:58">2026-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="content">This is a note I wrote for my job about managing python environment with UV. What is UV? Github: https://github.com/astral-sh/uv Doc: https://docs.astral.sh/uv/  UV is just like poetry, but with powerful management on python version.Comparison with poetry: https://blog.kyomind.tw/introducing-uv/. Installing Trio‘s dependencies with a warm cache. Installation12345678910# Installing via pip is possible but not recommended.# On macOS and Linux.curl -LsSf https://astral.sh/uv/install.sh | sh# Upd...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/12/01/tutor-info/" title="我的家教經歷 - 徵學生：Python、資料結構、演算法、Leetcode"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/book_and_macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="我的家教經歷 - 徵學生：Python、資料結構、演算法、Leetcode"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/12/01/tutor-info/" title="我的家教經歷 - 徵學生：Python、資料結構、演算法、Leetcode">我的家教經歷 - 徵學生：Python、資料結構、演算法、Leetcode</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2025-12-01T07:57:07.000Z" title="發表於 2025-12-01 15:57:07">2025-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%B6%E6%95%99%E7%B6%93%E6%AD%B7/">家教經歷</a></span></div><div class="content">嗨！這篇文章主要想把我的家教經歷放上來，讓有興趣的人可以參考。 如果你想學基礎的 Python 程式設計，或是更進階的資料結構、演算法，甚至是刷 Leetcode 等等，都非常歡迎透過 臉書 或 Email 來聯絡我，時間上許可的話我就會接！單純想聊聊的也歡迎聯絡我～～ 家教經歷姓名陳韋傑 Jack Chen 學習經歷國立臺灣大學 資訊工程學系研究所 畢業國立臺灣大學 資訊管理學系 畢業 修畢商業資料分析學程曾於英國伯明罕大學交換半年 主修 Computer Science臺北市立松山高中 市長獎畢業（班排第一） 其他經歷兩度獲臺大書卷獎，學士年均 GPA 4.07 &#x2F; 4.3，系排 11%112 學年度碩士推甄獲臺大資管所優先錄取、臺大資工所正取碩士年均 GPA 4.2 &#x2F; 4.3工作經驗請參考：https://tinyurl.com/resume-jack-chen 教授科目Python入門、資料結構、演算法、Leetcode 期望待遇Python 入門：$1000+ &#x2F; hr資料結構、演算法、Leetcode：$1250+ &#x2F; hr（...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/11/01/interview-with-piccollage/" title="My Interview Experience with PicCollage"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/piccollage.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="My Interview Experience with PicCollage"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/11/01/interview-with-piccollage/" title="My Interview Experience with PicCollage">My Interview Experience with PicCollage</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2025-11-01T07:57:07.000Z" title="發表於 2025-11-01 15:57:07">2025-11-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">前言上次說到我找正職的故事，但其實還有後續。過了幾個月之後，不安分的我又去面試了 PicCollage 這間公司。這間也跟玩美移動類似，是做圖片相關的 App，我之前丟過好幾次他們的實習，但都是沒下文或直接感謝信。 起因是三月多去逛就業博覽會的時候，剛好遇到認識的朋友在裡面工作，就跟他聊了一下，畢竟我一直對這間公司很感興趣，雖然後來覺得有點懶所以沒丟。但過了一陣子之後又覺得很心動，不挑戰一下有點可惜，就去麻煩我朋友內推。又隔了一陣子他看到訊息之後，到五月初總算成功推到了，雖然時程上算是小晚，但想說我沒啥損失就還是面面看。 面試過程應徵職位：Machine Learning Engineer部門介紹：PicCollage MLAD - Medium 時程：  5&#x2F;2 朋友幫忙內推完成 5&#x2F;7 主管詢問畢業時間 5&#x2F;20 收到一面邀請 5&#x2F;27 ML Head + HR 線上一面 6&#x2F;5 Engineer 線上二面 6&#x2F;17 Engineer 線上三面 6&#x2F;26 Engineer Director 線上四面 7&#...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/10/01/master-thesis-agtree/" title="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/concept_decomp.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/10/01/master-thesis-agtree/" title="我的碩士論文 - AGTree：基於注意力引導的視覺概念分解">我的碩士論文 - AGTree：基於注意力引導的視覺概念分解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2025-10-01T15:30:58.000Z" title="發表於 2025-10-01 23:30:58">2025-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a></span></div><div class="content">Author國立臺灣大學 資訊工程學系研究所 R12 陳韋傑 Jack Chen   Professors國立臺灣大學 資訊工程學系 許永真教授國立臺灣大學 資訊工程學系 鄭文皇教授長庚大學 人工智慧學系 楊智淵助理教授   AGTreeAGTree：基於注意力引導的視覺概念分解（AGTree: Attention Guided Visual Concept Decomposition）  摘要在設計嶄新的視覺概念時，設計師經常從既有的想法中汲取靈感，藉由重新組合各種元素，以創造出獨特且原創的作品。隨著文字轉圖像 (Text-to-Image, T2I) 模型的快速發展，機器現已能夠協助此一創作過程，特別是在分解複雜視覺概念並將其與現有概念重新組合方面。然而，現有的視覺概念分解方法通常依賴於多樣化的輸入圖像，當輸入圖像在視覺上過於相似時，這些方法往往難以將物體從顯著的背景中分離出來，導致所產出的結果難以理解或應用。 本研究揭示了被分解的視覺子概念與擴散模型中 U-Net 的交叉注意力 (cross-attention maps) 之間的強烈關聯。基於此觀察，我們提出了一種新方法:...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/perfect_clean.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/07/01/fulltime-2025/" title="2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)">2025 年科技業正職預聘/研替面試心得（TSMC, Google, NVIDIA, Synology, MediaTek, Perfect Corp., Appier)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">發表於</span><time datetime="2025-07-01T07:57:07.000Z" title="發表於 2025-07-01 15:57:07">2025-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/">工作紀錄</a></span></div><div class="content">前言每年的面試分享文，似乎已經默默的成為我的某種習慣了（還沒看過我之前文章的，可以參考 2023 跟 2024 的分享）。但今年比較不同的是，我要碩士畢業了！因此本篇分享會從以往的實習轉成正職，職位的部分我大多都是找 ML 相關為主。 面試紀錄 投遞履歷：7 家公司 面試邀請：6 家公司 Offer Get：2 家公司  TSMC應徵職位：沒分，統一丟備註：有研替時程：  8&#x2F;30 EPO interview invitation 9&#x2F;12 EPO interview 10&#x2F;1 EPO Thank you 9&#x2F;16? 收到 IT 副理電話聊天詢問面試意願 9&#x2F;23? 沒收到後續，打電話回去問，他好像說他忘記，當天就收到面試邀請 10&#x2F;15 收到 IT 另一個處約時間，想約同天但卡到 10&#x2F;18 IT interview (AAPD) 10&#x2F;25 IT interview (MLAD) 11&#x2F;1 收到資歷查核 11&#x2F;5 資歷查核送出，有問是否需要廠測，對方說去年有紀錄不用 11&#x...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/me/ghent.jpg" onerror="this.onerror=null;this.src='/img/website/emoji.gif'" alt="avatar"/></div><div class="author-info-name">Jack Chen</div><div class="author-info-description">Hello there! I'm Jack Chen. This is the place where I share my thoughts and experiences.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">9</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://www.facebook.com/jack.chen.89311/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a><a class="social-icon" href="https://www.instagram.com/jackchen_2000/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://www.linkedin.com/in/jack-chen-2000/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://github.com/jackchen890311" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jackwjchen2000@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome! Feel free to explore and connect with me!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/10/18/lyrics-yoruwokoete/" title="歌詞翻譯：羊文学 - 夜を越えて"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/yoruwokoete.png" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：羊文学 - 夜を越えて"/></a><div class="content"><a class="title" href="/2026/10/18/lyrics-yoruwokoete/" title="歌詞翻譯：羊文学 - 夜を越えて">歌詞翻譯：羊文学 - 夜を越えて</a><time datetime="2026-10-18T07:57:07.000Z" title="發表於 2026-10-18 15:57:07">2026-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/20/lyrics-suiheisen/" title="歌詞翻譯：Back Number - 水平線"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/suiheisen.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：Back Number - 水平線"/></a><div class="content"><a class="title" href="/2026/09/20/lyrics-suiheisen/" title="歌詞翻譯：Back Number - 水平線">歌詞翻譯：Back Number - 水平線</a><time datetime="2026-09-20T07:57:07.000Z" title="發表於 2026-09-20 15:57:07">2026-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/23/lyrics-hikarutoki/" title="歌詞翻譯：羊文学 - 光るとき"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/our_hope.jpeg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="歌詞翻譯：羊文学 - 光るとき"/></a><div class="content"><a class="title" href="/2026/08/23/lyrics-hikarutoki/" title="歌詞翻譯：羊文学 - 光るとき">歌詞翻譯：羊文学 - 光るとき</a><time datetime="2026-08-23T07:57:07.000Z" title="發表於 2026-08-23 15:57:07">2026-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/20/run-ai-locally/" title="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/macbook.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI"/></a><div class="content"><a class="title" href="/2026/08/20/run-ai-locally/" title="在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI">在 Macbook 上跑 AI 模型 - LM Studio &amp; Comfy UI</a><time datetime="2026-08-20T07:57:07.000Z" title="發表於 2026-08-20 15:57:07">2026-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/01/life-update-2026-04/" title="Another Year, yet Another Life Update!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover/cloud.jpg" onerror="this.onerror=null;this.src='/img/website/404_cool.jpg'" alt="Another Year, yet Another Life Update!"/></a><div class="content"><a class="title" href="/2026/04/01/life-update-2026-04/" title="Another Year, yet Another Life Update!">Another Year, yet Another Life Update!</a><time datetime="2026-04-01T15:30:58.000Z" title="發表於 2026-04-01 23:30:58">2026-04-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分類</span>
+            <a class="card-more-btn" href="/categories/" title="檢視更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">C++ 教學</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/DSA-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">DSA 教學</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python-%E6%95%99%E5%AD%B8/"><span class="card-category-list-name">Python 教學</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"><span class="card-category-list-name">學習筆記</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%B6%E6%95%99%E7%B6%93%E6%AD%B7/"><span class="card-category-list-name">家教經歷</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C%E7%B4%80%E9%8C%84/"><span class="card-category-list-name">工作紀錄</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%A5%B5%E7%9F%AD%E7%AF%87/"><span class="card-category-list-name">極短篇</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%A8%E7%AD%86/"><span class="card-category-list-name">生活隨筆</span><span class="card-category-list-count">5</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>標籤</span></div><div class="card-tag-cloud"><a href="/tags/Exchange/" style="font-size: 1.15em; color: rgb(50, 50, 62);">Exchange</a><a href="/tags/UK/" style="font-size: 1.15em; color: rgb(188, 116, 124);">UK</a><a href="/tags/Birmingham/" style="font-size: 1.15em; color: rgb(122, 109, 81);">Birmingham</a><a href="/tags/PC/" style="font-size: 1.2em; color: rgb(50, 56, 115);">PC</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(167, 168, 50);">Hexo</a><a href="/tags/Github/" style="font-size: 1.15em; color: rgb(181, 113, 190);">Github</a><a href="/tags/Python/" style="font-size: 1.4em; color: rgb(122, 158, 106);">Python</a><a href="/tags/Conda/" style="font-size: 1.15em; color: rgb(111, 138, 116);">Conda</a><a href="/tags/C/" style="font-size: 1.2em; color: rgb(82, 54, 197);">C++</a><a href="/tags/Tutorial/" style="font-size: 1.45em; color: rgb(165, 176, 69);">Tutorial</a><a href="/tags/Data-Structure/" style="font-size: 1.35em; color: rgb(50, 122, 128);">Data Structure</a><a href="/tags/Algorithm/" style="font-size: 1.35em; color: rgb(50, 50, 168);">Algorithm</a><a href="/tags/Fulltime/" style="font-size: 1.2em; color: rgb(67, 121, 151);">Fulltime</a><a href="/tags/Interview/" style="font-size: 1.3em; color: rgb(193, 50, 55);">Interview</a><a href="/tags/NTU/" style="font-size: 1.15em; color: rgb(169, 174, 83);">NTU</a><a href="/tags/Master/" style="font-size: 1.3em; color: rgb(187, 148, 72);">Master</a><a href="/tags/Shell/" style="font-size: 1.15em; color: rgb(70, 156, 141);">Shell</a><a href="/tags/Zsh/" style="font-size: 1.15em; color: rgb(102, 50, 62);">Zsh</a><a href="/tags/Oh-My-Zsh/" style="font-size: 1.15em; color: rgb(50, 50, 50);">Oh My Zsh</a><a href="/tags/OS/" style="font-size: 1.15em; color: rgb(144, 145, 50);">OS</a><a href="/tags/Windows/" style="font-size: 1.15em; color: rgb(106, 161, 112);">Windows</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(50, 87, 118);">Linux</a><a href="/tags/Internship/" style="font-size: 1.3em; color: rgb(50, 55, 175);">Internship</a><a href="/tags/TSMC/" style="font-size: 1.15em; color: rgb(51, 192, 110);">TSMC</a><a href="/tags/PicCollage/" style="font-size: 1.15em; color: rgb(86, 121, 62);">PicCollage</a><a href="/tags/Instagram/" style="font-size: 1.15em; color: rgb(50, 50, 50);">Instagram</a><a href="/tags/API/" style="font-size: 1.15em; color: rgb(111, 52, 180);">API</a><a href="/tags/Ramen/" style="font-size: 1.15em; color: rgb(50, 115, 136);">Ramen</a><a href="/tags/Life/" style="font-size: 1.25em; color: rgb(105, 70, 71);">Life</a><a href="/tags/Military/" style="font-size: 1.15em; color: rgb(178, 111, 94);">Military</a><a href="/tags/Work/" style="font-size: 1.15em; color: rgb(122, 90, 57);">Work</a><a href="/tags/AI/" style="font-size: 1.2em; color: rgb(123, 76, 50);">AI</a><a href="/tags/Diffusion/" style="font-size: 1.15em; color: rgb(67, 52, 50);">Diffusion</a><a href="/tags/Game/" style="font-size: 1.15em; color: rgb(76, 178, 70);">Game</a><a href="/tags/Generative/" style="font-size: 1.15em; color: rgb(52, 144, 89);">Generative</a><a href="/tags/Social-Media/" style="font-size: 1.15em; color: rgb(50, 50, 95);">Social Media</a><a href="/tags/UV/" style="font-size: 1.15em; color: rgb(148, 195, 50);">UV</a><a href="/tags/Tutor/" style="font-size: 1.15em; color: rgb(64, 175, 68);">Tutor</a><a href="/tags/Japanese/" style="font-size: 1.25em; color: rgb(121, 53, 177);">Japanese</a><a href="/tags/Translation/" style="font-size: 1.25em; color: rgb(162, 70, 50);">Translation</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>歸檔</span>
+      <a class="card-more-btn" href="/archives/"
+            title="檢視更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/10/">
+            <span class="card-archive-list-date">
+              十月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/09/">
+            <span class="card-archive-list-date">
+              九月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/08/">
+            <span class="card-archive-list-date">
+              八月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">48</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">80.6k</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-10-18T08:48:04.164Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2023 - 2026 By Jack Chen</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Keep learning and exploring.","Stay open to possibilities.","Embrace challenges and grow.","Life is a journey, not a destination.","Feel free to connect!"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Keep learning and exploring.","Stay open to possibilities.","Embrace challenges and grow.","Life is a journey, not a destination.","Feel free to connect!"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
