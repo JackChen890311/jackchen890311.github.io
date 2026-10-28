@@ -102,7 +102,7 @@ block 大小 = 2 × block_size × num_layers × num_kv_heads × head_dim × 每�
 
 16 是在這些因素間的折衷。總 block 數則是「可用於 KV 的記憶體 ÷ 每個 block 的位元組數」，所以模型越大、層數越多、用 FP16 而非 FP8，能放的 block 就越少。
 
-## KV cache 什麼時候可以被覆蓋
+### KV cache 什麼時候可以被覆蓋
 
 KV cache 並不是「聰明地判斷哪些重要」，而是用**請求生命週期 + 引用計數 + LRU** 這些簡單規則管理。
 
@@ -158,7 +158,9 @@ block 有三種狀態：
 
 想增加快取容量，可以調高 `--gpu-memory-utilization`、改用 FP8 KV cache 讓每個 block 變小（總 block 數變多），或增加 GPU。
 
-## vLLM 的其他重要技術
+## 附錄與延伸
+
+### vLLM 的其他重要技術
 
 - **Chunked Prefill**：把長 prompt 的 prefill 切成小塊，和 decode 混在同一批，避免長 prefill 卡住其他請求，讓延遲更穩定。
 - **Speculative Decoding**：用小模型（或 n-gram、Medusa、EAGLE 等方法）先猜幾個 token，再讓大模型一次驗證，猜對就一次前進多步。
@@ -169,7 +171,7 @@ block 有三種狀態：
 
 如果只挑最核心的三個：**PagedAttention + Continuous Batching + Prefix Caching**。
 
-## 原論文涵蓋了什麼
+### 原論文涵蓋了什麼
 
 原論文 *Efficient Memory Management for Large Language Model Serving with PagedAttention*（SOSP 2023）是 2023 年的版本，並未涵蓋所有上述概念。
 
@@ -182,7 +184,7 @@ block 有三種狀態：
 - Chunked prefill、speculative decoding、量化、CUDA graph、Multi-LoRA、structured output 等，都是後續功能，需看官方文件或各自的論文。
 - 本文中由模型參數推算 block 位元組數的公式，是依模型結構推導，並非出自論文。
 
-## 延伸閱讀
+### 延伸閱讀
 
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention（vLLM 原論文）](https://arxiv.org/pdf/2309.06180)
 - [Runpod - vLLM Explained: PagedAttention and Continuous Batching](https://www.runpod.io/articles/guides/vllm-pagedattention-continuous-batching)
