@@ -11,7 +11,7 @@ date: 2026-11-08 15:57:07
 
 # TL;DR
 我用 AI 花了一個晚上做了簡單的 Daily AI News Summary。每天自動抓取、總結、更新、部署，不需人工介入。
-先來[這邊](https://jackchen890311.github.io/AI-News/)看看我的結果吧！也可以從我個人網站的右上角點進去。原始碼在 [這邊](https://github.com/JackChen890311/AI-News)，歡迎自己複製一份使用。
+先來[這邊](https://jackchen890311.github.io/AI-News/)看看我的結果吧！也可以從我個人網站的右上角點進去。原始碼在[這邊](https://github.com/JackChen890311/AI-News)，歡迎自己複製一份使用。
 
 （註：本文的 AI 指的多是 Coding Agent 如 Claude Code, Codex, OpenCode 等等，為求方便我用 AI 代替）
 
