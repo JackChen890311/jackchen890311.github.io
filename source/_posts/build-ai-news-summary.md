@@ -5,7 +5,7 @@ categories:
 tags:
   - AI
   - Vibe Coding
-cover: /img/cover/macbook.jpg
+cover: /img/cover/vibe_coding.png
 date: 2026-11-08 15:57:07
 ---
 
